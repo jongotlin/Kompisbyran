@@ -27,7 +27,16 @@ class User extends BaseUser
      *
      * @ORM\Column(type="string", nullable=true)
      */
-    protected $name;
+    protected $firstName;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $lastName;
 
     /**
      * @var string
@@ -155,20 +164,40 @@ class User extends BaseUser
         return $this->id;
     }
 
-    /**
-     * @param string $name
-     */
-    public function setName($name)
+    public function getName()
     {
-        $this->name = $name;
+        return trim(sprintf('%s %s', $this->getFirstName(), $this->getLastName()));
+    }
+    /**
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getLastName()
     {
-        return $this->name;
+        return $this->lastName;
+    }
+
+    /**
+     * @param string $lastName
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
     }
 
     /**

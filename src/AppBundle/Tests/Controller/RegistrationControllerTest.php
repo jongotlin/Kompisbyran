@@ -62,7 +62,8 @@ class RegistrationControllerTest extends DatabaseTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         $form = $crawler->filter('form[name=user]')->form([
-            'user[name]' => 'John Doe',
+            'user[firstName]' => 'John',
+            'user[lastName]' => 'Doe',
             'user[age]' => '35',
             'user[gender]' => 'M',
             'user[languages][6]' => 'sv',

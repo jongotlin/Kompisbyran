@@ -84,7 +84,8 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
     {
         $user = new User();
         $user->setEmail('learner@example.com');
-        $user->setName('Learner');
+        $user->setFirstName('Kalle');
+        $user->setLastName('Anka');
         $user->setEnabled(true);
         $user->addRole('ROLE_COMPLETE_USER');
         $user->setWantToLearn(true);
@@ -102,7 +103,8 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
 
         $user = new User();
         $user->setEmail('fluentspeaker@example.com');
-        $user->setName('Fluent speaker');
+        $user->setFirstName('Kal p');
+        $user->setLastName('Dal');
         $user->setEnabled(true);
         $user->setRoles(['ROLE_COMPLETE_USER', 'ROLE_ADMIN']);
         $user->setWantToLearn(false);
@@ -120,7 +122,8 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
 
         $user = new User();
         $user->setEmail('glenn@example.com');
-        $user->setName('Glenn');
+        $user->setFirstName('Glenn');
+        $user->setLastName('GBG');
         $user->setEnabled(true);
         $user->setRoles(['ROLE_COMPLETE_USER', 'ROLE_ADMIN']);
         $user->setWantToLearn(false);
