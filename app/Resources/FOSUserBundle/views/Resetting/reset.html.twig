@@ -1,0 +1,20 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% block fos_user_content %}
+    <form
+        action="{{ path('fos_user_resetting_reset', {'token': token}) }}"
+        {{ form_enctype(form) }}
+        method="POST"
+        class="form-horizontal"
+    >
+        {{ form_widget(form) }}
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-info" value="{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}" />
+            </div>
+        </div>
+    </form>
+
+{% endblock fos_user_content %}

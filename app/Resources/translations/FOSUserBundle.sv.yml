@@ -1,0 +1,10 @@
+resetting:
+    email:
+        subject: Återställ lösenord
+        message: |
+            Hej %username%!
+
+            För att återställa ditt lösenord - vänligen besök %confirmationUrl%
+
+            Hälsningar,
+            Kompisbyrån

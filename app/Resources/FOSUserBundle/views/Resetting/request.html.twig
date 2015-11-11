@@ -1,0 +1,26 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+
+    {% if invalid_username is defined %}
+        <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p>
+    {% endif %}
+
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="form-horizontal">
+
+        <div class="form-group">
+            <label for="username" class="col-lg-2 control-label">E-postadress</label>
+            <div class="col-lg-10">
+                <input type="text" name="username" required="required" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-info" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" />
+            </div>
+        </div>
+
+    </form>
+
+{% endblock fos_user_content %}
