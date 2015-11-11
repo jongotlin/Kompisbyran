@@ -15,6 +15,7 @@ class AppExtension extends \Twig_Extension
         return [
             new \Twig_SimpleFilter('country_name', [$this, 'countryName']),
             new \Twig_SimpleFilter('language_names', [$this, 'languageNames']),
+            new \Twig_SimpleFilter('pronoun', [$this, 'pronoun']),
         ];
     }
 
@@ -49,5 +50,21 @@ class AppExtension extends \Twig_Extension
     public function getName()
     {
         return 'app_extension';
+    }
+
+    /**
+     * @param string $gender
+     *
+     * @return string
+     */
+    public function pronoun($gender)
+    {
+        if ('M' == $gender) {
+            return 'han';
+        } elseif ('F' == $gender) {
+            return 'hon';
+        }
+
+        return 'hen';
     }
 }

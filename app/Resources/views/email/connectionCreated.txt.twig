@@ -1,8 +1,8 @@
-Hej {{ recipient.name }}!
+Hej {{ recipient.firstName }}!
 
 Vad kul att du vill vara med och fika!
 
-Vi har nu hittat en matchning till dig. Hen heter {{ partner.name }} och gillar {% for category in recipient.categories -%}
+Vi har nu hittat en matchning till dig. {{ partner.gender|pronoun|capitalize }} heter {{ partner.name }} och gillar {% for category in recipient.categories -%}
     {{ category.name|lower }}{% if loop.revindex == 2 %} och {% elseif not loop.last %}, {% endif %}
 {%- endfor %}.
 

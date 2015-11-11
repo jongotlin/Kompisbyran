@@ -48,6 +48,7 @@ class UserType extends AbstractType
                 'choices' => [
                     'M' => 'Man',
                     'F' => 'Kvinna',
+                    'X' => 'Vill inte ange',
                 ]
             ])
             ->add('about', 'textarea', ['label' => 'Berätta om dig själv'])
