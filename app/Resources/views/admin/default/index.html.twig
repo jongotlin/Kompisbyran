@@ -20,7 +20,6 @@
                     title="{{ connectionRequest.user.name }}"
                     data-html="true"
                     data-content="<strong>Från:</strong> {{ connectionRequest.user.from|country_name }}<br>
-                    <strong>Språk:</strong> {{ connectionRequest.user.languages|language_names|join(', ') }}<br>
                     <strong>Antal kopplingar:</strong> {{ connectionRequest.user.connections|length }}<br>
                     <strong>Om:</strong> {{ connectionRequest.user.about }}"
                     data-placement="top"

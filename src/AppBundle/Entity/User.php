@@ -114,15 +114,6 @@ class User extends BaseUser
      *
      * @Assert\NotBlank(groups={"settings"})
      *
-     * @ORM\Column(type="array")
-     */
-    protected $languages;
-
-    /**
-     * @var string
-     *
-     * @Assert\NotBlank(groups={"settings"})
-     *
      * @ORM\Column(type="text", nullable=true)
      */
     protected $about;
@@ -358,22 +349,6 @@ class User extends BaseUser
     public function getFrom()
     {
         return $this->from;
-    }
-
-    /**
-     * @param string $languages
-     */
-    public function setLanguages($languages)
-    {
-        $this->languages = $languages;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLanguages()
-    {
-        return $this->languages;
     }
 
     /**

@@ -56,12 +56,6 @@ class UserType extends AbstractType
                 'label' => 'Vilket land kommer du ifrån?',
                 'choices' => Countries::getList(),
             ])
-            ->add('languages', 'choice', [
-                'label' => 'Vilka språk talar du?',
-                'choices' => Languages::getActiveList(),
-                'expanded' => true,
-                'multiple' => true,
-            ])
             ->add('profilePicture', 'hidden')
         ;
         $user = $builder->getData();
