@@ -26,3 +26,9 @@ services:
         class: AppBundle\Twig\AppExtension
         tags:
             - { name: twig.extension }
+
+    app.locale_listener:
+        class: AppBundle\EventListener\LocaleListener
+        arguments: ["%kernel.default_locale%"]
+        tags:
+            - { name: kernel.event_subscriber }
