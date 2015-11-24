@@ -4,3 +4,23 @@
 .help-block {
     color: red;
 }
+.navbar-default {
+    padding-top: 20px;
+}
+.language-choice{
+    position: absolute;
+    right: 10%;
+    z-index: 2000;
+}
+
+.language-choice a {
+    display: inline-block;
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background: #F76753;
+    text-decoration: none !important;
+}

@@ -93,6 +93,11 @@
         </div>
     </nav>
 </div>
+<div class="language-choice">
+    <a href="{{ app.request.pathinfo }}?_locale=sv">Svenska</a>
+    <a href="{{ app.request.pathinfo }}?_locale=en">English</a>
+</div>
+
 <!-- Menu Bar End -->
 
 {% if app.session.flashbag.has('info') %}
