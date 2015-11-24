@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="homepage.cta.message">
+                <source>homepage.cta.message</source>
+                <target>
+                    Kompisbyrån är en ideell förening som digitalt länkar samman nya och etablerade svenskar för att öva
+                    svenska och utbyta kulturella erfarenheter över “kompisfikor”. Fika och öva svenska med en person
+                    som du kanske annars inte skulle ha mött. Tillsammans kan vi öka gemenskapen i samhället.
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.button">
+                <source>homepage.cta.button</source>
+                <target>Bli en fikakompis</target>
+            </trans-unit>
+            <trans-unit id="register.create.header">
+                <source>register.create.header</source>
+                <target>Skapa ett konto</target>
+            </trans-unit>
+            <trans-unit id="register.create.intro">
+                <source>register.create.intro</source>
+                <target>
+                    För att kompisfika måste du först registrera dig genom att fylla i din e-postadress och valfritt
+                    lösenord.
+                </target>
+            </trans-unit>
+            <trans-unit id="register.form.email">
+                <source>register.form.email</source>
+                <target>E-postadress</target>
+            </trans-unit>
+            <trans-unit id="register.form.password">
+                <source>register.form.password</source>
+                <target>Lösenord</target>
+            </trans-unit>
+            <trans-unit id="register.form.password_confirmation">
+                <source>register.form.password_confirmation</source>
+                <target>Ange lösenordet igen</target>
+            </trans-unit>
+            <trans-unit id="register.form.terms">
+                <source>register.form.terms</source>
+                <target>Jag godkänner %linkStart%villkoren%linkEnd%</target>
+            </trans-unit>
+            <trans-unit id="register.form.button">
+                <source>register.form.button</source>
+                <target>Skapa konto</target>
+            </trans-unit>
+            <trans-unit id="register.how_it_works.header">
+                <source>register.how_it_works.header</source>
+                <target>
+                    Stegen till att lära känna en ny kompis – vare sig du vill förbättra din svenska eller hjälpa någon
+                    med att förbättra den – är enkla.
+                </target>
+            </trans-unit>
+            <trans-unit id="register.how_it_works.text">
+                <source>register.how_it_works.text</source>
+                <target>
+                    <![CDATA[
+                        <ol>
+                            <li>
+                                Är det första gången du ska kompisfika? Skapa ett konto genom att fylla i din
+                                e-postadress, ett lösenord du bestämmer själv och tryck “Skapa konto”. Läs igenom
+                                Kompisbyråns <a href="%termsPath%">villkor</a> innan du anmäler dig.
+                            </li>
+                            <li>
+                                Du slussas nu vidare till ett formulär där du berättar lite om dig själv.
+                            </li>
+                            <li>
+                                Nu har du anmält dig till att kompisfika! Vi kommer att höra av oss till dig via mail så
+                                fort vi har hittat en ny matchning. Du får då e-postadressen till din nya fikakompis och
+                                kontaktar personen inom en vecka från att matchning har gjorts. Ni bestämmer var och när
+                                ni ska ses, men vi vill att ni träffas på ett offentligt kafé i ca 1 timme. Det är
+                                gratis att vara med och länkas ihop av Kompisbyrån.
+                            </li>
+                            <li>
+                                Om du redan har ett konto loggar du in och anmäler dig till en ny kompisfika på din
+                                profilsida.
+                            </li>
+                        </ol>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="register.login.header">
+                <source>register.login.header</source>
+                <target>Logga in</target>
+            </trans-unit>
+            <trans-unit id="register.login.intro">
+                <source>register.login.intro</source>
+                <target>Har du redan ett konto loggar du in här.</target>
+            </trans-unit>
+            <trans-unit id="login.form.email">
+                <source>login.form.email</source>
+                <target>E-postadress</target>
+            </trans-unit>
+            <trans-unit id="login.form.password">
+                <source>login.form.password</source>
+                <target>Lösenord</target>
+            </trans-unit>
+            <trans-unit id="login.form.button">
+                <source>login.form.button</source>
+                <target>Logga in</target>
+            </trans-unit>
+            <trans-unit id="login.forgot_password">
+                <source>login.forgot_password</source>
+                <target>Glömt lösenordet?</target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="homepage.cta.message">
+                <source>homepage.cta.message</source>
+                <target>
+                    We create meetings between those who want to improve their Swedish and those who have lived in
+                    Sweden for a long time. Meet new friends, speak Swedish and learn new things over a "fika". Sign up
+                    for new fika friends today!
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.button">
+                <source>homepage.cta.button</source>
+                <target>Sign up</target>
+            </trans-unit>
+            <trans-unit id="register.create.header">
+                <source>register.create.header</source>
+                <target>Join Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="register.create.intro">
+                <source>register.create.intro</source>
+                <target>
+                    To meet new friends, you need to enter your e-mail and a password of your choice.
+                </target>
+            </trans-unit>
+            <trans-unit id="register.form.email">
+                <source>register.form.email</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="register.form.password">
+                <source>register.form.password</source>
+                <target>Pasword</target>
+            </trans-unit>
+            <trans-unit id="register.form.password_confirmation">
+                <source>register.form.password_confirmation</source>
+                <target>Re-enter password</target>
+            </trans-unit>
+            <trans-unit id="register.form.terms">
+                <source>register.form.terms</source>
+                <target>I agree to Kompisbyrån's %linkStart%terms%linkEnd%</target>
+            </trans-unit>
+            <trans-unit id="register.form.button">
+                <source>register.form.button</source>
+                <target>Sign up</target>
+            </trans-unit>
+            <trans-unit id="register.how_it_works.header">
+                <source>register.how_it_works.header</source>
+                <target>How it works</target>
+            </trans-unit>
+            <trans-unit id="register.how_it_works.text">
+                <source>register.how_it_works.text</source>
+                <target>
+                    <![CDATA[
+                        <ol>
+                            <li>
+                                Join Kompisbyrån (it is free). Enter your e-mail and a password of your choice.
+                            </li>
+                            <li>
+                                Register. Enter your name, age, and interests and answer a few more questions.
+                            </li>
+                            <li>
+                                Match. We find you a new fika friend and mail you the person's e-mail.
+                            </li>
+                            <li>
+                                You mail your new friend and decide which day, time and where you will meet. We
+                                recommend that you meet for about 1 hour in a cafe in central Stockholm.
+                            </li>
+                            <li>
+                                You meet your new friend one time. If you like each other, you can meet again by
+                                yourself. If you want to meet new friends, you log in and make a fika friend request.
+                            </li>
+                        </ol>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="register.login.header">
+                <source>register.login.header</source>
+                <target>Log in</target>
+            </trans-unit>
+            <trans-unit id="register.login.intro">
+                <source>register.login.intro</source>
+                <target>If you already have registered, you log in here.</target>
+            </trans-unit>
+            <trans-unit id="login.form.email">
+                <source>login.form.email</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="login.form.password">
+                <source>login.form.password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="login.form.button">
+                <source>login.form.button</source>
+                <target>Log in</target>
+            </trans-unit>
+            <trans-unit id="login.forgot_password">
+                <source>login.forgot_password</source>
+                <target>Forgot your password?</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

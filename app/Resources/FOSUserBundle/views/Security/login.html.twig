@@ -7,14 +7,14 @@
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
         <div class="form-group">
-            <label for="username" class="col-lg-3 control-label">E-postadress</label>
+            <label for="username" class="col-lg-3 control-label">{{ 'login.form.email'|trans }}</label>
             <div class="col-lg-9">
                 <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="password" class="col-lg-3 control-label">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+            <label for="password" class="col-lg-3 control-label">{{ 'login.form.password'|trans }}</label>
             <div class="col-lg-9">
                 <input type="password" class="form-control" id="password" name="_password" required="required" />
             </div>
@@ -29,8 +29,8 @@
 
         <div class="form-group">
             <div class="col-lg-offset-3 col-lg-9">
-                <button type="submit" class="btn btn-info">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
-                <a href="{{ path('fos_user_resetting_request') }}">Glömt lösenordet?</a>
+                <button type="submit" class="btn btn-info">{{ 'login.form.button'|trans }}</button>
+                <a href="{{ path('fos_user_resetting_request') }}">{{ 'login.forgot_password'|trans }}</a>
             </div>
         </div>
 

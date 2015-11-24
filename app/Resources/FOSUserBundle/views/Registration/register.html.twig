@@ -4,7 +4,7 @@
 {% block _fos_user_registration_form_termsAccepted_widget %}
     <label>
         <input type="checkbox" {{ block('widget_attributes') }} />
-        Jag godkänner <a href="{{ path('terms') }}">villkoren</a>
+        {{ 'register.form.terms'|trans({'%linkStart%': '<a href="' ~ path('terms') ~ '">', '%linkEnd%': '</a>'})|raw }}
     </label>
 {% endblock %}
 
@@ -17,17 +17,16 @@
                     <div class="col-md-6 col-sm-6">
                         <!-- Sign In Area -->
                         <div class="sign-in">
-                            <h3><i class="fa fa-user orange"></i> &nbsp;Skapa ett konto</h3>
+                            <h3><i class="fa fa-user orange"></i> &nbsp;{{ 'register.create.header'|trans }}</h3>
 
                             <p>
-                                För att kompisfika måste du först registrera dig genom att fylla i din e-postadress och
-                                valfritt lösenord.
+                                {{ 'register.create.intro'|trans }}
                             </p>
                             <br>
                             <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register form-horizontal">
 
                                 <div class="form-group">
-                                    <label for="email" class="col-lg-3 control-label">E-postadress</label>
+                                    <label for="email" class="col-lg-3 control-label">{{ 'register.form.email'|trans }}</label>
 
                                     <div class="col-lg-9">
                                         {{ form_widget(form.email) }}
@@ -36,7 +35,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="password" class="col-lg-3 control-label">{{ 'form.password'|trans({}, 'FOSUserBundle') }}</label>
+                                    <label for="password" class="col-lg-3 control-label">{{ 'register.form.password'|trans }}</label>
 
                                     <div class="col-lg-9">
                                         {{ form_widget(form.plainPassword.first) }}
@@ -45,7 +44,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="password" class="col-lg-3 control-label">{{ 'form.password_confirmation'|trans({}, 'FOSUserBundle') }}</label>
+                                    <label for="password" class="col-lg-3 control-label">{{ 'register.form.password_confirmation'|trans }}</label>
 
                                     <div class="col-lg-9">
                                         {{ form_widget(form.plainPassword.second) }}
@@ -64,7 +63,7 @@
 
                                 <div class="form-group">
                                     <div class="col-lg-offset-3 col-lg-9">
-                                        <button type="submit" class="btn btn-info">Skapa konto</button>
+                                        <button type="submit" class="btn btn-info">{{ 'register.form.button'|trans }}</button>
                                     </div>
                                 </div>
 
@@ -72,40 +71,16 @@
                         </div>
 
                         <div class="sign-in">
-                            <h3><i class="fa fa-user orange"></i> &nbsp;Logga in</h3>
-                            <p>Har du redan ett konto loggar du in här.</p>
+                            <h3><i class="fa fa-user orange"></i> &nbsp;{{ 'register.login.header'|trans }}</h3>
+                            <p>{{ 'register.login.intro'|trans }}</p>
                             <br>
                             {{ render(controller('FOSUserBundle:Security:login')) }}
                         </div>
 
                     </div>
                     <div class="col-md-6 col-sm-6">
-
-                        <h4>
-                            Stegen till att lära känna en ny kompis – vare sig du vill förbättra din svenska eller
-                            hjälpa någon med att förbättra den – är enkla.
-                        </h4>
-                        <ol>
-                            <li>
-                                Är det första gången du ska kompisfika? Skapa ett konto genom att fylla i din
-                                e-postadress, ett lösenord du bestämmer själv och tryck “Skapa konto”. Läs igenom
-                                Kompisbyråns <a href="{{ path('terms') }}">villkor</a> innan du anmäler dig.
-                            </li>
-                            <li>
-                                Du slussas nu vidare till ett formulär där du berättar lite om dig själv.
-                            </li>
-                            <li>
-                                Nu har du anmält dig till att kompisfika! Vi kommer att höra av oss till dig via mail så
-                                fort vi har hittat en ny matchning. Du får då e-postadressen till din nya fikakompis och
-                                kontaktar personen inom en vecka från att matchning har gjorts. Ni bestämmer var och när
-                                ni ska ses, men vi vill att ni träffas på ett offentligt kafé i ca 1 timme. Det är
-                                gratis att vara med och länkas ihop av Kompisbyrån.
-                            </li>
-                            <li>
-                                Om du redan har ett konto loggar du in och anmäler dig till en ny kompisfika på din
-                                profilsida.
-                            </li>
-                        </ol>
+                        <h4>{{ 'register.how_it_works.header'|trans }}</h4>
+                        {{ 'register.how_it_works.text'|trans({'%termsPath%': path('terms')})|raw }}
                     </div>
                 </div>
             </div>

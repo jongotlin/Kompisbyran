@@ -9,13 +9,11 @@
                 <div class="col-md-6 col-sm-6">
                     <h2>I Kompisbyrån övar vi svenska och fikar. <br /><strong>Vill du vara med?</strong></h2>
                     <p>
-                        Kompisbyrån är en ideell förening som digitalt länkar samman nya och etablerade svenskar för att
-                        öva svenska och utbyta kulturella erfarenheter över “kompisfikor”. Fika och öva svenska med en
-                        person som du kanske annars inte skulle ha mött. Tillsammans kan vi öka gemenskapen i samhället.
+                        {{ 'homepage.cta.message'|trans }}
                     </p>
                     <div class="caption">
                         <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg br-orange">
-                            <i class="fa fa-users"></i> Bli en fikakompis
+                            <i class="fa fa-users"></i> {{ 'homepage.cta.button'|trans }}
                         </a>
                     </div>
                 </div>
