@@ -212,7 +212,7 @@
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Här anmäler du dig om du vill kompisfika igen. Fyll i stad och tryck på “Kompisfika” så har
+                    Här anmäler du dig om du vill kompisfika. Fyll i stad och tryck på “Kompisfika” så har
                     du anmält dig på nytt. Du får då ett bekräftelsemail till din e-postadress du har
                     registrerat. Om du vill ändra din ansökan trycker du på “Min profil” i menyn.
                 </target>
