@@ -66,6 +66,7 @@ class UserType extends AbstractType
                 'label' => 'user.form.from',
                 'choices' => Countries::getList(),
             ])
+            ->add('district', 'text', ['label' => 'user.form.district'])
             ->add('profilePicture', 'hidden')
         ;
         $user = $builder->getData();

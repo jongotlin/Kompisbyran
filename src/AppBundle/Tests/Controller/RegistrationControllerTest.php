@@ -67,6 +67,7 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[age]' => '35',
             'user[gender]' => 'M',
             'user[about]' => 'About me',
+            'user[district]' => 'Södermalm',
         ]);
 
         $crawler = $client->submit($form);

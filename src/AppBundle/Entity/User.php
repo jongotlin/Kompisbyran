@@ -125,6 +125,15 @@ class User extends BaseUser
      */
     protected $internalComment;
 
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $district;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
@@ -383,5 +392,21 @@ class User extends BaseUser
     {
         $this->emailCanonical = $emailCanonical;
         $this->usernameCanonical = $emailCanonical;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDistrict()
+    {
+        return $this->district;
+    }
+
+    /**
+     * @param string $district
+     */
+    public function setDistrict($district)
+    {
+        $this->district = $district;
     }
 }

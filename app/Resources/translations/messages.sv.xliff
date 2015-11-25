@@ -160,6 +160,10 @@
                 <source>user.form.city</source>
                 <target>Här vill jag fika</target>
             </trans-unit>
+            <trans-unit id="user.form.district">
+                <source>user.form.district</source>
+                <target>Stadsdel</target>
+            </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
                 <target>Hämta din profilbild från Facebook</target>

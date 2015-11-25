@@ -154,6 +154,10 @@
                 <source>user.form.city</source>
                 <target>I want to "fika" in (city)</target>
             </trans-unit>
+            <trans-unit id="user.form.district">
+                <source>user.form.district</source>
+                <target>District</target>
+            </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
                 <target>Fetch profile picture from Facebook</target>
