@@ -18,7 +18,14 @@ class UserController extends Controller
      */
     public function viewAction(Request $request, User $user)
     {
-        $form = $this->createForm(new AdminUserType(), $user);
+        $form = $this->createForm(
+            new AdminUserType(),
+            $user,
+            [
+                'manager' => $this->getDoctrine()->getManager(),
+                'locale' => $request->getLocale(),
+            ]
+        );
 
         $form->handleRequest($request);
 

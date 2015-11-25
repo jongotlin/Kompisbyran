@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use AppBundle\Enum\Languages;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use AppBundle\Enum\Countries;
@@ -13,6 +14,17 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        /** @var \Doctrine\Orm\EntityManager $manager */
+        $manager = $options['manager'];
+        $query = $manager->createQuery('SELECT c FROM AppBundle:Category c ORDER BY c.name');
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(\Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE, $options['locale']);
+
+        $categories = $query->getResult();
+
         $builder
             ->add('firstName', 'text', ['label' => 'Förnamn'])
             ->add('lastName', 'text', ['label' => 'Efternamn'])
@@ -31,9 +43,7 @@ class UserType extends AbstractType
                     'class' => 'AppBundle:Category',
                     'multiple' => true,
                     'expanded' => true,
-                    'query_builder' => function (EntityRepository $er) {
-                        return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
-                    },
+                    'choice_list' => new ArrayChoiceList($categories),
                     'property' => 'name',
                     'label' => 'Vilka är dina intressen?',
                 ]
@@ -77,6 +87,10 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\User',
+        ]);
+        $resolver->setRequired([
+            'manager',
+            'locale',
         ]);
     }
 

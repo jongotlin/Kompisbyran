@@ -47,15 +47,31 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
     protected function loadCategories(ObjectManager $manager)
     {
         $categories = [
-            'Fika',
-            'Bada',
-            'Symfony',
+            'Dans' => ['en' => 'Dancing'],
+            'Djur och Natur' => ['en' => 'Animals and nature'],
+            'Familj' => ['en' => 'Family'],
+            'Fika' => ['en' => 'Film/ TV'],
+            'Film' => ['en' => 'Literature'],
+            'Konst' => ['en' => 'Cooking'],
+            'Matlagning' => ['en' => 'Music'],
+            'Musik' => ['en' => 'Politics'],
+            'Politik' => ['en' => 'Go for a walk'],
+            'Resor' => ['en' => 'Travelling'],
+            'Sport' => ['en' => 'Sport'],
+            'Träning' => ['en' => 'Training'],
         ];
-        foreach ($categories as $i => $categoryName) {
+        $i = 0;
+        $repository = $manager->getRepository('Gedmo\\Translatable\\Entity\\Translation');
+        foreach ($categories as $categoryName => $translations) {
             $category = new Category();
             $category->setName($categoryName);
+
+            foreach ($translations as $locale => $translation) {
+                $repository->translate($category, 'name', $locale, $translation);
+            }
+
             $manager->persist($category);
-            $this->addReference(sprintf('category-%s', $i), $category);
+            $this->addReference(sprintf('category-%s', $i++), $category);
         }
     }
 

@@ -22,7 +22,15 @@ class UserController extends Controller
     {
         /** @var \AppBundle\Entity\User $user */
         $user = $this->getUser();
-        $form = $this->createForm(new UserType(), $user, ['validation_groups' => ['settings']]);
+        $form = $this->createForm(
+            new UserType(),
+            $user,
+            [
+                'validation_groups' => ['settings'],
+                'manager' => $this->getDoctrine()->getManager(),
+                'locale' => $request->getLocale(),
+            ]
+        );
 
         $form->handleRequest($request);
 
