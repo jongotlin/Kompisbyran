@@ -5,14 +5,12 @@
 
     <div class="inner-page">
         <div class="container">
-            <h2><strong>Min profil</strong></h2>
+            <h2><strong>{{ 'user.settings.header'|trans }}</strong></h2>
 
             <div class="row">
                 <div class="col-sm-6 col-sm-push-6">
                     <div class="well br-white border-orange black">
-                        Vad roligt att du vill kompisfika! Här fyller du i formuläret så att vi ska kunna göra en så bra
-                        matchning som möjligt och hitta en ny fikakompis till dig! Har du frågor, tveka inte att maila
-                        kontakt@kompisbyran.se. Trevlig fika!
+                        {{ 'user.settings.intro'|trans }}
                     </div>
                 </div>
 
@@ -33,13 +31,13 @@
                                         style="margin-right:10px;"
                                         >
 
-                                <fb:login-button scope="public_profile" onlogin="checkLoginState();">Hämta din profilbild från Facebook</fb:login-button>
+                                <fb:login-button scope="public_profile" onlogin="checkLoginState();">{{ 'user.form.facebook'|trans }}</fb:login-button>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">Spara</button>
+                                <button type="submit" class="btn btn-default">{{ 'user.form.button'|trans }}</button>
                             </div>
                         </div>
                         {{ form_end(form) }}

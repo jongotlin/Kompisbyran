@@ -98,6 +98,133 @@
                 <source>login.forgot_password</source>
                 <target>Forgot your password?</target>
             </trans-unit>
+            <trans-unit id="user.form.first_name">
+                <source>user.form.first_name</source>
+                <target>First name</target>
+            </trans-unit>
+            <trans-unit id="user.form.last_name">
+                <source>user.form.last_name</source>
+                <target>Last name</target>
+            </trans-unit>
+            <trans-unit id="user.form.want_to_learn">
+                <source>user.form.want_to_learn</source>
+                <target>I want to</target>
+            </trans-unit>
+            <trans-unit id="user.form.want_to_learn.choice.learn">
+                <source>user.form.want_to_learn.choice.learn</source>
+                <target>Improve my Swedish</target>
+            </trans-unit>
+            <trans-unit id="user.form.want_to_learn.choice.teach">
+                <source>user.form.want_to_learn.choice.teach</source>
+                <target>Help someone to improve their Swedish</target>
+            </trans-unit>
+            <trans-unit id="user.form.categories">
+                <source>user.form.categories</source>
+                <target>I like (interests)</target>
+            </trans-unit>
+            <trans-unit id="user.form.age">
+                <source>user.form.age</source>
+                <target>Age</target>
+            </trans-unit>
+            <trans-unit id="user.form.gender">
+                <source>user.form.gender</source>
+                <target>Gender</target>
+            </trans-unit>
+            <trans-unit id="user.form.gender.m">
+                <source>user.form.gender.m</source>
+                <target>Man</target>
+            </trans-unit>
+            <trans-unit id="user.form.gender.f">
+                <source>user.form.gender.f</source>
+                <target>Woman</target>
+            </trans-unit>
+            <trans-unit id="user.form.gender.x">
+                <source>user.form.gender.x</source>
+                <target>Other</target>
+            </trans-unit>
+            <trans-unit id="user.form.about">
+                <source>user.form.about</source>
+                <target>Tell us about yourself</target>
+            </trans-unit>
+            <trans-unit id="user.form.from">
+                <source>user.form.from</source>
+                <target>What country are you from?</target>
+            </trans-unit>
+            <trans-unit id="user.form.city">
+                <source>user.form.city</source>
+                <target>I want to "fika" in (city)</target>
+            </trans-unit>
+            <trans-unit id="user.form.facebook">
+                <source>user.form.facebook</source>
+                <target>Fetch profile picture from Facebook</target>
+            </trans-unit>
+            <trans-unit id="user.form.button">
+                <source>user.form.button</source>
+                <target>Save</target>
+            </trans-unit>
+            <trans-unit id="user.settings.header">
+                <source>user.settings.header</source>
+                <target>My profile</target>
+            </trans-unit>
+            <trans-unit id="user.settings.intro">
+                <source>user.settings.intro</source>
+                <target>
+                    Welcome to Kompisbyrån! Please, answer some questions about yourself, so that we can help you to
+                    meet new friends!
+                </target>
+            </trans-unit>
+            <trans-unit id="index.header">
+                <source>index.header</source>
+                <target>Welcome to Kompisbyrån!</target>
+            </trans-unit>
+            <trans-unit id="index.intro">
+                <source>index.intro</source>
+                <target>On this page, you can find your previous fika friends and you can meet new friends by doing a fika friend request.
+
+                    You meet your new friend one time. If you like each other, you can meet again by yourself. If you want to meet new friends, you select the city you live in and then press the button "Fika friend request".
+
+                    If you want to change your application, you can update the form in the menu above: press on "Min profil" (My profile) and then "Inställningar" (Settings).</target>
+            </trans-unit>
+            <trans-unit id="index.previous.header">
+                <source>index.previous.header</source>
+                <target>Previous fika friends</target>
+            </trans-unit>
+            <trans-unit id="index.connection_request.header">
+                <source>index.connection_request.header</source>
+                <target>Fika friend requests</target>
+            </trans-unit>
+            <trans-unit id="index.connection_request.want_to_learn.learn">
+                <source>index.connection_request.want_to_learn.learn</source>
+                <target>You want to improve your swedish</target>
+            </trans-unit>
+            <trans-unit id="index.connection_request.want_to_learn.teach">
+                <source>index.connection_request.want_to_learn.teach</source>
+                <target>You want to help someone to improve their swedish</target>
+            </trans-unit>
+            <trans-unit id="index.again.header">
+                <source>index.again.header</source>
+                <target>I want to meet new fika friends</target>
+            </trans-unit>
+            <trans-unit id="index.again.intro">
+                <source>index.again.intro</source>
+                <target>
+                    Här anmäler du dig om du vill kompisfika igen. Fyll i stad och tryck på “Kompisfika” så har
+                    du anmält dig på nytt. Du får då ett bekräftelsemail till din e-postadress du har
+                    registrerat. Om du vill ändra din ansökan trycker du på “Min profil” i menyn.
+                </target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.city">
+                <source>connection_request.form.city</source>
+                <target>City</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.comment">
+                <source>connection_request.form.comment</source>
+                <target>Message to Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.button">
+                <source>connection_request.form.button</source>
+                <target>"Fika friend request</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

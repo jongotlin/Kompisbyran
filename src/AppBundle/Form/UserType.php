@@ -26,14 +26,14 @@ class UserType extends AbstractType
         $categories = $query->getResult();
 
         $builder
-            ->add('firstName', 'text', ['label' => 'Förnamn'])
-            ->add('lastName', 'text', ['label' => 'Efternamn'])
+            ->add('firstName', 'text', ['label' => 'user.form.first_name'])
+            ->add('lastName', 'text', ['label' => 'user.form.last_name'])
             ->add('wantToLearn', 'choice', [
                 'expanded' => true,
-                'label' => 'Vill du',
+                'label' => 'user.form.want_to_learn',
                 'choices' => [
-                    true => 'Förbättra din svenska',
-                    false => 'Hjälpa någon att förbättra sin svenska',
+                    true => 'user.form.want_to_learn.choice.learn',
+                    false => 'user.form.want_to_learn.choice.teach',
                 ],
                 'choice_value' => function ($currentChoiceKey) {
                     return $currentChoiceKey ? 'true' : 'false';
@@ -45,25 +45,25 @@ class UserType extends AbstractType
                     'expanded' => true,
                     'choice_list' => new ArrayChoiceList($categories),
                     'property' => 'name',
-                    'label' => 'Vilka är dina intressen?',
+                    'label' => 'user.form.categories',
                 ]
             )
             ->add('age', 'choice', [
-                'label' => 'Ålder',
+                'label' => 'user.form.age',
                 'choices' => array_combine(range(18, 100), range(18, 100)),
             ])
             ->add('gender', 'choice', [
                 'expanded' => true,
-                'label' => 'Kön',
+                'label' => 'user.form.gender',
                 'choices' => [
-                    'M' => 'Man',
-                    'F' => 'Kvinna',
-                    'X' => 'Vill inte ange',
+                    'M' => 'user.form.gender.m',
+                    'F' => 'user.form.gender.f',
+                    'X' => 'user.form.gender.x',
                 ]
             ])
-            ->add('about', 'textarea', ['label' => 'Berätta om dig själv'])
+            ->add('about', 'textarea', ['label' => 'user.form.about'])
             ->add('from', 'choice', [
-                'label' => 'Vilket land kommer du ifrån?',
+                'label' => 'user.form.from',
                 'choices' => Countries::getList(),
             ])
             ->add('profilePicture', 'hidden')
@@ -71,7 +71,7 @@ class UserType extends AbstractType
         $user = $builder->getData();
         if (!$user->hasRole('ROLE_COMPLETE_USER')) {
             $builder->add('city', 'entity', [
-                'label' => 'Här vill jag fika',
+                'label' => 'user.form.city',
                 'class' => 'AppBundle:City',
                 'query_builder' => function(EntityRepository $er) {
                     return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');

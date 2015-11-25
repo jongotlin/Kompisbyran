@@ -20,28 +20,12 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
 
-                        <h2>Kul att du vill kompisfika</h2>
-                        <p>
-                            Här hittar du alla dina tidigare fikor och kan även anmäla dig
-                            för att kompisfika igen. Vill du ändra uppgifter i ditt formulär gör du det enkelt själv genom att
-                            trycka på “Min profil" och sedan "inställningar" i menyn.
-                        </p>
-
-                        <p>
-                            Utgångspunkten är att en kompisfika sker en gång. Vill du fika igen loggar du in på ditt
-                            konto och anmäler dig igen, så matchar vi ihop dig på nytt!
-                        </p>
-                        <p>
-                            Observera att fikan äger rum i Stockholm (om ni inte kommer överens om annat sker fikan i
-                            centrala Stockholm).
-                        </p>
-                        <p>
-                            Här ser du även dina tidigare kompisfikor och om du har anmält att du vill kompisfika igen.
-                        </p>
+                        <h2>{{ 'index.header'|trans }}</h2>
+                        {{ 'index.intro'|trans|nl2br }}
                     </div>
                     <div class="col-md-4 col-sm-4">
 
-                        <h2>Tidigare kompisfikor</h2>
+                        <h2>{{ 'index.previous.header'|trans }}</h2>
                         {% if app.user.fluentSpeakerConnections|length > 0 %}
                             <ul>
                                 {% for connection in app.user.fluentSpeakerConnections %}
@@ -58,7 +42,7 @@
                             </ul>
                         {% endif %}
 
-                        <h2>Intresseanmälningar</h2>
+                        <h2>{{ 'index.connection_request.header'|trans }}</h2>
                         {% if app.user.connectionRequests|length %}
                             <ul>
                                 {% for connectionRequest in app.user.connectionRequests %}
@@ -66,9 +50,9 @@
                                         {{ connectionRequest.createdAt|date('Y-m-d H:i') }},
                                         {{ connectionRequest.city.name }}<br>
                                         {% if connectionRequest.wantToLearn %}
-                                            Du vill förbättra din svenska
+                                            {{ 'index.connection_request.want_to_learn.learn'|trans }}
                                         {% else %}
-                                            Du vill hjälpa någon att förbättra sin svenska
+                                            {{ 'index.connection_request.want_to_learn.teach'|trans }}
                                         {% endif %}
                                         {% if connectionRequest.comment %}
                                             <br>{{ connectionRequest.comment }}
@@ -79,16 +63,12 @@
                         {% endif %}
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <h2>Jag vill kompisfika igen</h2>
-                        <p>
-                            Här anmäler du dig om du vill kompisfika igen. Fyll i stad och tryck på “Kompisfika” så har
-                            du anmält dig på nytt. Du får då ett bekräftelsemail till din e-postadress du har
-                            registrerat. Om du vill ändra din ansökan trycker du på “Min profil” i menyn.
-                        </p>
+                        <h2>{{ 'index.again.header'|trans }}</h2>
+                        <p>{{ 'index.again.intro'|trans }}</p>
                         {{ form_start(form) }}
                         {{ form_widget(form) }}
 
-                        <input type="submit" value="Kompisfika" class="btn btn-default">
+                        <input type="submit" value="{{ 'connection_request.form.button'|trans }}" class="btn btn-default">
                         {{ form_end(form) }}
                     </div>
                 </div>

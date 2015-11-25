@@ -13,7 +13,7 @@ class ConnectionRequestType extends AbstractType
     {
         $builder
             ->add('city', 'entity', [
-                    'label' => 'Stad',
+                    'label' => 'connection_request.form.city',
                     'class' => 'AppBundle:City',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
@@ -23,7 +23,7 @@ class ConnectionRequestType extends AbstractType
             )
             ->add('comment', 'textarea', [
                 'required' => false,
-                'label' => 'Meddelande till Kompisbyrån',
+                'label' => 'connection_request.form.comment',
             ])
         ;
     }
