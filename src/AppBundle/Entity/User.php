@@ -134,6 +134,13 @@ class User extends BaseUser
      */
     protected $district;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    protected $createdAt;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
@@ -141,6 +148,7 @@ class User extends BaseUser
         $this->connectionRequests = new ArrayCollection();
         $this->categories = new ArrayCollection();
         $this->from = 'SE';
+        $this->createdAt = new \DateTime();
 
         parent::__construct();
     }
@@ -408,5 +416,13 @@ class User extends BaseUser
     public function setDistrict($district)
     {
         $this->district = $district;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }
