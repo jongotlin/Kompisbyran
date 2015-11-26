@@ -52,7 +52,8 @@ class EmailSender
             ];
             $message = \Swift_Message::newInstance()
                 ->setSubject('Fikadags')
-                ->setFrom('matchning@kompisbyran.se')
+                ->setFrom('info@kompisbyran.se')
+                ->setReplyTo('matchning@kompisbyran.se')
                 ->setTo($data['recipient']->getEmail(), $data['recipient']->getName())
                 ->setBody(
                     $this->templating->render(
