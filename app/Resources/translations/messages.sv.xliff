@@ -5,9 +5,9 @@
             <trans-unit id="homepage.cta.message">
                 <source>homepage.cta.message</source>
                 <target>
-                    Kompisbyrån är en ideell förening som digitalt länkar samman nya och etablerade svenskar för att öva
-                    svenska och utbyta kulturella erfarenheter över “kompisfikor”. Fika och öva svenska med en person
-                    som du kanske annars inte skulle ha mött. Tillsammans kan vi öka gemenskapen i samhället.
+                    Vi hjälper dig som vill bli bättre på att prata svenska och träffa nya kompisar som har bott i Sverige länge. 
+                    Och vi hjälper dig som talar flytande svenska, vill hjälpa någon att öva svenska och träffa nya kompisar. 
+                    Ni träffas, fikar och övar svenska! Tillsammans kan vi öka gemenskapen i samhället. Bli en fikakompis idag!
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.button">
@@ -16,18 +16,17 @@
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
-                <target>Skapa ett konto</target>
+                <target>Gå med</target>
             </trans-unit>
             <trans-unit id="register.create.intro">
                 <source>register.create.intro</source>
                 <target>
-                    För att kompisfika måste du först registrera dig genom att fylla i din e-postadress och valfritt
-                    lösenord.
+                    För att kompisfika fyller du i din e-post och ett lösenord som du bestämmer själv. 
                 </target>
             </trans-unit>
             <trans-unit id="register.form.email">
                 <source>register.form.email</source>
-                <target>E-postadress</target>
+                <target>E-post</target>
             </trans-unit>
             <trans-unit id="register.form.password">
                 <source>register.form.password</source>
@@ -43,13 +42,12 @@
             </trans-unit>
             <trans-unit id="register.form.button">
                 <source>register.form.button</source>
-                <target>Skapa konto</target>
+                <target>Gå med</target>
             </trans-unit>
             <trans-unit id="register.how_it_works.header">
                 <source>register.how_it_works.header</source>
                 <target>
-                    Stegen till att lära känna en ny kompis – vare sig du vill förbättra din svenska eller hjälpa någon
-                    med att förbättra den – är enkla.
+                    Så här gör du:
                 </target>
             </trans-unit>
             <trans-unit id="register.how_it_works.text">
@@ -58,23 +56,22 @@
                     <![CDATA[
                         <ol>
                             <li>
-                                Är det första gången du ska kompisfika? Skapa ett konto genom att fylla i din
-                                e-postadress, ett lösenord du bestämmer själv och tryck “Skapa konto”. Läs igenom
-                                Kompisbyråns <a href="%termsPath%">villkor</a> innan du anmäler dig.
+                                Gå med (det är gratis). Fyll i din e-post och ett lösenord som du bestämmer själv. Läs igenom
+                                Kompisbyråns <a href="%termsPath%">villkor</a>.
                             </li>
                             <li>
-                                Du slussas nu vidare till ett formulär där du berättar lite om dig själv.
+                                Registrering. Fyll i ditt namn, ålder, intressen och svara på några fler frågor.
                             </li>
                             <li>
-                                Nu har du anmält dig till att kompisfika! Vi kommer att höra av oss till dig via mail så
-                                fort vi har hittat en ny matchning. Du får då e-postadressen till din nya fikakompis och
-                                kontaktar personen inom en vecka från att matchning har gjorts. Ni bestämmer var och när
-                                ni ska ses, men vi vill att ni träffas på ett offentligt kafé i ca 1 timme. Det är
-                                gratis att vara med och länkas ihop av Kompisbyrån.
+                                Matchning. Vi hittar en fikakompis till dig och mailar dig personens e-postadress.
                             </li>
                             <li>
-                                Om du redan har ett konto loggar du in och anmäler dig till en ny kompisfika på din
-                                profilsida.
+                                Du mailar din fikakompis och bestämmer vilken dag, tid och plats ni ska träffas. 
+                                Vi rekommenderar att ni träffas i ca 1 timme på ett kafé i centrala Stockholm 
+                                (om ni inte kommer överens om annat). 
+                                
+                                En kompisfika sker en gång. Gillar ni varandra får ni gärna träffas igen själva. 
+                                Vill du träffa fler kompisar, loggar du in och anmäler dig igen. 
                             </li>
                         </ol>
                     ]]>
@@ -86,11 +83,11 @@
             </trans-unit>
             <trans-unit id="register.login.intro">
                 <source>register.login.intro</source>
-                <target>Har du redan ett konto loggar du in här.</target>
+                <target>Om du redan har ett konto, loggar du in här.</target>
             </trans-unit>
             <trans-unit id="login.form.email">
                 <source>login.form.email</source>
-                <target>E-postadress</target>
+                <target>E-post</target>
             </trans-unit>
             <trans-unit id="login.form.password">
                 <source>login.form.password</source>
@@ -106,27 +103,27 @@
             </trans-unit>
             <trans-unit id="user.form.first_name">
                 <source>user.form.first_name</source>
-                <target>Förnamn</target>
+                <target>Förnamn:</target>
             </trans-unit>
             <trans-unit id="user.form.last_name">
                 <source>user.form.last_name</source>
-                <target>Efternamn</target>
+                <target>Efternamn:</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn">
                 <source>user.form.want_to_learn</source>
-                <target>Vill du</target>
+                <target>Jag vill:</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Förbättra din svenska</target>
+                <target>Bli bättre på att prata svenska</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Hjälpa någon att förbättra sin svenska</target>
+                <target>Hjälpa någon att öva svenska</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
-                <target>Vilka är dina intressen?</target>
+                <target>Jag tycker om (intressen):</target>
             </trans-unit>
             <trans-unit id="user.form.age">
                 <source>user.form.age</source>
@@ -134,7 +131,7 @@
             </trans-unit>
             <trans-unit id="user.form.gender">
                 <source>user.form.gender</source>
-                <target>Kön</target>
+                <target>Jag är:</target>
             </trans-unit>
             <trans-unit id="user.form.gender.m">
                 <source>user.form.gender.m</source>
@@ -158,11 +155,11 @@
             </trans-unit>
             <trans-unit id="user.form.city">
                 <source>user.form.city</source>
-                <target>Här vill jag fika</target>
+                <target>Jag vill fika i (stad):</target>
             </trans-unit>
             <trans-unit id="user.form.district">
                 <source>user.form.district</source>
-                <target>Stadsdel</target>
+                <target>Jag bor i (stadsdel):</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
@@ -179,24 +176,19 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target>
-                    Vad roligt att du vill kompisfika! Här fyller du i formuläret så att vi ska kunna göra en så bra
-                    matchning som möjligt och hitta en ny fikakompis till dig! Har du frågor, tveka inte att maila
-                    kontakt@kompisbyran.se. Trevlig fika!
+                    Vad roligt att du vill kompisfika! Här svarar du på några frågor om dig själv så att vi ska
+                    kunna hitta en fikakompis till dig. Trevlig fika!
                 </target>
             </trans-unit>
             <trans-unit id="index.header">
                 <source>index.header</source>
-                <target>Kul att du vill kompisfika</target>
+                <target>Välkommen till Kompisbyrån!</target>
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>Här hittar du alla dina tidigare fikor och kan även anmäla dig för att kompisfika igen. Vill du ändra uppgifter i ditt formulär gör du det enkelt själv genom att trycka på “Min profil" och sedan "inställningar" i menyn.
+                <target>Här ser du dina tidigare kompisfikor, intresseanmälningar till nya fikor och kan anmäla dig igen för att träffa nya fikakompisar.
 
-                    Utgångspunkten är att en kompisfika sker en gång. Vill du fika igen loggar du in på ditt konto och anmäler dig igen, så matchar vi ihop dig på nytt!
-
-                    Observera att fikan äger rum i Stockholm (om ni inte kommer överens om annat sker fikan i centrala Stockholm).
-
-                    Här ser du även dina tidigare kompisfikor och om du har anmält att du vill kompisfika igen.</target>
+                    Vill du ändra dina uppgifter trycker du på "Min profil" och sedan "inställningar" i menyn.</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
@@ -221,9 +213,7 @@
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Här anmäler du dig om du vill kompisfika igen. Fyll i stad och tryck på “Kompisfika” så har
-                    du anmält dig på nytt. Du får då ett bekräftelsemail till din e-postadress du har
-                    registrerat. Om du vill ändra din ansökan trycker du på “Min profil” i menyn.
+                    Om du vill träffa en ny fikakompis, väljer du stad och trycker på knappen "Kompisfika".
                 </target>
             </trans-unit>
             <trans-unit id="connection_request.form.city">
