@@ -199,22 +199,19 @@
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.learn">
                 <source>index.connection_request.want_to_learn.learn</source>
-                <target>You want to improve your swedish</target>
+                <target>You want to improve your Swedish</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.teach">
                 <source>index.connection_request.want_to_learn.teach</source>
-                <target>You want to help someone to improve their swedish</target>
+                <target>You want to help someone to improve their Swedish</target>
             </trans-unit>
             <trans-unit id="index.again.header">
                 <source>index.again.header</source>
-                <target>I want to meet new fika friends</target>
+                <target>I want to meet a new fika friend</target>
             </trans-unit>
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Här anmäler du dig om du vill kompisfika. Fyll i stad och tryck på “Kompisfika” så har
-                    du anmält dig på nytt. Du får då ett bekräftelsemail till din e-postadress du har
-                    registrerat. Om du vill ändra din ansökan trycker du på “Min profil” i menyn.
                 </target>
             </trans-unit>
             <trans-unit id="connection_request.form.city">
@@ -227,7 +224,7 @@
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
-                <target>"Fika friend request</target>
+                <target>Fika friend request</target>
             </trans-unit>
         </body>
     </file>
