@@ -17,7 +17,7 @@ class RegistrationControllerTest extends DatabaseTestCase
         $crawler = static::$client->request('GET', '/register/');
 
         $this->assertEquals(200, static::$client->getResponse()->getStatusCode());
-        $this->assertTrue($crawler->filter('html:contains("Skapa ett konto")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("Gå med")')->count() > 0);
     }
 
     /**
