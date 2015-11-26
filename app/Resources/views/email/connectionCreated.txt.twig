@@ -2,7 +2,7 @@ Hej {{ recipient.firstName }}!
 
 Vad kul att du vill vara med i Kompisbyrån!
 
-Vi har hittat en fikakompis till dig. {{ partner.gender|pronoun|capitalize }} heter {{ partner.name }} och gillar {% for category in recipient.categories -%}
+Vi har hittat en fikakompis till dig. {{ partner.gender|pronoun|capitalize }} heter {{ partner.name }} och gillar {% for category in partner.categories -%}
     {{ category.name|lower }}{% if loop.revindex == 2 %} och {% elseif not loop.last %}, {% endif %}
 {%- endfor %}.
 

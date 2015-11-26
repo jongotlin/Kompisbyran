@@ -7,7 +7,7 @@
 
     <p>Vi har nu hittat en matchning till dig. {{ partner.gender|pronoun|capitalize }} heter {{ partner.name }} och
         gillar att
-        {% for category in recipient.categories -%}
+        {% for category in partner.categories -%}
             {{ category.name|lower }}{% if loop.revindex == 2 %} och {% elseif not loop.last %}, {% endif %}
         {%- endfor %}.</p>
 
