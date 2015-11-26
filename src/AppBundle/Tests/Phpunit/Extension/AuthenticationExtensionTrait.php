@@ -21,8 +21,15 @@ trait AuthenticationExtensionTrait
     protected function authenticateUser(User $user, $role)
     {
         if ($role) {
-            $user->addRole($role);
+            if (is_array($role)) {
+                foreach ($role as $loopedRole) {
+                    $user->addRole($loopedRole);
+                }
+            } else {
+                $user->addRole($role);
+            }
         }
+
         $token = new UsernamePasswordToken(
             $user,
             'dummy',

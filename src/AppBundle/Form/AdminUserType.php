@@ -21,9 +21,7 @@ class AdminUserType extends UserType
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\User',
-        ]);
+        parent::setDefaultOptions($resolver);
     }
 
     public function getName()

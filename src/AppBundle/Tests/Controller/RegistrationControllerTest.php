@@ -4,10 +4,12 @@ namespace AppBundle\Tests\Controller;
 
 use AppBundle\Tests\Phpunit\DatabaseTestCase;
 use AppBundle\Tests\Phpunit\Extension\AuthenticationExtensionTrait;
+use AppBundle\Tests\Phpunit\Extension\RepositoryExtensionTrait;
 
 class RegistrationControllerTest extends DatabaseTestCase
 {
     use AuthenticationExtensionTrait;
+    use RepositoryExtensionTrait;
 
     /**
      * @test
@@ -73,21 +75,5 @@ class RegistrationControllerTest extends DatabaseTestCase
         $crawler = $client->submit($form);
         $this->assertEquals(0, $crawler->filter('.has-error')->count());
         $this->assertEquals(302, $client->getResponse()->getStatusCode());
-    }
-
-    /**
-     * @return \Doctrine\ORM\EntityRepository
-     */
-    protected function getUserRepository()
-    {
-        return $this->getEntityManager()->getRepository('AppBundle:User');
-    }
-
-    /**
-     * @return \Doctrine\ORM\EntityManager
-     */
-    protected function getEntityManager()
-    {
-        return static::$container->get('doctrine')->getManager();
     }
 }

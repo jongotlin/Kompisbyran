@@ -6,12 +6,12 @@ use AppBundle\Tests\Phpunit\DatabaseTestCase;
 use AppBundle\Tests\Phpunit\Extension\AuthenticationExtensionTrait;
 use AppBundle\Tests\Phpunit\Extension\RepositoryExtensionTrait;
 
-class DefaultControllerTest extends DatabaseTestCase
+class UserControllerTest extends DatabaseTestCase
 {
     use AuthenticationExtensionTrait;
     use RepositoryExtensionTrait;
 
-    public function testShouldLoadIndexPage()
+    public function testShouldLoadUserEditPage()
     {
         $this->authenticateUser(
             $this->getUserRepository()->findOneBy(['email' => 'learner@example.com']),
@@ -19,10 +19,10 @@ class DefaultControllerTest extends DatabaseTestCase
         );
 
         $client = static::$client;
-
-        $crawler = $client->request('GET', '/admin');
+        $users = $this->getUserRepository()->findAll();
+        $client->request('GET', '/admin/users/' . $users[0]->getId());
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertTrue($crawler->filter('html:contains("Kompisbyrån")')->count() > 0);
     }
+
 }
