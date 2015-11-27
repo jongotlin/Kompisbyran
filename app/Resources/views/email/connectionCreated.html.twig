@@ -3,27 +3,27 @@
 {% block body %}
     <p>Hej {{ recipient.firstName }}!</p>
 
-    <p>Vad kul att du vill vara med och fika!</p>
+    <p>Vad kul att du vill vara med i Kompisbyrån!</p>
 
-    <p>Vi har nu hittat en matchning till dig. {{ partner.gender|pronoun|capitalize }} heter {{ partner.name }} och
-        gillar att
+    <p>Vi har hittat en fikakompis till dig. {{ partner.gender|pronoun|capitalize }} heter {{ partner.name }} och
+        gillar
         {% for category in partner.categories -%}
             {{ category.name|lower }}{% if loop.revindex == 2 %} och {% elseif not loop.last %}, {% endif %}
         {%- endfor %}.</p>
 
-    <p>Du får här e-postadressen: {{ partner.email }} och din nya fikakompis har även fått din e-postadress.</p>
+    <p>E-postadressen till din fikakompis är: {{ partner.email }}. Vi har också skickat din e-postadress till din fikakompis.</p>
 
     <p>
-        Ni får nu gemensamt bestämma en dag, tid och plats inom en vecka som passar er. All kontakt efter detta sker
-        alltså på eget initiativ från er två. Vi rekommenderar att ni ses på ett offentlig kafé i cirka en timme.
+        Nu ska du maila din fikakompis och bestämma var och när ni ska träffas. Du ska skicka mailet inom en vecka. All kontakt 
+        efter detta sker alltså på eget initiativ från er två. Vi rekommenderar att ni ses på ett kafé i ungefär en timme.
     </p>
 
     <p>
-        Skicka gärna en bild från er fika och skriv några rader om hur du tycker att din kompisfika var, som vi kan dela
-        med oss av, för att uppmuntra fler till att vara med :)
+        Skicka gärna ett foto från er fika och berätta om hur du tycker att det var. Vi vill gärna dela med oss av det för att
+        uppmuntra fler till att vara med.
     </p>
 
-    <p>Hör av dig om du har några frågor! Vi önskar er en trevlig fika!</p>
+    <p>Om du har frågor, kontakta oss! Vi önskar er en trevlig fika!</p>
 
     <p>
         Bästa hälsningar<br>
