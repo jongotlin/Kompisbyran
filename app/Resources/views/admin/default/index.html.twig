@@ -43,6 +43,9 @@
                 {% if connectionRequest.user.internalComment %}
                     <p>{{ connectionRequest.user.internalComment }}</p>
                 {% endif %}
+                <span class="text-right small">
+                    <a href="{{ path('admin_connectionrequest', {'id': connectionRequest.id}) }}">Ändra</a>
+                </span>
 
             </blockquote>
         </div>

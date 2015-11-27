@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block body %}
+    <div class="inner-page">
+        <div class="container">
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Spara</button>
+                    <a href="#" id="delete">Ta bort</a>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    $(function () {
+        $('#delete').click(function (e) {
+            e.preventDefault();
+            if (confirm('Vill du verkligen ta bort kompisfikaförfrågningen?')) {
+                $.ajax({
+                    url: '{{ path('admin_delete_connectionrequest', {'id': connectionRequest.id}) }}',
+                    type: 'DELETE',
+                    success: function () {
+                        location.href='{{ path('admin_start') }}';
+                    }
+                });
+
+            }
+        });
+    });
+</script>
+{% endblock %}
