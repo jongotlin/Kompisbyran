@@ -12,7 +12,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.button">
                 <source>homepage.cta.button</source>
-                <target>Bli en fikakompis</target>
+                <target>Bli fikakompis</target>
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
@@ -56,18 +56,18 @@
                     <![CDATA[
                         <ol>
                             <li>
-                                Gå med (det är gratis). Fyll i din e-post och ett lösenord som du bestämmer själv. Läs igenom
-                                Kompisbyråns <a href="%termsPath%">villkor</a>.
+                                Gå med i Kompisbyrån. Det är gratis att anmäla sig. Skriv din e-post, ett lösenord som du bestämmer själv 
+                                och klicka på "Gå med". Läs igenom Kompisbyråns <a href="%termsPath%">villkor</a>.
                             </li>
                             <li>
-                                Registrering. Fyll i ditt namn, ålder, intressen och svara på några fler frågor.
+                                Berätta om dig själv. Skriv ditt namn, ålder, intressen och svara på några fler frågor.
                             </li>
                             <li>
                                 Matchning. Vi hittar en fikakompis till dig och mailar dig personens e-postadress.
                             </li>
                             <li>
                                 Du mailar din fikakompis och bestämmer vilken dag, tid och plats ni ska träffas. 
-                                Vi rekommenderar att ni träffas i ca 1 timme på ett kafé i centrala Stockholm 
+                                Vi rekommenderar att ni träffas i ungefär 1 timme på ett kafé i centrala delen av staden 
                                 (om ni inte kommer överens om annat). 
                                 
                                 En kompisfika sker en gång. Gillar ni varandra får ni gärna träffas igen själva. 
