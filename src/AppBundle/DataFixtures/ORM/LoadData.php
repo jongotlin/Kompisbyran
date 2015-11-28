@@ -192,7 +192,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
     protected function loadConnections(ObjectManager $manager)
     {
         foreach (range(1,25) as $i) {
-            $connection = new Connection();
+            $connection = new Connection($this->getReference('user-fluentspeaker'));
             $connection->setCity($this->getReference('city-1'));
             $connection->setFluentSpeaker($this->getReference('user-fluentspeaker'));
             $connection->setLearner($this->getReference('user-learner'));

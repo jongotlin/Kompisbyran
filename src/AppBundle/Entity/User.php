@@ -60,6 +60,13 @@ class User extends BaseUser
     protected $learnerConnections;
 
     /**
+     * @var Connection[]
+     *
+     * @ORM\OneToMany(targetEntity="Connection", mappedBy="createdBy")
+     */
+    protected $createdConnections;
+
+    /**
      * @var ConnectionRequest[]
      *
      * @ORM\OneToMany(targetEntity="ConnectionRequest", mappedBy="user")
@@ -146,6 +153,7 @@ class User extends BaseUser
         $this->fluentSpeakerConnections = new ArrayCollection();
         $this->learnerConnections = new ArrayCollection();
         $this->connectionRequests = new ArrayCollection();
+        $this->createdConnections = new ArrayCollection();
         $this->categories = new ArrayCollection();
         $this->from = 'SE';
         $this->createdAt = new \DateTime();

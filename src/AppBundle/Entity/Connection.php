@@ -63,9 +63,18 @@ class Connection
      */
     protected $fluentSpeakerComment;
 
-    public function __construct()
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="createdConnections")
+     * @ORM\JoinColumn(nullable=true, name="created_by")
+     */
+    protected $createdBy;
+
+    public function __construct(User $user)
     {
         $this->createdAt = new \DateTime();
+        $this->createdBy = $user;
     }
 
     /**
@@ -162,5 +171,13 @@ class Connection
     public function getLearnerComment()
     {
         return $this->learnerComment;
+    }
+
+    /**
+     * @return User
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
     }
 }

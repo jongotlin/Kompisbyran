@@ -35,7 +35,7 @@ class DefaultController extends Controller
                     $fluentSpeakerConnectionRequest->getUser()->getName()
                 ));
             } else {
-                $connection = new Connection();
+                $connection = new Connection($this->getUser());
                 $connection->setLearner($learnerConnectionRequest->getUser());
                 $connection->setFluentSpeaker($fluentSpeakerConnectionRequest->getUser());
                 $connection->setCity($learnerConnectionRequest->getCity());
