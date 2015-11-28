@@ -13,6 +13,7 @@
                         <th>Lärare</th>
                         <th>Övare</th>
                         <th>Ort</th>
+                        <th>Skapad av</th>
                     </tr>
                 </thead>
                 {% for connection in pagination %}
@@ -34,6 +35,7 @@
                                 <em>{{ connection.learnerComment }}</em>
                             </td>
                             <td>{{ connection.city.name }}</td>
+                            <td>{{ connection.createdBy.name }}</td>
                         </tr>
                     </tbody>
                 {% endfor %}
