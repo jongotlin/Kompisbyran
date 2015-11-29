@@ -17,6 +17,93 @@
                 <div class="col-sm-6 col-sm-pull-6">
                     <div class="row">
                         {{ form_start(form) }}
+
+                        <div class="form-group">
+                            {{ form_label(form.firstName) }}
+                            <div class="col-sm-10">
+                                {{ form_widget(form.firstName) }}
+                                {{ form_errors(form.firstName) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.lastName) }}
+                            <div class="col-sm-10">
+                                {{ form_widget(form.lastName) }}
+                                {{ form_errors(form.lastName) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.wantToLearn) }}
+                            <div class="col-sm-10">
+                                {{ form_widget(form.wantToLearn) }}
+                                {{ form_errors(form.wantToLearn) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.categories) }}
+                            <div class="col-sm-10">
+                                {{ form_widget(form.categories) }}
+                                {{ form_errors(form.categories) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.age) }}
+                            <div class="col-sm-10">
+                                {{ form_widget(form.age) }}
+                                {{ form_errors(form.age) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.gender) }}
+                            <div class="col-sm-10">
+                                {{ form_widget(form.gender) }}
+                                {{ form_errors(form.gender) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.about) }}
+                            <div class="col-sm-10">
+                                {{ form_widget(form.about) }}
+                                {{ form_errors(form.about) }}
+                                <span class="help-block">{{ 'user.form.about.help'|trans }}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.from) }}
+                            <div class="col-sm-10">
+                                {{ form_widget(form.from) }}
+                                {{ form_errors(form.from) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.district) }}
+                            <div class="col-sm-10">
+                                {{ form_widget(form.district) }}
+                                {{ form_errors(form.district) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.hasChildren) }}
+                            <div class="col-sm-10">
+                                {{ form_widget(form.hasChildren) }}
+                                {{ form_errors(form.hasChildren) }}
+                            </div>
+                        </div>
+
+
+
+
+
+
+
                         {{ form_widget(form) }}
 
                         <div class="form-group">

@@ -157,6 +157,10 @@
                 <source>user.form.about</source>
                 <target>Berätta om dig själv</target>
             </trans-unit>
+            <trans-unit id="user.form.about.help">
+                <source>user.form.about.help</source>
+                <target>T.ex. utbildning, jobb och hur länge du har varit i Sverige.</target>
+            </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
                 <target>Vilket land kommer du ifrån?</target>
