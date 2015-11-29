@@ -15,6 +15,8 @@
                         {%- endif %}"
                     alt=""
                     class="img-responsive img-circle"
+                /><a
+                    href="{{ path('admin_user', {'id': connectionRequest.user.id}) }}"
                     data-toggle="popover"
                     data-trigger="hover"
                     title="{{ connectionRequest.user.name }}"
@@ -22,9 +24,7 @@
                     data-content="<strong>Från:</strong> {{ connectionRequest.user.from|country_name }}<br>
                     <strong>Antal kopplingar:</strong> {{ connectionRequest.user.connections|length }}<br>
                     <strong>Om:</strong> {{ connectionRequest.user.about }}"
-                    data-placement="top"
-                /><a
-                    href="{{ path('admin_user', {'id': connectionRequest.user.id}) }}"
+                    data-placement="bottom"
                 >{{ connectionRequest.user.name }}</a>
                 <span>{{ connectionRequest.user.gender }}, {{ connectionRequest.user.age }} år</span>
             </h4>
@@ -74,11 +74,10 @@
 
         <div class="inner-testimonial row">
 
-
             <form method="POST" action="" id="connectionForm">
                 <div class="col-md-6 col-sm-6">
                     <h2>Övare</h2>
-                    <div class="row">
+                    <div class="row" style="overflow: auto; height: 500px;">
                         {% for connectionRequest in learners %}
                             {{ macro.connectionRequestRow(connectionRequest, 'learner', loop.first) }}
                         {% endfor %}
@@ -86,7 +85,7 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <h2 style="clear:both">Lärare</h2>
-                    <div class="row">
+                    <div class="row" style="overflow: auto; height: 500px;">
                         {% for connectionRequest in fluentSpeakers %}
                             {{ macro.connectionRequestRow(connectionRequest, 'fluentSpeaker', loop.first) }}
                         {% endfor %}
