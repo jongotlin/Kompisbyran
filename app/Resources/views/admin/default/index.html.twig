@@ -2,8 +2,12 @@
 
 {% import _self as macro %}
 
-{% macro connectionRequestRow(connectionRequest, inputName, isChecked) %}
-    <div class="col-md-6 col-sm-6">
+{% macro connectionRequestItem(connectionRequest, inputName, isChecked) %}
+    <div class="col-md-6 col-sm-6 connection-request-item" data-categories="
+        {%- for category in connectionRequest.user.categories -%}
+            {{ category.id }}{% if not loop.last %},{% endif %}
+        {%- endfor -%}
+    ">
         <div class="testimonial-content t-one">
             <h4>
                 <img
@@ -72,6 +76,15 @@
                 </ul>
             </div>
 
+
+        <div id="filters">
+            {% for category in categories %}
+                <label>
+                    <input type="checkbox" name="category" value="{{ category.id }}"> {{ category.name }}
+                </label>&nbsp;&nbsp;&nbsp;
+            {% endfor %}
+        </div>
+
         <div class="inner-testimonial row">
 
             <form method="POST" action="" id="connectionForm">
@@ -79,7 +92,7 @@
                     <h2>Övare</h2>
                     <div class="row" style="overflow: auto; height: 500px;">
                         {% for connectionRequest in learners %}
-                            {{ macro.connectionRequestRow(connectionRequest, 'learner', loop.first) }}
+                            {{ macro.connectionRequestItem(connectionRequest, 'learner', loop.first) }}
                         {% endfor %}
                     </div>
                 </div>
@@ -87,7 +100,7 @@
                     <h2 style="clear:both">Lärare</h2>
                     <div class="row" style="overflow: auto; height: 500px;">
                         {% for connectionRequest in fluentSpeakers %}
-                            {{ macro.connectionRequestRow(connectionRequest, 'fluentSpeaker', loop.first) }}
+                            {{ macro.connectionRequestItem(connectionRequest, 'fluentSpeaker', loop.first) }}
                         {% endfor %}
                     </div>
                 </div>
@@ -115,6 +128,32 @@
                 }
 
                 e.preventDefault();
+            });
+
+            $('#filters input').change(function () {
+                var categoryIds = [];
+                $('#filters input:checked').each(function () {
+                    categoryIds.push($(this).val());
+                });
+
+                $('.connection-request-item').each(function () {
+                    var userCategoryIds = $(this).data('categories').split(',');
+                    var found = 0;
+
+                    $.each(categoryIds, function (i, categorydId) {
+                        $.each(userCategoryIds, function (ii, userCategoryId) {
+                            if (userCategoryId == categorydId) {
+                                found++;
+                                return false;
+                            }
+                        });
+                    });
+                    if (found == categoryIds.length) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
             });
         });
     </script>

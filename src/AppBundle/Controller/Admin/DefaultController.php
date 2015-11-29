@@ -70,6 +70,7 @@ class DefaultController extends Controller
         $cities = $this->getCityRepository()->findAll();
 
         $parameters = [
+            'categories' => $this->getCategoryRepository()->findAll(),
             'learners' => $learners,
             'fluentSpeakers' => $fluentSpeakers,
             'cities' => $cities,
@@ -95,5 +96,10 @@ class DefaultController extends Controller
     protected function getConnectionRepository()
     {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Connection');
+    }
+
+    protected function getCategoryRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Category');
     }
 }
