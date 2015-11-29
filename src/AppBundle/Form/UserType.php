@@ -50,6 +50,8 @@ class UserType extends AbstractType
             )
             ->add('age', 'choice', [
                 'label' => 'user.form.age',
+                'empty_data'  => null,
+                'required'    => false,
                 'choices' => array_combine(range(18, 100), range(18, 100)),
             ])
             ->add('gender', 'choice', [
