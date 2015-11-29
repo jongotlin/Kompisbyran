@@ -51,4 +51,29 @@ class ConnectionRequestController extends Controller
 
         return new Response();
     }
+
+    /**
+     * @Route("/", name="admin_create_connectionrequest")
+     * @Method("POST")
+     */
+    public function createAction(Request $request)
+    {
+        $user = $this->getDoctrine()->getManager()->getRepository('AppBundle:User')
+            ->find($request->request->getInt('userId'));
+        $city = $this->getDoctrine()->getManager()->getRepository('AppBundle:City')
+            ->find($request->request->getInt('cityId'));
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setUser($user);
+        $connectionRequest->setWantToLearn($request->request->getInt('wantToLearn'));
+        $connectionRequest->setComment($request->request->get('comment'));
+        $connectionRequest->setCity($city);
+
+        $this->getDoctrine()->getEntityManager()->persist($connectionRequest);
+        $this->getDoctrine()->getEntityManager()->flush();
+
+        return new Response();
+    }
+
+
 }

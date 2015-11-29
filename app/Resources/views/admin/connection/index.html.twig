@@ -2,6 +2,32 @@
 
 {% import 'macros.html.twig' as macros %}
 
+{% import _self as macro %}
+
+{% macro userCell(connection, wantToLearn) %}
+    {% if wantToLearn %}
+        {% set user = connection.learner %}
+        {% set comment = connection.learnerComment %}
+    {% else %}
+        {% set user = connection.fluentSpeaker %}
+        {% set comment = connection.fluentSpeakerComment %}
+    {% endif %}
+    <strong><a
+        href="{{ path('admin_user', {'id': user.id}) }}"
+        >{{ user.name }}</a></strong>
+    - {{ user.email }}<br>
+    <em>{{ comment }}</em><br>
+    <a
+        href="#"
+        class="create-connection-request btn btn-default btn-sm"
+        data-user-id="{{ user.id }}"
+        data-comment="{{ comment }}"
+        data-want-to-learn="{{ wantToLearn ? 1 : 0 }}"
+        data-city-id="{{ connection.city.id }}"
+    >Kompisfika igen</a>
+
+{% endmacro %}
+
 {% block body %}
 
     <div class="inner-page">
@@ -21,18 +47,10 @@
                         <tr>
                             <td>{{ connection.createdAt|date('Y-m-d H:i') }}</td>
                             <td>
-                                <strong><a
-                                    href="{{ path('admin_user', {'id': connection.fluentSpeaker.id}) }}"
-                                >{{ connection.fluentSpeaker.name }}</a></strong>
-                                - {{ connection.fluentSpeaker.email }}<br>
-                                <em>{{ connection.fluentSpeakerComment }}</em>
+                                {{ macro.userCell(connection, false) }}
                             </td>
                             <td>
-                                <strong><a
-                                    href="{{ path('admin_user', {'id': connection.learner.id}) }}"
-                                >{{ connection.learner.name }}</a></strong>
-                                - {{ connection.learner.email }}<br>
-                                <em>{{ connection.learnerComment }}</em>
+                                {{ macro.userCell(connection, true) }}
                             </td>
                             <td>{{ connection.city.name }}</td>
                             <td>{{ connection.createdBy.name }}</td>
@@ -46,4 +64,29 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(function () {
+            $('.create-connection-request').click(function (e) {
+                e.preventDefault();
+                if (confirm('Vill du verkligen skapa en kompisfikaförfrågan?')) {
+                    $.ajax({
+                        url: '{{ path('admin_create_connectionrequest') }}',
+                        type: 'POST',
+                        data: {
+                            userId: $(this).data('user-id'),
+                            comment: $(this).data('comment'),
+                            wantToLearn: $(this).data('want-to-learn'),
+                            cityId: $(this).data('city-id')
+                        },
+                        success: function () {
+                            location.href='{{ path('admin_start') }}';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 {% endblock %}
