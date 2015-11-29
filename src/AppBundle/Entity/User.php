@@ -83,6 +83,13 @@ class User extends BaseUser
     /**
      * @var Category[]
      *
+     * @Assert\Count(
+     *     min=1,
+     *     max=5,
+     *     minMessage="Du måste välja minst ett intresse",
+     *     maxMessage="Du kan inte välja fler än 5 intressen",
+     *     groups={"settings"}
+     * )
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="users")
      * @ORM\JoinTable(name="users_categories")
      */
