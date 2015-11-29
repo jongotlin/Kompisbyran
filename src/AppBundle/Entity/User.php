@@ -148,6 +148,13 @@ class User extends BaseUser
      */
     protected $createdAt;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $hasChildren = false;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
@@ -432,5 +439,21 @@ class User extends BaseUser
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasChildren()
+    {
+        return $this->hasChildren;
+    }
+
+    /**
+     * @param boolean $hasChildren
+     */
+    public function setHasChildren($hasChildren)
+    {
+        $this->hasChildren = $hasChildren;
     }
 }

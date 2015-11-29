@@ -67,6 +67,17 @@ class UserType extends AbstractType
                 'choices' => Countries::getList(),
             ])
             ->add('district', 'text', ['label' => 'user.form.district'])
+            ->add('hasChildren', 'choice', [
+                'expanded' => true,
+                'label' => 'user.form.has_children',
+                'choices' => [
+                    true => 'yes',
+                    false => 'no',
+                ],
+                'choice_value' => function ($currentChoiceKey) {
+                    return $currentChoiceKey ? 'true' : 'false';
+                }
+            ])
             ->add('profilePicture', 'hidden')
         ;
         $user = $builder->getData();

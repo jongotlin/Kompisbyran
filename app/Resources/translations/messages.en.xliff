@@ -2,6 +2,14 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="yes">
+                <source>yes</source>
+                <target>Yes</target>
+            </trans-unit>
+            <trans-unit id="no">
+                <source>no</source>
+                <target>No</target>
+            </trans-unit>
             <trans-unit id="homepage.cta.message">
                 <source>homepage.cta.message</source>
                 <target>
@@ -157,6 +165,10 @@
             <trans-unit id="user.form.district">
                 <source>user.form.district</source>
                 <target>District</target>
+            </trans-unit>
+            <trans-unit id="user.form.has_children">
+                <source>user.form.has_children</source>
+                <target>Barn:</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
