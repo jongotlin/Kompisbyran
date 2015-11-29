@@ -168,7 +168,7 @@
             </trans-unit>
             <trans-unit id="user.form.has_children">
                 <source>user.form.has_children</source>
-                <target>Barn:</target>
+                <target>I have children:</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
