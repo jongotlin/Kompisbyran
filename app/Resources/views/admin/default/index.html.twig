@@ -90,7 +90,7 @@
             <form method="POST" action="" id="connectionForm">
                 <div class="col-md-6 col-sm-6">
                     <h2>Övare</h2>
-                    <div class="row" style="overflow: auto; height: 500px;">
+                    <div class="row">
                         {% for connectionRequest in learners %}
                             {{ macro.connectionRequestItem(connectionRequest, 'learner', loop.first) }}
                         {% endfor %}
@@ -98,7 +98,7 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <h2 style="clear:both">Lärare</h2>
-                    <div class="row" style="overflow: auto; height: 500px;">
+                    <div class="row">
                         {% for connectionRequest in fluentSpeakers %}
                             {{ macro.connectionRequestItem(connectionRequest, 'fluentSpeaker', loop.first) }}
                         {% endfor %}
