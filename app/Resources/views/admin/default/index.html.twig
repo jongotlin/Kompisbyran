@@ -39,7 +39,10 @@
                     {% endfor %}
                     <br>
                     {{ connectionRequest.createdAt|date('Y-m-d') }}<br>
-                    "<em>{{ connectionRequest.comment|nl2br }}</em>"
+                    {% if connectionRequest.comment %}
+                        "<em>{{ connectionRequest.comment|nl2br }}</em>"<br>
+                    {% endif %}
+                    {{ connectionRequest.user.email }}
                 </p>
                 {% if connectionRequest.user.internalComment %}
                     <p>{{ connectionRequest.user.internalComment }}</p>
