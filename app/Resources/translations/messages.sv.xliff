@@ -13,9 +13,10 @@
             <trans-unit id="homepage.cta.message">
                 <source>homepage.cta.message</source>
                 <target>
-                    Vi hjälper dig som vill bli bättre på att prata svenska och träffa nya kompisar som har bott i Sverige länge. 
-                    Och vi hjälper dig som talar flytande svenska, vill hjälpa någon att öva svenska och träffa nya kompisar. 
-                    Ni träffas, fikar och övar svenska! Tillsammans kan vi öka gemenskapen i samhället. Bli en fikakompis idag!
+                    Kompisbyrån hjälper människor att träffa nya kompisar. Vi skapar kontakt mellan dig som är ny 
+                    i Sverige och dig som har bott här länge. Ni träffas, fikar och övar svenska! 
+                    Tillsammans kan vi öka gemenskapen i samhället. Bli en fikakompis idag!
+                    
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.button">
