@@ -446,6 +446,10 @@ fotm textarea{
 .nav-head .navbar-default .navbar-collapse{
     border: 0;
 }
+.nav-head .navbar-default .navbar-nav ul {
+    position: relative;
+    background-color: #fff;
+}
 
 .nav-head .navbar-default .navbar-nav > li a{
     display: block;
@@ -513,6 +517,7 @@ fotm textarea{
     font-weight: normal;
     text-transform: none;
     color: #fff;
+    border-bottom: 1px solid;
 }
 
 .nav-head .navbar-default  .navbar-nav > li.dropdown ul li a:hover{
@@ -2690,7 +2695,7 @@ div.ppt {
 
     .nav-head .navbar-default .navbar-nav > li a{
         margin-top: 0px;
-        padding-top: 8px;
+        padding-top: 10px;
         padding-bottom: 8px;
     }
 
