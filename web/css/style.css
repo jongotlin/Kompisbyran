@@ -2692,10 +2692,16 @@ div.ppt {
         margin: 0 auto !important;
     }
 
+    .navbar-nav {
+        position: relative;
+        background-color: #fff;
+    }
+
     .nav-head .navbar-default .navbar-nav > li a{
         margin-top: 0px;
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding: 15px 0px;
+        border-bottom: 1px solid;
+        text-align: center;
     }
 
     .nav-head .navbar-default  .navbar-nav > .dropdown .dropdown-menu{
@@ -2896,14 +2902,8 @@ div.ppt {
         font-size: 28px;
     }
 
-    .navbar-nav {
-        position: relative;
-        background-color: #fff;
-    }
-
     .nav-head .navbar-default .navbar-nav > li a{
-        border-bottom: 1px solid;
-        padding-top: 10px;
+        padding: 10px 0px;
     }
 
     .banner-container ,
