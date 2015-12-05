@@ -32,7 +32,7 @@ Set default or specify values for connection string (later found in app/config/p
     database_password: root
 ```
 
-Create empty database with `php app/console doctrine:database:create`  
+Create empty database with `php app/console doctrine:database:create`
 Create database schema with `php app/console doctrine:schema:create`  
 Fill with fixture data with `php app/console doctrine:fixtures:load -n`
 
