@@ -517,7 +517,6 @@ fotm textarea{
     font-weight: normal;
     text-transform: none;
     color: #fff;
-    border-bottom: 1px solid;
 }
 
 .nav-head .navbar-default  .navbar-nav > li.dropdown ul li a:hover{
@@ -2695,7 +2694,7 @@ div.ppt {
 
     .nav-head .navbar-default .navbar-nav > li a{
         margin-top: 0px;
-        padding-top: 10px;
+        padding-top: 8px;
         padding-bottom: 8px;
     }
 
@@ -2895,6 +2894,16 @@ div.ppt {
 
     .nav-head .navbar-default .logo span{
         font-size: 28px;
+    }
+
+    .navbar-nav {
+        position: relative;
+        background-color: #fff;
+    }
+
+    .nav-head .navbar-default .navbar-nav > li a{
+        border-bottom: 1px solid;
+        padding-top: 10px;
     }
 
     .banner-container ,
