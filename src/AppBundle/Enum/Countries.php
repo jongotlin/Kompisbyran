@@ -8,6 +8,7 @@ class Countries
      * @var string[]
      */
     protected static $countries = [
+        '' => '',
         'AD' => 'Andorra',
         'AE' => 'Förenade Arabemiraten',
         'AF' => 'Afghanistan',
