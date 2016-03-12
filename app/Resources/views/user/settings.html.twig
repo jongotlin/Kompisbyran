@@ -114,22 +114,6 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-4">
-
-                                <img
-                                        src="{% if form.profilePicture.vars.value %}{{ form.profilePicture.vars.value }}{% else %}/images/user.png{% endif %}"
-                                        id="profile-picture"
-                                        class="img-responsive thumbnail pull-left"
-                                        alt=""
-                                        width="75px"
-                                        style="margin-right:10px;"
-                                        >
-
-                                <fb:login-button scope="public_profile" onlogin="checkLoginState();">{{ 'user.form.facebook'|trans }}</fb:login-button>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-4">
                                 <button type="submit" class="btn btn-default">{{ 'user.form.button'|trans }}</button>
                             </div>
                         </div>
@@ -139,50 +123,5 @@
             </div>
         </div>
     </div>
-
-{% endblock %}
-
-
-{% block javascripts %}
-
-    <script>
-        function statusChangeCallback(response) {
-            if (response.status === 'connected') {
-                loggedIn();
-            }
-        }
-
-        function checkLoginState() {
-            FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-            });
-        }
-
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '{{ facebook_client_id }}',
-                cookie     : true,  // enable cookies to allow the server to access
-                                    // the session
-                xfbml      : true,  // parse social plugins on this page
-                version    : 'v2.2' // use version 2.2
-            });
-        };
-
-        // Load the SDK asynchronously
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        function loggedIn() {
-            FB.api('/me?fields=picture', function(response) {
-                document.getElementById('profile-picture').src = response.picture.data.url;
-                document.getElementById('user_profilePicture').value = response.picture.data.url;
-            });
-        }
-    </script>
 
 {% endblock %}
