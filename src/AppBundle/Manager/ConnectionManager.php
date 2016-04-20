@@ -132,4 +132,13 @@ class ConnectionManager implements ManagerInterface
             $speaker
         ];
     }
+
+    /**
+     * @param $days
+     * @return array
+     */
+    public function getCreatedDaysAgo($days)
+    {
+        return $this->connectionRepository->findCreatedDaysAgo($days);
+    }
 }

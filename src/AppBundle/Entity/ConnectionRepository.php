@@ -130,7 +130,7 @@ class ConnectionRepository extends EntityRepository
             ])
             ->getQuery()
             ->execute()
-            ;
+        ;
     }
 
     /**
@@ -152,5 +152,21 @@ class ConnectionRepository extends EntityRepository
         ;
 
         return $qb->getQuery()->getSingleScalarResult()? true: false;
+    }
+
+    /**
+     * @param $days
+     * @return mixed
+     */
+    public function findCreatedDaysAgo($days)
+    {
+        return $this
+            ->createQueryBuilder('c')
+            ->where('DATE_DIFF(:now, c.createdAt) > :days')
+            ->setParameter('now'    , new \DateTime())
+            ->setParameter('days'   , $days)
+            ->getQuery()
+            ->getResult()
+        ;
     }
 }
