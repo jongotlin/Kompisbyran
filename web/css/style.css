@@ -1036,7 +1036,7 @@ fotm textarea{
     padding-bottom: 56.25%; /* 16/9 ratio */
     padding-top: 30px; /* IE6 workaround*/
     height: 0;
-    overflow: hidden;    
+    overflow: hidden;
 }
 
 .musikkompis .video__box iframe,
@@ -2825,6 +2825,13 @@ div.ppt {
         display: none;
     }
 }
+
+/* Admin */
+#userEditModal form {
+  padding: 20px;
+  border: 1px solid #ccc;";
+}
+
 
 /* Desktop */
 @media (max-width: 991px){
