@@ -1,16 +1,14 @@
-{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
-{% form_theme form 'form/fields.html.twig' %}
+{% form_theme form with ['bootstrap_3_horizontal_layout.html.twig', 'form/fields.html.twig'] %}
 
-{{ form_start(form, {action: path('admin_ajax_edit', {id: user.id})}) }}
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Edit Profile</h4>
-    </div>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Edit Profile</h4>
+</div>
 
-    <div class="modal-body">
-        <div class="row">
-            {#{ form_widget(form) }#}
-            <div class="col-md-12">
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-8">
+            {{ form_start(form, {action: path('admin_ajax_edit', {id: user.id}), 'id': 'profile-form'}) }}
                 <div class="form-group">
                     {{ form_label(form.firstName) }}
                     <div class="col-sm-6">
@@ -129,13 +127,42 @@
                 </div>
 
                 {{ form_rest(form) }}
-            </div>
+            {{ form_end(form) }}
+        </div>
+
+        <div class="col-md-4">
+            {{ form_start(requestForm, {action: path('admin_ajax_connection_request_edit', {id: request_id}), 'id': 'request-form'}) }}
+
+                <div class="form-group">
+                    {{ form_label(requestForm.city) }}
+                    {{ form_widget(requestForm.city) }}
+                    {{ form_errors(requestForm.city) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(requestForm.comment) }}
+                    {{ form_widget(requestForm.comment) }}
+                    {{ form_errors(requestForm.comment) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_widget(requestForm.musicFriend) }}
+                    {{ form_errors(requestForm.musicFriend) }}
+                </div>
+                {{ form_rest(form) }}
+                <div class="text-right">
+                    <button type="button" class="btn btn-default btn-save-request">{{ 'connection_request.form.button'|trans }}</button>
+                </div>
+            {{ form_end(requestForm) }}
         </div>
     </div>
-    <div class="modal-footer">
-        <div class="col-md-11 pull-right">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-default btn-save-profile">{{ 'user.form.button'|trans }}</button>
-        </div>
+</div>
+<div class="modal-footer">
+    <div class="col-md-6 text-left">
+        <button type="button" class="btn btn-danger btn-delete-request" data-url="{{ path('admin_ajax_connection_request_delete', {'id': request_id}) }}">Delete connection request</button>
     </div>
-{{ form_end(form) }}
+    <div class="col-md-6 text-right">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default btn-save-profile">{{ 'user.form.button'|trans }}</button>
+    </div>
+</div>

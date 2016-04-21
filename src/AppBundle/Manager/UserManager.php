@@ -280,4 +280,13 @@ class UserManager implements ManagerInterface
     {
         return '<span class="matches">'.$str.'</span>';
     }
+
+    /**
+     * @param User $user
+     * @return string
+     */
+    public function getWantToLearnTypeName(User $user)
+    {
+        return $user->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Established');
+    }
 }

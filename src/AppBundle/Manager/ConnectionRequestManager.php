@@ -10,6 +10,7 @@ use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\City;
 use AppBundle\Entity\User;
 use Pagerfanta\Pagerfanta;
+use AppBundle\Manager\UserManager;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Symfony\Component\Translation\TranslatorInterface;
 
@@ -24,19 +25,26 @@ class ConnectionRequestManager implements ManagerInterface
     private $connectionRequestRepository;
 
     /**
+     * @var UserManager
+     */
+    private $userManager;
+
+    /**
      * @var TranslatorInterface
      */
     private $translator;
 
     /**
      * @InjectParams({
-     *     "connectionRequestRepository" = @Inject("connection_request_repository"),
-     *     "translator" = @Inject("translator")
+     *      "connectionRequestRepository" = @Inject("connection_request_repository"),
+     *      "userManager" = @Inject("user_manager"),
+     *      "translator" = @Inject("translator")
      * })
      */
-    public function __construct(ConnectionRequestRepository $connectionRequestRepository, TranslatorInterface $translator)
+    public function __construct(ConnectionRequestRepository $connectionRequestRepository, UserManager $userManager, TranslatorInterface $translator)
     {
         $this->connectionRequestRepository  = $connectionRequestRepository;
+        $this->userManager                  = $userManager;
         $this->translator                   = $translator;
     }
 
@@ -173,7 +181,7 @@ class ConnectionRequestManager implements ManagerInterface
                 'request_date'  => $connectionRequest->getCreatedAt()->format('Y-m-d'),
                 'name'          => $connectionRequest->getUser()->getFullName(),
                 'email'         => $connectionRequest->getUser()->getEmail(),
-                'category'      => ($connectionRequest->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Established')),
+                'category'      => $this->userManager->getWantToLearnTypeName($connectionRequest->getUser()), //($connectionRequest->getUser()->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Established')),
                 'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId().'|'.$pending //user_id|request_id|pending
             ];
         }
@@ -247,14 +255,5 @@ class ConnectionRequestManager implements ManagerInterface
         }
 
         return false;
-    }
-
-    /**
-     * @param ConnectionRequest $connectionRequest
-     * @return string
-     */
-    public function getWantToLearnTypeName(ConnectionRequest $connectionRequest)
-    {
-        return $connectionRequest->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Established');
     }
 }

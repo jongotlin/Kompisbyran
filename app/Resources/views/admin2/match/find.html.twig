@@ -15,164 +15,87 @@
                 </div>
             </div>
             <div class="row">
-                <form class="form-horizontal current-profile-form">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
-                            <div class="col-sm-10">
-                                <div class="form-control" id="fullName">{{ user.fullName }}&nbsp;({{ user.genderName|trans }})</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{ 'Email'|trans }}</label>
-                            <div class="col-sm-10">
-                                <div class="form-control" id="email">{{ user.email }}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{ 'Age'|trans }}</label>
-                            <div class="col-sm-10">
-                                <div class="form-control" id="age">{{ user.age }}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{ 'Category'|trans }}</label>
-                            <div class="col-sm-10">
-                                <div class="form-control" id="type">{{ want_to_learn_name(connectionRequest.wantToLearn) }}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{ 'Country'|trans }}</label>
-                            <div class="col-sm-10">
-                                <div class="form-control" id="countryName">{{ user.countryName }}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{ 'Area'|trans }}</label>
-                            <div class="col-sm-10">
-                                <div class="form-control" id="area">{{ connectionRequest.city.name }}, {{ user.municipality.name }}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{ 'Children'|trans }}</label>
-                            <div class="col-sm-10">
-                                <div class="form-control" id="hasChildren">{% if user.hasChildren %}Yes{% else %}No{% endif %}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{ 'Type'|trans }}</label>
-                            <div class="col-sm-10">
-                                <div class="form-control" id="musicFriendType">{{ connectionRequest.musicFriendType|trans }}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{ 'Interests'|trans }}</label>
-                            <div class="col-sm-10">
-                                <div class="form-control textarea" id="interests">{{ user_category_name_string(user) }}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <label class="col-sm-12">{{ 'Description'|trans }}</label>
-                            <div class="col-sm-12">
-                                <div class="form-control textarea" id="about">{{ user.about|raw }}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-12">{{ 'Match Request'|trans }}</label>
-                            <div class="col-sm-12">
-                                <div class="form-control textarea" id="firstConnectionRequestComment">{{ connectionRequest.comment|raw }}</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-12">{{ 'Internal Comments'|trans }}</label>
-                            <div class="col-sm-12">
-                                <div class="form-control textarea" id="internalComment">{{ user.internalComment|raw }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                {% embed "admin2/user/info.html.twig" with {'user': user, 'connectionRequest': connectionRequest} %}{% endembed %}
             </div>
             <div class="row" style="margin-top: 20px;">
                 <h2>{{ '2.2 Filter if necessary'|trans }}</h2>
             </div>
             <form class="form-horizontal" id="filter-form" action="{{ path('admin_match_results', {id: user.id}) }}" novalidate="novalidate" method="post">
-            <div class="row match-filter-container" data-filters="">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <div class="col-sm-3">
-                            {{ form_label(form.category_id) }}
+                <div class="row match-filter-container" data-filters="">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                {{ form_label(form.category_id) }}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ form_widget(form.category_id) }}
+                            </div>
                         </div>
-                        <div class="col-sm-9">
-                            {{ form_widget(form.category_id) }}
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                {{ form_label(form.ageFrom) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ form_widget(form.ageFrom) }}
+                            </div>
+                            <div class="col-sm-1">
+                                <strong>-</strong>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ form_widget(form.ageTo) }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-3">
-                            {{ form_label(form.ageFrom) }}
-                        </div>
-                        <div class="col-sm-4">
-                            {{ form_widget(form.ageFrom) }}
-                        </div>
-                        <div class="col-sm-1">
-                            <strong>-</strong>
-                        </div>
-                        <div class="col-sm-4">
-                            {{ form_widget(form.ageTo) }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-3">
-                            {{ form_label(form.gender) }}
-                        </div>
-                        <div class="col-sm-9">
-                            {{ form_widget(form.gender) }}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <div class="col-sm-3">
-                            {{ form_label(form.has_children) }}
-                        </div>
-                        <div class="col-sm-9">
-                            {{ form_widget(form.has_children) }}
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                {{ form_label(form.gender) }}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ form_widget(form.gender) }}
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-3">
-                            {{ form_label(form.from) }}
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                {{ form_label(form.has_children) }}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ form_widget(form.has_children) }}
+                            </div>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                {{ form_label(form.from) }}
+                            </div>
+                            <div class="col-sm-9">
 
-                            {{ form_widget(form.from) }}
+                                {{ form_widget(form.from) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                {{ form_label(form.municipality_id) }}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ form_widget(form.municipality_id) }}
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-3">
-                            {{ form_label(form.municipality_id) }}
-                        </div>
-                        <div class="col-sm-9">
-                            {{ form_widget(form.municipality_id) }}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <div class="col-sm-3">
-                            {{ form_label(form.music_friend) }}
-                        </div>
-                        <div class="col-sm-9">
-                            {{ form_widget(form.music_friend) }}
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                {{ form_label(form.music_friend) }}
+                            </div>
+                            <div class="col-sm-9">
+                                {{ form_widget(form.music_friend) }}
+                            </div>
                         </div>
                     </div>
+                    <div class="col-md-12" style="margin-top: 15px;">
+                        <a href="" class="btn btn-lg btn-default btn-search" data-current-user="{{ user.id }}">Search</a>
+                    </div>
                 </div>
-                <div class="col-md-12" style="margin-top: 15px;">
-                    <a href="" class="btn btn-lg btn-default btn-search" data-current-user="{{ user.id }}">Search</a>
-                </div>
-            </div>
-            {{ form_rest(form) }}
+                {{ form_rest(form) }}
             </form>
             <div class="row" style="margin-top: 20px;">
                 <h2>{{ '2.3 Choose a person to match '~ user.fullName ~' with'|trans }}</h2>
@@ -208,12 +131,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel">
-        <div class="modal-dialog" role="document" style="width:800px;">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
+    {% include 'admin2/user/modal.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}
@@ -304,7 +222,7 @@
             $('body').on('click', '.btn-save-profile', function(e){
                 e.preventDefault();
                 var $this = $(this);
-                var $form = $this.closest('form');
+                var $form = $('[name=admin_user]'); //$this.closest('form');
 
                 $.post($form.attr('action'), $form.serialize(), function (resp){
                     if (resp.success) {
@@ -313,6 +231,37 @@
                             for (var prop in resp.user) {
                                 $('#'+prop).html(resp.user[prop]);
                             }
+                        } else {
+                            $('.btn-search').trigger('click');
+                        }
+                    }
+                });
+            });
+
+            $('body').on('click', '.btn-save-request', function(e){
+                e.preventDefault();
+                var $this = $(this);
+                var $form = $('[name=connectionRequest]'); //$this.closest('form');
+
+                $.post($form.attr('action'), $form.serialize(), function (resp){
+                    if (resp.success) {
+                        $('#userEditModal').modal('hide');
+                        window.location.reload();
+                    }
+                });
+            });
+
+
+
+            $('body').on('click', '.btn-delete-request', function(e){
+                e.preventDefault();
+                var $this = $(this);
+
+                $.get($this.data('url'), function (resp){
+                    if (resp.success) {
+                        $('#userEditModal').modal('hide');
+                        if ($('#userEditModal').hasClass('current')) {
+                            window.location = Routing.generate('admin_start2');
                         } else {
                             $('.btn-search').trigger('click');
                         }
@@ -375,10 +324,10 @@
                         });
 
                         /*if (firstItem != 0) {
-                            $('html, body').animate({
-                                scrollTop: $('#'+firstItem).offset().top
-                            }, 1000);
-                        }*/
+                         $('html, body').animate({
+                         scrollTop: $('#'+firstItem).offset().top
+                         }, 1000);
+                         }*/
                     }
                 });
             }

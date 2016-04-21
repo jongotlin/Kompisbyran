@@ -6,7 +6,11 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use JMS\DiExtraBundle\Annotation\FormType;
 
+/**
+ * @FormType
+ */
 class ConnectionRequestType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
