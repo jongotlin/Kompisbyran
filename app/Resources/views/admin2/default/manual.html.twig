@@ -91,7 +91,20 @@
             $('body').on('click', '.btn-save-profile', function(e){
                 e.preventDefault();
                 var $this = $(this);
-                var $form = $this.closest('form');
+                var $form = $('[name=admin_user]'); //$this.closest('form');
+
+                $.post($form.attr('action'), $form.serialize(), function (resp){
+                    if (resp.success) {
+                        $('#userEditModal').modal('hide');
+                        window.location.reload();
+                    }
+                });
+            });
+
+            $('body').on('click', '.btn-save-request', function(e){
+                e.preventDefault();
+                var $this = $(this);
+                var $form = $('[name=connectionRequest]'); //$this.closest('form');
 
                 $.post($form.attr('action'), $form.serialize(), function (resp){
                     if (resp.success) {

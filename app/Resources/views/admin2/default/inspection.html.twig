@@ -9,97 +9,18 @@
         {% set user = uninspectedRequest.user %}
         <div class="row"  style="margin-bottom: 10px;">
             <h3>{{ uninspectedRequest.createdAt|date('Y-m-d') }}-{{ user.fullName }}</h3>
-            <form class="form-horizontal current-profile-form">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
-                        <div class="col-sm-10">
-                            <div class="form-control" id="fullName">{{ user.fullName }}&nbsp;({{ user.genderName|trans }})</div>
-                        </div>
+            {% embed "admin2/user/info.html.twig" with {'user': user, 'connectionRequest': uninspectedRequest} %}
+                {% block edit_profile_buttons %}
+                    <div class="col-md-10 col-md-offset-1">
+                        <a href="{{ path('admin_ajax_connection_request_mark_inspected', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-approve{% if uninspectedRequest.inspected %} disabled{% endif %}">{{ 'Approve'|trans }}</a>&nbsp;
+                        <a href="{{ path('admin_ajax_connection_request_mark_pending_or_unpending', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-unpending">{% if uninspectedRequest.pending %}{{ 'Remove Pending'|trans }}{% else %}{{ 'Make Pending'|trans }}{% endif %}</a>&nbsp;
+                        <a href="{{ path('admin_ajax_edit', {id: user.id}) }}" class="btn btn-large btn-default btn-edit-profile">{{ 'Edit Profile'|trans }}</a>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ 'Email'|trans }}</label>
-                        <div class="col-sm-10">
-                            <div class="form-control" id="email">{{ user.email }}</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ 'Age'|trans }}</label>
-                        <div class="col-sm-10">
-                            <div class="form-control" id="age">{{ user.age }}</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ 'Category'|trans }}</label>
-                        <div class="col-sm-10">
-                            <div class="form-control" id="type">{{ want_to_learn_name(uninspectedRequest.wantToLearn) }}</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ 'Country'|trans }}</label>
-                        <div class="col-sm-10">
-                            <div class="form-control" id="countryName">{{ user.countryName }}</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ 'Area'|trans }}</label>
-                        <div class="col-sm-10">
-                            <div class="form-control" id="area">{{ uninspectedRequest.city.name }}, {{ user.municipality.name }}</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ 'Children'|trans }}</label>
-                        <div class="col-sm-10">
-                            <div class="form-control" id="hasChildren">{% if user.hasChildren %}Yes{% else %}No{% endif %}</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ 'Type'|trans }}</label>
-                        <div class="col-sm-10">
-                            <div class="form-control" id="musicFriendType">{{ uninspectedRequest.musicFriendType|trans }}</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ 'Interests'|trans }}</label>
-                        <div class="col-sm-10">
-                            <div class="form-control textarea" id="interests">{{ user_category_name_string(user) }}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <div class="form-group">
-                        <label class="col-sm-12">{{ 'Description'|trans }}</label>
-                        <div class="col-sm-12">
-                            <div class="form-control textarea" id="about">{{ user.about|raw }}</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-12">{{ 'Match Request'|trans }}</label>
-                        <div class="col-sm-12">
-                            <div class="form-control textarea" id="firstConnectionRequestComment">{{ uninspectedRequest.comment|raw }}</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-12">{{ 'Internal Comments'|trans }}</label>
-                        <div class="col-sm-12">
-                            <div class="form-control textarea" id="internalComment">{{ user.internalComment|raw }}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-10 col-md-offset-1">
-                    <a href="{{ path('admin_ajax_connection_request_mark_inspected', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-approve{% if uninspectedRequest.inspected %} disabled{% endif %}">{{ 'Approve'|trans }}</a>&nbsp;
-                    <a href="{{ path('admin_ajax_connection_request_mark_pending_or_unpending', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-unpending">{% if uninspectedRequest.pending %}{{ 'Remove Pending'|trans }}{% else %}{{ 'Make Pending'|trans }}{% endif %}</a>&nbsp;
-                    <a href="{{ path('admin_ajax_edit', {id: uninspectedRequest.user.id}) }}" class="btn btn-large btn-default btn-edit-profile">{{ 'Edit Profile'|trans }}</a>
-                </div>
-            </form>
+                {% endblock %}
+            {% endembed %}
         </div>
     {% endfor %}
-    <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel">
-        <div class="modal-dialog" role="document" style="width:800px;">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
+    {% include 'admin2/user/modal.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}
@@ -144,10 +65,35 @@
                 });
             });
 
+            $('body').on('click', '.btn-delete-request', function(e){
+                e.preventDefault();
+                var $this = $(this);
+                $('#userEditModal').modal('hide');
+
+                $.get($this.data('url'), function (resp){
+                    if (resp.success) {
+                        window.location.reload();
+                    }
+                });
+            });
+
             $('body').on('click', '.btn-save-profile', function(e){
                 e.preventDefault();
                 var $this = $(this);
-                var $form = $this.closest('form');
+                var $form = $('[name=admin_user]'); //$this.closest('form');
+
+                $.post($form.attr('action'), $form.serialize(), function (resp){
+                    if (resp.success) {
+                        $('#userEditModal').modal('hide');
+                        window.location.reload();
+                    }
+                });
+            });
+
+            $('body').on('click', '.btn-save-request', function(e){
+                e.preventDefault();
+                var $this = $(this);
+                var $form = $('[name=connectionRequest]');
 
                 $.post($form.attr('action'), $form.serialize(), function (resp){
                     if (resp.success) {

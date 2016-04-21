@@ -16,6 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Form\FormFactoryInterface;
 
 /**
  * @Route("admin2/connectionrequests")
@@ -33,16 +34,22 @@ class ConnectionRequestController extends Controller
     private $cityManager;
 
     /**
+     * @var FormFactoryInterface
+     */
+    private $formFactory;
+
+    /**
      * @InjectParams({
      *     "connectionRequestManager"   = @Inject("connection_request_manager"),
-     *     "cityManager"                = @Inject("city_manager")
-     *
+     *     "cityManager"                = @Inject("city_manager"),
+     *     "formFactory" = @Inject("form.factory")
      * })
      */
-    public function __construct(ConnectionRequestManager $connectionRequestManager, CityManager $cityManager)
+    public function __construct(ConnectionRequestManager $connectionRequestManager, CityManager $cityManager, FormFactoryInterface $formFactory)
     {
         $this->connectionRequestManager = $connectionRequestManager;
         $this->cityManager              = $cityManager;
+        $this->formFactory              = $formFactory;
     }
 
     /**
@@ -102,5 +109,45 @@ class ConnectionRequestController extends Controller
             'success'   => ($connectionRequest == false? false: true),
             'label'     => ($connectionRequest->getPending()? 'Remove Pending': 'Make Pending')
         ]);
+    }
+
+    /**
+     * @Route("/ajax-delete/{id}", name="admin_ajax_connection_request_delete", options={"expose"=true})
+     * @Method({"GET"})
+     */
+    public function ajaxDeleteAction(Request $request, ConnectionRequest $connectionRequest)
+    {
+        if (!$request->isXmlHttpRequest()) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $this->connectionRequestManager->remove($connectionRequest);
+
+        return new JsonResponse([
+            'success' => true
+        ]);
+    }
+
+    /**
+     * @Route("/ajax-edit/{id}", name="admin_ajax_connection_request_edit", options={"expose"=true})
+     * @Method({"POST"})
+     */
+    public function ajaxEditAction(Request $request, ConnectionRequest $connectionRequest)
+    {
+        $form = $this->formFactory->create('connectionRequest', $connectionRequest);
+
+        $form->handleRequest($request);
+
+        if ($request->isMethod(Request::METHOD_POST)) {
+            if ($form->isValid()) {
+                $this->connectionRequestManager->save($connectionRequest);
+
+                return new JsonResponse([
+                    'success' => true
+                ]);
+            }
+        }
+
+        return new JsonResponse(['success' => false]);
     }
 }
