@@ -2,12 +2,13 @@
 
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-title">Edit Profile</h4>
+    <h4 class="modal-title">Edit Profile & Request</h4>
 </div>
 
 <div class="modal-body">
     <div class="row">
         <div class="col-md-8">
+            <h2>Edit User Profile</h2>
             {{ form_start(form, {action: path('admin_ajax_edit', {id: user.id}), 'id': 'profile-form'}) }}
                 <div class="form-group">
                     {{ form_label(form.firstName) }}
@@ -131,6 +132,7 @@
         </div>
 
         <div class="col-md-4">
+            <h2>Edit Connection Request</h2>
             {{ form_start(requestForm, {action: path('admin_ajax_connection_request_edit', {id: request_id}), 'id': 'request-form'}) }}
 
                 <div class="form-group">
@@ -151,7 +153,7 @@
                 </div>
                 {{ form_rest(form) }}
                 <div class="text-right">
-                    <button type="button" class="btn btn-default btn-save-request">{{ 'connection_request.form.save.button'|trans }}</button>
+                    <button type="button" class="btn btn-default btn-save-request">{{ 'Save request (NOT profile!)'|trans }}</button>
                 </div>
             {{ form_end(requestForm) }}
         </div>
@@ -162,7 +164,7 @@
         <button type="button" class="btn btn-danger btn-delete-request" data-url="{{ path('admin_ajax_connection_request_delete', {'id': request_id}) }}">Delete connection request</button>
     </div>
     <div class="col-md-6 text-right">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'Close'|trans }}</button>
         <button type="button" class="btn btn-default btn-save-profile">{{ 'Save user profile'|trans }}</button>
     </div>
 </div>

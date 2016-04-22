@@ -144,12 +144,12 @@ class MatchController extends Controller
 
                 if ($userRequest instanceof ConnectionRequest && $matchUserRequest instanceof ConnectionRequest) {
 
-                    $this->connectionManager->saveByConnectionRequest($userRequest, $matchUserRequest, $this->getUser());
+                    $connection = $this->connectionManager->saveByConnectionRequest($userRequest, $matchUserRequest, $this->getUser());
                     $this->connectionRequestManager->remove($userRequest);
                     $this->connectionRequestManager->remove($matchUserRequest);
 
-                    $this->userMailer->sendMatchEmailMessage($user, $matchUser, $match['email_to_user']);
-                    $this->userMailer->sendMatchEmailMessage($matchUser, $user, $match['email_to_match_user']);
+                    $this->userMailer->sendMatchEmailMessage($user, $matchUser, $match['email_to_user'], $connection->getCity()->getSenderEmail());
+                    $this->userMailer->sendMatchEmailMessage($matchUser, $user, $match['email_to_match_user'], $connection->getCity()->getSenderEmail());
 
                     $this->addFlash('info', sprintf(
                         'En koppling skapades melland %s och %s',
