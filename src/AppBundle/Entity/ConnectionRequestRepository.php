@@ -80,6 +80,15 @@ class ConnectionRequestRepository extends EntityRepository
     }
 
     /**
+     * @param $userId
+     * @return null|object
+     */
+    public function findOneByUserId($userId)
+    {
+        return $this->findOneBy(array('user' => $userId));
+    }
+
+    /**
      * @deprecated
      *
      * @param User $user

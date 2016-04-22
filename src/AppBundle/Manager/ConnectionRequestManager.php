@@ -199,6 +199,15 @@ class ConnectionRequestManager implements ManagerInterface
     }
 
     /**
+     * @param $userId
+     * @return null|object
+     */
+    public function getFindOneByUserId($userId)
+    {
+         return $this->connectionRequestRepository->findOneByUserId($userId);
+    }
+
+    /**
      * @return array
      */
     public function getFindAllPending()

@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function ajaxEditAction(Request $request, User $user)
     {
-        $userRequest    = $this->connectionRequestManager->getFindOneUnpendingByUserId($user->getId());
+        $userRequest    = $this->connectionRequestManager->getFindOneByUserId($user->getId());
 
         $form           = $this->formFactory->create('admin_user', $user, [
             'manager'   => $this->getDoctrine()->getManager(),

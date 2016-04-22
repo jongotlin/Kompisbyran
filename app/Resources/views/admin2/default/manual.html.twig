@@ -15,7 +15,7 @@
             </tr>
             </thead>
             <tbody class="persons-list-body">
-                {% for pendingRequest in pendingRequests%}
+                {% for pendingRequest in pendingRequests %}
                     <tr>
                         <td>{{ pendingRequest.createdAt|date('Y-m-d') }}</td>
                         <td>{{ pendingRequest.user.fullName }}</td>
@@ -23,7 +23,7 @@
                         <td>{{ pendingRequest.user.internalComment }}</td>
                         <td>
                             <div class="text-right">
-                                <a href="{{ path('admin_ajax_edit', {id: pendingRequest.user.id}) }}" class="btn btn-danger edit-current-profile" target="_blank">{{ 'Edit Profile'|trans }}</a>&nbsp;
+                                <a href="{{ path('admin_ajax_edit', {id: pendingRequest.user.id}) }}" class="btn btn-danger edit-current-profile">{{ 'Edit Profile'|trans }}</a>&nbsp;
                                 <a href="{{ path('admin_ajax_connection_request_mark_pending_or_unpending', {id: pendingRequest.id}) }}" class="btn btn-warning btn-unpending">{% if pendingRequest.pending %}{{ 'Remove Pending'|trans }}{% else %}{{ 'Make Pending'|trans }}{% endif %}</a>
                             </div>
                         </td>
@@ -32,12 +32,7 @@
             </tbody>
         </table>
     </div>
-    <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel">
-        <div class="modal-dialog" role="document" style="width:800px;">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
+    {% include 'admin2/user/modal.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}
@@ -61,7 +56,8 @@
                 "pageLength": 100
             });
 
-            $('.btn-unpending').click(function(e){
+            //$('.btn-unpending').click(function(e){
+            $('#match-users').on('click', 'a.btn-unpending', function(e){
                 e.preventDefault();
 
                 var $this = $(this);
@@ -73,7 +69,7 @@
                 });
             });
 
-            $('body').on('click', '.edit-current-profile', function(e){
+            $('#match-users').on('click', 'a.edit-current-profile', function(e){
                 e.preventDefault();
                 var $this = $(this);
                 $('#userEditModal').removeClass('current');
