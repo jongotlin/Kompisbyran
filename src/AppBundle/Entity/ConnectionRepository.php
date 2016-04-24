@@ -156,17 +156,21 @@ class ConnectionRepository extends EntityRepository
 
     /**
      * @param $days
-     * @return mixed
+     * @param $numSent
+     * @return array
      */
-    public function findCreatedDaysAgo($days)
+    public function findCreatedDaysAgo($days, $numSent)
     {
         return $this
             ->createQueryBuilder('c')
-            ->where('DATE_DIFF(:now, c.createdAt) > :days')
-            ->setParameter('now'    , new \DateTime())
-            ->setParameter('days'   , $days)
+            ->where('DATE_DIFF(:now, c.createdAt) >= :days')
+            ->andWhere('c.numSent = :numSent')
+            ->setParameter('now'        , new \DateTime())
+            ->setParameter('days'       , $days)
+            ->setParameter('numSent'    , $numSent)
+            ->setMaxResults(1)
             ->getQuery()
-            ->getResult()
+            ->getSingleResult()
         ;
     }
 }

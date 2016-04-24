@@ -10,6 +10,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Connection
 {
+    const FOLLOW_UP_14_DAYS = 14;
+
+    const FOLLOW_UP_42_DAYS = 42;
+
     /**
      * @var int
      *
@@ -87,11 +91,19 @@ class Connection
      */
     protected $musicFriend = false;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $numSent;
+
     public function __construct(User $user = null)
     {
-        $this->createdAt = new \DateTime();
-        $this->createdBy = $user;
-        $this->comments = new ArrayCollection();
+        $this->createdAt    = new \DateTime();
+        $this->createdBy    = $user;
+        $this->numSent      = 0;
+        $this->comments     = new ArrayCollection();
     }
 
     /**
@@ -231,5 +243,23 @@ class Connection
     public function setMusicFriend($musicFriend)
     {
         $this->musicFriend = $musicFriend;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getNumSent()
+    {
+        return $this->numSent;
+    }
+
+    /**
+     * @param integer $numSent
+     */
+    public function setNumSent($numSent)
+    {
+        $this->numSent = $numSent;
+
+        return $this;
     }
 }

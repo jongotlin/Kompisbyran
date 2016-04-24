@@ -7,6 +7,7 @@ use Symfony\Component\Routing\RouterInterface;
 use FOS\UserBundle\Mailer\MailerInterface;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use AppBundle\Entity\Connection;
 
 /**
  * Class UserMailer
@@ -72,5 +73,37 @@ class UserMailer extends Mailer
         ]);
 
         $this->sendEmailMessage(null, $body, $subject, $user->getEmail());
+    }
+
+    public function sendConnectionFollowUpEmailMessage(UserInterface $user, $days)
+    {
+        $wantToLearnType    = ($user->getWantToLearn()? 'learner': 'fluent');
+        $htmlTemplate       = "email/connection_followup_{$days}_{$wantToLearnType}.html.twig";
+        $txtTemplate        = "email/connection_followup_{$days}_{$wantToLearnType}.txt.twig";
+
+        $html       = $this->templating->render($htmlTemplate, [
+            'user'  =>  $user
+        ]);
+
+        $txt        = $this->templating->render($txtTemplate, [
+            'user'  => $user
+        ]);
+
+        switch (true) {
+            case $user->getWantToLearn() && $days == Connection::FOLLOW_UP_14_DAYS:
+                $subject = 'Fråga från Kompisbyrån // Question from Kompisbyrån';
+            break;
+            case !$user->getWantToLearn() && $days == Connection::FOLLOW_UP_14_DAYS:
+                $subject = 'Fråga från Kompisbyrån';
+            break;
+            case $user->getWantToLearn() && $days == Connection::FOLLOW_UP_42_DAYS:
+                $subject = 'Uppföljning från Kompisbyrån (Follow-up from Kompisbyrån)';
+            break;
+            case !$user->getWantToLearn() && $days == Connection::FOLLOW_UP_42_DAYS:
+                $subject = 'Uppföljning från Kompisbyrån';
+            break;
+        }
+
+        $this->sendEmailMessage($html, $txt, $subject, $user->getEmail());
     }
 }

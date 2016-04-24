@@ -135,10 +135,11 @@ class ConnectionManager implements ManagerInterface
 
     /**
      * @param $days
+     * @param $numSent
      * @return array
      */
-    public function getCreatedDaysAgo($days)
+    public function getFindCreatedDaysAgo($days, $numSent)
     {
-        return $this->connectionRepository->findCreatedDaysAgo($days);
+        return $this->connectionRepository->findCreatedDaysAgo($days, $numSent);
     }
 }

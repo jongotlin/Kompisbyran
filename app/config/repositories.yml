@@ -33,3 +33,10 @@ services:
         factory_method: getRepository
         arguments:
             - AppBundle:City
+
+    job_repository:
+        class: AppBundle\Entity\JobRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:Job
