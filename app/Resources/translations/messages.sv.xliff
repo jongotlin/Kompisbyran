@@ -259,11 +259,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Vill träffa en svensk som har bott i Sverige länge</target>
+                <target>Jag pratar inte flytande svenska och jag är inte etablerad i Sverige</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Pratar flytande svenska och är etablerad i Sverige</target>
+                <target>Jag pratar flytande svenska och jag är etablerad i Sverige</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>

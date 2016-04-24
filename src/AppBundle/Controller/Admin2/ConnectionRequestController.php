@@ -57,6 +57,8 @@ class ConnectionRequestController extends Controller
 
         $city   = $this->cityManager->getFind($request->get('id'));
 
+        $request->getSession()->set('selected_city', $request->get('id'));
+
         if ($city instanceof City) {
             $results = $this->connectionRequestManager->getFindPaginatedByCityResults($city, $request->get('page', 1));
         } else {

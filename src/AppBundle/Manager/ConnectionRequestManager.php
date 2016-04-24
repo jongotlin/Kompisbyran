@@ -248,4 +248,13 @@ class ConnectionRequestManager implements ManagerInterface
 
         return false;
     }
+
+    /**
+     * @param ConnectionRequest $connectionRequest
+     * @return string
+     */
+    public function getWantToLearnTypeName(ConnectionRequest $connectionRequest)
+    {
+        return $connectionRequest->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Established');
+    }
 }

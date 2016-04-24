@@ -116,6 +116,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         foreach ($cities as $i => $cityName) {
             $city = new City();
             $city->setName($cityName);
+            $city->setSenderEmail('matchning@kompisbyran.se');
             $manager->persist($city);
             $this->addReference(sprintf('city-%s', $i), $city);
         }

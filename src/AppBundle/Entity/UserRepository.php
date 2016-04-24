@@ -1,7 +1,9 @@
 <?php
 namespace AppBundle\Entity;
+
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\User;
+use AppBundle\Entity\ConnectionRequest;
 
 /**
  * Class UserRepository
@@ -46,19 +48,21 @@ class UserRepository extends EntityRepository
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
     /**
      * @param User $user
+     * @param ConnectionRequest $userRequest
      * @param array $criterias
      * @return array
      */
-    public function findMatchArray(User $user, array $criterias)
+    public function findMatchArray(User $user, ConnectionRequest $userRequest, array $criterias)
     {
         $userParams = [
             'user_municipality'     => $user->getMunicipality()->getId(),
             'user_gender'           => $user->getGender(),
             'user_age'              => $user->getAge(),
             'user_children'         => $user->hasChildren(),
-            'want_to_learn'         => $user->getWantToLearn(),
+            'want_to_learn'         => $userRequest->getWantToLearn(),
             'user'                  => $user->getId(),
             'user_categories'       => array_values($user->getCategoryIds()),
             'user_music_categories' => array_values($user->getMusicCategoryIds())
@@ -78,7 +82,7 @@ class UserRepository extends EntityRepository
                   LEFT JOIN users_music_categories mc
                   ON mc.user_id = u.id
                   WHERE u.id != :user
-                  AND u.want_to_learn != :want_to_learn
+                  AND cr.want_to_learn != :want_to_learn
                   AND cr.pending = false
                   AND cr.disqualified = false
                   AND $where

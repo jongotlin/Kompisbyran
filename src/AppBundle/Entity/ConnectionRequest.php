@@ -219,14 +219,6 @@ class ConnectionRequest
     }
 
     /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->wantToLearn? 'New': 'Established';
-    }
-
-    /**
      * Get musicFriend
      *
      * @return boolean
@@ -314,5 +306,13 @@ class ConnectionRequest
     public function getInspected()
     {
         return $this->inspected;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMusicFriendType()
+    {
+        return $this->musicFriend? 'filter.form.music_buddy': 'filter.form.fika_buddy';
     }
 }

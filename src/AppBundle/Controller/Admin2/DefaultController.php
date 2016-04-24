@@ -76,7 +76,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request, City $city = null)
     {
-        $cities     = $this->cityManager->getFindAll();
+        $cities = $this->cityManager->getFindAll();
 
         if (!$city instanceof City) {
             $city   = $cities[0];
@@ -86,7 +86,8 @@ class DefaultController extends Controller
             'newUsers'          => $this->connectionRequestManager->getFindNewWithinCity($city),
             'establishedUsers'  => $this->connectionRequestManager->getFindEstablishedWithinCity($city),
             'cities'            => $cities,
-            'city'              => $city
+            'city'              => $city,
+            'currentCityId'     => $request->getSession()->get('selected_city', $city->getId())
         ];
     }
 }

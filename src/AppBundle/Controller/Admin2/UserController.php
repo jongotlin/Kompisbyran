@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Manager\UserManager;
 use Symfony\Component\Form\FormFactoryInterface;
+use AppBundle\Manager\ConnectionRequestManager;
 
 /**
  * @Route("admin2/users")
@@ -25,6 +26,11 @@ class UserController extends Controller
     private $userManager;
 
     /**
+     * @var ConnectionRequestManager
+     */
+    private $connectionRequestManager;
+
+    /**
      * @var FormFactoryInterface
      */
     private $formFactory;
@@ -34,11 +40,13 @@ class UserController extends Controller
      *     "formFactory" = @Inject("form.factory")
      * })
      * @param UserManager $userManager
+     * @param ConnectionRequestManager $connectionRequestManager
      */
-    public function __construct(UserManager $userManager, FormFactoryInterface $formFactory)
+    public function __construct(UserManager $userManager, ConnectionRequestManager $connectionRequestManager, FormFactoryInterface $formFactory)
     {
-        $this->userManager = $userManager;
-        $this->formFactory = $formFactory;
+        $this->userManager              = $userManager;
+        $this->connectionRequestManager = $connectionRequestManager;
+        $this->formFactory              = $formFactory;
     }
 
     /**
@@ -58,17 +66,19 @@ class UserController extends Controller
             if ($form->isValid()) {
                 $this->userManager->save($user);
 
+                $userRequest = $this->connectionRequestManager->getFindOneUnpendingByUserId($user->getId());
+
                 return new JsonResponse([
                     'success'   => true,
                     'user'      => [
                         'fullName'                      => $user->getFullName(),
                         'email'                         => $user->getEmail(),
                         'age'                           => $user->getAge(),
-                        'type'                          => $this->userManager->getWantToLearnTypeNameByUser($user),
+                        'type'                          => $this->connectionRequestManager->getWantToLearnTypeName($userRequest),
                         'countryName'                   => $user->getCountryName(),
                         'area'                          => $user->getMunicipality()->getName(),
                         'hasChildren'                   => ($user->getFullName()? 'Yes': 'No'),
-                        'musicFriendType'               => $user->getMusicFriendType(),
+                        'musicFriendType'               => $userRequest->getMusicFriendType(),
                         'about'                         => $user->getAbout(),
                         'firstConnectionRequestComment' => $user->getFirstConnectionRequestComment(),
                         'internalComment'               => $user->getInternalComment(),

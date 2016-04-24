@@ -7,6 +7,7 @@ use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
 use AppBundle\Entity\UserRepository;
 use AppBundle\Entity\User;
+use AppBundle\Entity\ConnectionRequest;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\ArrayAdapter;
 use Symfony\Component\Routing\RouterInterface;
@@ -106,15 +107,16 @@ class UserManager implements ManagerInterface
 
     /**
      * @param User $user
+     * @param ConnectionRequest $userRequest
      * @param int $page
      * @param array $criterias
      * @return array
      */
-    public function getFindMatch(User $user, $page = 1, array $criterias)
+    public function getFindMatch(User $user, ConnectionRequest $userRequest, $page = 1, array $criterias)
     {
         $this->unsetEmptyCriterias($criterias);
 
-        $results    = $this->userRepository->findMatchArray($user, $criterias);
+        $results    = $this->userRepository->findMatchArray($user, $userRequest, $criterias);
         $adapter    = new ArrayAdapter($results);
         $pagerfanta = new Pagerfanta($adapter);
         $pagerfanta->setMaxPerPage(5);
@@ -277,13 +279,5 @@ class UserManager implements ManagerInterface
     private function wrapSpanString($str)
     {
         return '<span class="matches">'.$str.'</span>';
-    }
-    /**
-     * @param User $user
-     * @return string
-     */
-    public function getWantToLearnTypeNameByUser(User $user)
-    {
-        return $user->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Established');
     }
 }

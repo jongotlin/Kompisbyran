@@ -275,11 +275,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>I want to meet a Swede who has lived in Sweden for a long time</target>
+                <target>I do not speak Swedish fluently and I am not established in Sweden</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>I speak Swedish fluently and am established in Sweden</target>
+                <target>I speak Swedish fluently and I am established in Sweden</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
