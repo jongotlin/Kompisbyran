@@ -1,22 +1,24 @@
-Hej %user_name%!
+<p>Hej {{ user.firstName }}!</p>
 
-Tack för att du har anmält dig som Fikakompis/Musikkompis genom Kompisbyrån!
+<p>Tack för att du har anmält dig som {% if user.isMusicFriend() %}Musikkompis{% else %}Fikakompis{% endif %} genom Kompisbyrån!</p>
 
-Vi skulle väldigt gärna vilja veta vad du tycker om ditt möte så att vi ska kunna förbättra vår verksamhet. Det tar bara några minuter och du svarar anonymt.
+<p>Vi skulle väldigt gärna vilja veta vad du tycker om ditt möte så att vi ska kunna förbättra vår verksamhet. Det tar bara några minuter och du svarar anonymt.</p>
 
-Du hittar frågorna här: http://goo.gl/forms/k5QyWTPc1g
+<p>Du hittar frågorna här: http://goo.gl/forms/k5QyWTPc1g</p>
 
-(Om du inte har hunnit träffa din Fikakompis/ Musikkompis än, får du gärna spara detta mail och svara på frågorna efter att ni har träffats.)
+<p>(Om du inte har hunnit träffa din {% if user.isMusicFriend() %}Musikkompis{% else %}Fikakompis{% endif %} än, får du gärna spara detta mail och svara på frågorna efter att ni har träffats.)</p>
 
-Om du inte redan har gjort det får du gärna maila oss ett foto från ert musikmöte eller fika och berätta var ni träffades, vad ni hittade på och hur det var.
+<p>Om du inte redan har gjort det får du gärna maila oss ett foto från ert musikmöte eller fika och berätta var ni träffades, vad ni hittade på och hur det var.</p>
 
-Vill du träffa en ny Fikakompis/ Musikkompis?
+<p>Vill du träffa en ny {% if user.isMusicFriend() %}Musikkompis{% else %}Fikakompis{% endif %}?</p>
 
-1. Logga in här: http://kompisbyran.se/login med din e-mail och ditt lösenord.
+<p>1. Logga in här: http://kompisbyran.se/login med din e-mail och ditt lösenord.</p>
 
-2. Välj den stad du kan träffas i och tryck på Kompisfika-knappen.
+<p>2. Välj den stad du kan träffas i och tryck på Kompisfika-knappen.</p>
 
-Stort tack för hjälpen, vi uppskattar det väldigt mycket. Hör gärna av dig om du undrar över något!
+<p>Stort tack för hjälpen, vi uppskattar det väldigt mycket. Hör gärna av dig om du undrar över något!</p>
 
-Bästa hälsningar
+<p>
+Bästa hälsningar,<br />
 Kompisbyrån
+</p>

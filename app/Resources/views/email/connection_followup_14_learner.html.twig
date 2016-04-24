@@ -1,10 +1,12 @@
-Hej %user_name%!
+<p>Hej {{ user.firstName }}!</p>
 
-Tack för att du är Musikkompis eller Fikakompis hos Kompisbyrån. Vi tänkte bara följa upp och höra om du och din nya kompis har träffats eller om ni behöver hjälp från oss på något vis?
+<p>Tack för att du är {% if user.isMusicFriend() %}Musikkompis{% else %}Fikakompis{% endif %} hos Kompisbyrån. Vi tänkte bara följa upp och höra om du och din nya kompis har träffats eller om ni behöver hjälp från oss på något vis?</p>
 
-Om ni redan har setts, skulle vi tycka att det vore superkul om ni ville berätta lite mer om ert möte och kanske skicka en bild om ni känner för det.
+<p>Om ni redan har setts, skulle vi tycka att det vore superkul om ni ville berätta lite mer om ert möte och kanske skicka en bild om ni känner för det.</p>
 
-Tack för ditt engagemang!
+<p>Tack för ditt engagemang!</p>
 
-Bästa hälsningar,
+<p>
+Bästa hälsningar,<br />
 Kompisbyrån
+</p>

@@ -1,18 +1,18 @@
 (This message will follow in English)
 
-Hej %user_name%!
+Hej {{ user.firstName }}!
 
-Tack för att du är Fikakompis/ Musikkompis genom Kompisbyrån!
+Tack för att du är {% if user.isMusicFriend() %}Musikkompis{% else %}Fikakompis{% endif %} genom Kompisbyrån!
 
 Vi vill gärna att du hjälper oss att svara på några frågor om din träff: http://goo.gl/forms/76v5MgEG9F.
 
-Du svarar anonymt. (Om du och din Fikakompis/ Musikkompis inte har hunnit träffas än, spara gärna detta e-mail och svara på frågorna efter er träff.)
+Du svarar anonymt. (Om du och din {% if user.isMusicFriend() %}Musikkompis{% else %}Fikakompis{% endif %} inte har hunnit träffas än, spara gärna detta e-mail och svara på frågorna efter er träff.)
 
 Tack så mycket för att du hjälper oss att bli bättre på vårt jobb!
 
 Om du inte redan har gjort det får du gärna maila oss ett foto från ert musikmöte eller fika och berätta var ni träffades, vad ni hittade på och hur det var.
 
-Om du vill träffa en ny Fikakompis/ Musikkompis, gör så här:
+Om du vill träffa en ny {% if user.isMusicFriend() %}Musikkompis{% else %}Fikakompis{% endif %}, gör så här:
 
 1. Logga in här: http://kompisbyran.se/login med din e-mail och ditt lösenord.
 
@@ -26,9 +26,9 @@ Kompisbyrån
 --------------------------------------------------------------
 (Translation in English)
 
-Hello %user_name%!
+Hello {{ user.firstName }}!
 
-Thank you for being a Fika or Music friend in Kompisbyrån!
+Thank you for being a {% if user.isMusicFriend() %}Music{% else %}Fika{% endif %} friend in Kompisbyrån!
 
 We are wondering if you could help us answering a few questions about your meeting here: http://goo.gl/forms/76v5MgEG9F.
 
@@ -38,7 +38,7 @@ Thank you for helping us to improve our organization!
 
 We would be very happy if you could send us a photo from your music meeting or fika and tell us a bit more about where you met, how it was and what you did.
 
-Do you want to meet a new Fika or Music friend?
+Do you want to meet a new {% if user.isMusicFriend() %}Music{% else %}Fika{% endif %} friend?
 
 1. Please, log in with your e-mail and your password: http://kompisbyran.se/login
 

@@ -1,26 +1,32 @@
-(This message will follow in English)
+<p>(This message will follow in English)</p>
 
-Hej %user_name%!
+<p>Hej {{ user.firstName }}!</p>
 
-Tack för att du är Musikkompis eller Fikakompis hos Kompisbyrån. Vi tänkte bara följa upp och höra om du och din nya kompis har träffats eller om ni behöver hjälp från oss på något vis?
+<p>Tack för att du är {% if user.isMusicFriend() %}Musikkompis{% else %}Fikakompis{% endif %} hos Kompisbyrån. Vi tänkte bara följa upp och höra om du och din nya kompis har träffats eller om ni behöver hjälp från oss på något vis?</p>
 
-Om ni redan har setts, skulle vi tycka att det vore superkul om ni ville berätta lite mer om ert möte och kanske skicka en bild om ni känner för det.
+<p>Om ni redan har setts, skulle vi tycka att det vore superkul om ni ville berätta lite mer om ert möte och kanske skicka en bild om ni känner för det.</p>
 
-Tack för ditt engagemang!
+<p>Tack för ditt engagemang!</p>
 
-Bästa hälsningar,
+<p>
+Bästa hälsningar,<br />
 Kompisbyrån
+</p>
 
---------------------------------------------------------------
+<p>
+--------------------------------------------------------------<br />
 (Translation in English)
+</p>
 
-Hello %user_name%!
+<p>Hello {{ user.firstName }}!</p>
 
-Thank you for being a Music friend (Musikkompis) or Fika friend (Fikakompis). We are wondering if you and your new friend have met each other or if you need our assistance in some way?
+<p>Thank you for being a {% if user.isMusicFriend() %}Music{% else %}Fika{% endif %} friend. We are wondering if you and your new friend have met each other or if you need our assistance in some way?</p>
 
-If you have met, we would be very happy if you would like to tell us a bit more about your meeting and maybe send us a photo from your meeting if you want.
+<p>If you have met, we would be very happy if you would like to tell us a bit more about your meeting and maybe send us a photo from your meeting if you want.</p>
 
-Thank you for your participation.
+<p>Thank you for your participation.</p>
 
-Best regards,
+<p>
+Best regards,<br />
 Kompisbyrån
+</p>
