@@ -160,9 +160,8 @@ class UserRepository extends EntityRepository
         if (isset($criterias['city_id'])) {
             $where[] = 'cr.city_id = :city_id';
         }
-        if (isset($criterias['music_friend'])) {
-            $criterias['music_friend'] = $criterias['music_friend'] == 1? true: false;
-            $where[] = 'cr.music_friend = :music_friend';
+        if (isset($criterias['type'])) {
+            $where[] = 'cr.type = :type';
         }
         if (isset($criterias['q'])) {
             $where[] = '(cr.comment LIKE :q OR u.about LIKE :q)';

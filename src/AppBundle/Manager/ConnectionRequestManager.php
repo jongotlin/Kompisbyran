@@ -2,6 +2,7 @@
 
 namespace AppBundle\Manager;
 
+use AppBundle\Enum\FriendTypes;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -192,7 +193,7 @@ class ConnectionRequestManager implements ManagerInterface
             $pending            = $connectionRequest->getPending()? 1: 0;
             $wantToLearnText    = $user->getWantToLearn()? $newTrans: $establishedTrans;
 
-            if (!$user->getWantToLearn() && $user->isMusicFriend()) {
+            if (!$user->getWantToLearn() && $user->getType() == FriendTypes::MUSIC) {
                 $wantToLearnText .= ' (' . $musicFriendTrans .')';
             }
 

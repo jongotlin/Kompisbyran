@@ -199,6 +199,63 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setEnabled(true);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
+
+        $user = new User();
+        $user->setEmail('emma@example.com');
+        $user->setFirstName('Emma');
+        $user->setLastName('Hansson');
+        $user->setEnabled(true);
+        $user->setRoles(['ROLE_COMPLETE_USER', 'ROLE_ADMIN']);
+        $user->setWantToLearn(false);
+        $user->setAge(20);
+        $user->setAbout('-');
+        $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
+        $user->setFrom('SE');
+        $user->setGender('F');
+        $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/women/3.jpg');
+        $user->setMunicipality($this->getReference('municipality-1'));
+        $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
+        $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
+        $manager->persist($user);
+        $this->addReference('user-emma', $user);
+
+        $user = new User();
+        $user->setEmail('cecilia@example.com');
+        $user->setFirstName('Cecilia');
+        $user->setLastName('Holmgren');
+        $user->setEnabled(true);
+        $user->setRoles(['ROLE_COMPLETE_USER', 'ROLE_ADMIN']);
+        $user->setWantToLearn(false);
+        $user->setAge(20);
+        $user->setAbout('-');
+        $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
+        $user->setFrom('SE');
+        $user->setGender('F');
+        $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/women/4.jpg');
+        $user->setMunicipality($this->getReference('municipality-1'));
+        $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
+        $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
+        $manager->persist($user);
+        $this->addReference('user-cecilia', $user);
+
+        $user = new User();
+        $user->setEmail('jon@example.com');
+        $user->setFirstName('Jon');
+        $user->setLastName('Gotlin');
+        $user->setEnabled(true);
+        $user->setRoles(['ROLE_COMPLETE_USER']);
+        $user->setWantToLearn(true);
+        $user->setAge(20);
+        $user->setAbout('-');
+        $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
+        $user->setFrom('SE');
+        $user->setGender('M');
+        $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/4.jpg');
+        $user->setMunicipality($this->getReference('municipality-1'));
+        $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
+        $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
+        $manager->persist($user);
+        $this->addReference('user-jon', $user);
     }
 
     /**
@@ -226,6 +283,27 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setUser($this->getReference('user-glenn'));
         $connectionRequest->setComment('Jag vill träffas ute');
         $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setWantToLearn(false);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-emma'));
+        $connectionRequest->setComment('');
+        $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setWantToLearn(false);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-cecilia'));
+        $connectionRequest->setComment('');
+        $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setWantToLearn(true);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-jon'));
+        $connectionRequest->setComment('');
+        $manager->persist($connectionRequest);
     }
 
     /**
@@ -233,14 +311,12 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
      */
     protected function loadConnections(ObjectManager $manager)
     {
-        foreach (range(1,25) as $i) {
-            $connection = new Connection($this->getReference('user-fluentspeaker'));
-            $connection->setCity($this->getReference('city-1'));
-            $connection->setFluentSpeaker($this->getReference('user-fluentspeaker'));
-            $connection->setLearner($this->getReference('user-learner'));
-            $connection->setFluentSpeakerConnectionRequestCreatedAt(new \DateTime());
-            $connection->setLearnerConnectionRequestCreatedAt(new \DateTime());
-            $manager->persist($connection);
-        }
+        $connection = new Connection($this->getReference('user-fluentspeaker'));
+        $connection->setCity($this->getReference('city-1'));
+        $connection->setFluentSpeaker($this->getReference('user-fluentspeaker'));
+        $connection->setLearner($this->getReference('user-learner'));
+        $connection->setFluentSpeakerConnectionRequestCreatedAt(new \DateTime());
+        $connection->setLearnerConnectionRequestCreatedAt(new \DateTime());
+        $manager->persist($connection);
     }
 }

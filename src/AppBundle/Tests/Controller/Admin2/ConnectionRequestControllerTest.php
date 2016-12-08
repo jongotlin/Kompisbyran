@@ -30,6 +30,6 @@ class ConnectionRequestControllerTest extends DatabaseTestCase
         $content = $client->getResponse()->getContent();
         $this->assertJson($content);
         $array = json_decode($content, true);
-        $this->assertEquals(2, count($array['results']));
+        $this->assertEquals(4, count($array['results']));
     }
 }

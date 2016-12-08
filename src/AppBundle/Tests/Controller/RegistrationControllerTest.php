@@ -2,6 +2,7 @@
 
 namespace AppBundle\Tests\Controller;
 
+use AppBundle\Enum\FriendTypes;
 use AppBundle\Tests\Phpunit\DatabaseTestCase;
 use AppBundle\Tests\Phpunit\Extension\AuthenticationExtensionTrait;
 use AppBundle\Tests\Phpunit\Extension\RepositoryExtensionTrait;
@@ -73,7 +74,7 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[about]'           => 'About me',
             'user[municipality]'    => $this->getMunicipalityRepository()->findAll()[0]->getId(),
             'user[wantToLearn]'     => 0,
-            'user[musicFriend]'     => 0,
+            'user[type]' => FriendTypes::FRIEND,
             'user[from]'            => 'SE',
             'user[city]'            => $this->getCityRepository()->findAll()[0]->getId(),
         ]);

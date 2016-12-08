@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Enum\FriendTypes;
 use JMS\DiExtraBundle\Annotation\FormType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -96,16 +97,14 @@ class MatchFilterType extends AbstractType
                 'empty_data'    => '',
                 'empty_value'   => 'All'
             ])
-            ->add('music_friend', 'boolean_choice', [
-                'label'             => 'Type',
-                'choices_as_values' => true,
-                'data'              => $options['music_friend'],
-                'empty_data'        => '',
-                'empty_value'       => 'All',
-                'choices'           => [
-                    'filter.form.fika_buddy'    => '0',
-                    'filter.form.music_buddy'   => '1'
-                ]
+            ->add('type', 'choice', [
+                'label' => 'Type',
+                'empty_value' => 'All',
+                'data' => $options['type'],
+                'choices' => [
+                    FriendTypes::FRIEND => 'user.form.fikatype.fikafriend',
+                    FriendTypes::MUSIC => 'user.form.fikatype.musicfriend',
+                ],
             ])
             ->add('q', 'text', [
                 'label' => 'Search'
@@ -126,7 +125,7 @@ class MatchFilterType extends AbstractType
         ]);
 
         $resolver->setRequired([
-            'music_friend',
+            'type',
             'city_id',
         ]);
     }

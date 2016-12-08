@@ -68,11 +68,11 @@ class ConnectionRequest
     protected $sortOrder;
 
     /**
-     * @var boolean
+     * @var string
      *
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string")
      */
-    protected $musicFriend = false;
+    protected $type = 'friend';
 
     /**
      * @var boolean
@@ -213,32 +213,6 @@ class ConnectionRequest
     }
 
     /**
-     * @return boolean
-     */
-    public function isMusicFriend()
-    {
-        return $this->musicFriend;
-    }
-
-    /**
-     * @param boolean $musicFriend
-     */
-    public function setMusicFriend($musicFriend)
-    {
-        $this->musicFriend = $musicFriend;
-    }
-
-    /**
-     * Get musicFriend
-     *
-     * @return boolean
-     */
-    public function getMusicFriend()
-    {
-        return $this->musicFriend;
-    }
-
-    /**
      * Set disqualified
      *
      * @param boolean $disqualified
@@ -321,8 +295,16 @@ class ConnectionRequest
     /**
      * @return string
      */
-    public function getMusicFriendType()
+    public function getType()
     {
-        return $this->musicFriend? 'global.music_buddy': 'global.fika_buddy';
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 }

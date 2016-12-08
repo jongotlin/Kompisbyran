@@ -2,10 +2,10 @@
 
 namespace AppBundle\Mailer;
 
+use AppBundle\Entity\User;
+use AppBundle\Enum\FriendTypes;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Routing\RouterInterface;
-use FOS\UserBundle\Mailer\MailerInterface;
-use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
 /**
@@ -30,14 +30,14 @@ class UserMailer extends Mailer
     }
 
     /**
-     * @param UserInterface $user
+     * @param User $user
      */
-    public function sendRegistrationWelcomeEmailMessage(UserInterface $user)
+    public function sendRegistrationWelcomeEmailMessage(User $user)
     {
         $subject    = 'user.welcome.message.subject';
         $htmlBody   = 'user.welcome.message.body';
 
-        if ($user->isMusicFriend()) {
+        if ($user->getType() == FriendTypes::MUSIC) {
             $subject    = 'user.friend.welcome.message.subject';
             $htmlBody   = 'user.friend.welcome.message.body';
         }
@@ -53,15 +53,15 @@ class UserMailer extends Mailer
     }
 
     /**
-     * @param UserInterface $user
-     * @param UserInterface $matchUser
+     * @param User $user
+     * @param User $matchUser
      * @param $body
      * @param $fromEmail
      */
-    public function sendMatchEmailMessage(UserInterface $user, UserInterface $matchUser, $body, $fromEmail)
+    public function sendMatchEmailMessage(User $user, User $matchUser, $body, $fromEmail)
     {
         $subject    = $this->translator->trans('match.email.user.subject', [
-            '%match_music_friend%'    => ($matchUser->isMusicFriend()?  $this->translator->trans('global.music_buddy'):  $this->translator->trans('global.fika_buddy')),
+            '%match_music_friend%'    => ($matchUser->getType() == FriendTypes::MUSIC ?  $this->translator->trans('global.music_buddy'):  $this->translator->trans('global.fika_buddy')),
             '%user_name%'             => $user->getFullName()
         ]);
 

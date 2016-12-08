@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\Languages;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
@@ -101,15 +102,14 @@ class UserType extends AbstractType
                 }
             ])
             ->add('profilePicture', 'hidden')
-            ->add('musicFriend', 'boolean_choice', [
+            ->add('type', 'choice', [
                 'expanded' => true,
+                'multiple' => false,
                 'label' => 'user.form.fikatype',
                 'choices' => [
-                    'user.form.fikatype.fikafriend'  => '0',
-                    'user.form.fikatype.musicfriend'  => '1'
+                    FriendTypes::FRIEND => 'user.form.fikatype.fikafriend',
+                    FriendTypes::MUSIC => 'user.form.fikatype.musicfriend',
                 ],
-                'choices_as_values' => true,
-                'data'              => (!$user->hasRole('ROLE_COMPLETE_USER')? null: $user->isMusicFriend())
             ])
             ->add('municipality', 'entity', [
                     'class' => 'AppBundle:Municipality',

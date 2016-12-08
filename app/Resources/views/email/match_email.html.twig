@@ -1,6 +1,7 @@
+{% set musicFriend = request.type == constant('AppBundle\\Enum\\FriendTypes::MUSIC') %}
 {% trans with {
     '%user_name%': user.fullName,
-    '%match_music_friend%': request.musicFriend ? 'global.music_buddy'|trans|capitalize: 'global.fika_buddy'|trans|capitalize,
+    '%match_music_friend%': musicFriend ? 'global.music_buddy'|trans|capitalize: 'global.fika_buddy'|trans|capitalize,
     '%match_his_her%': matchUser.gender == 'M' ? 'global.his'|trans|capitalize : 'global.her'|trans|capitalize,
     '%match_name%': matchUser.fullName,
     '%match_categories%': user_matched_categories(matchUser, user),
@@ -10,7 +11,7 @@
     '%match_gender%': matchUser.gender == 'M' ? 'global.he'|trans|capitalize : 'global.she'|trans|capitalize,
     '%match_city%': request.city.name,
     '%match_email%': matchUser.email,
-    '%match_fika_buddies%': request.musicFriend ? 'public place'|trans: 'café'|trans,
-    '%match_your_fika%': request.musicFriend ? 'music meeting'|trans: 'your fika'|trans,
-    '%match_fika_buddy%': request.musicFriend ? 'a pleasant music meeting'|trans: 'a pleasant fika'|trans
+    '%match_fika_buddies%': musicFriend ? 'public place'|trans: 'café'|trans,
+    '%match_your_fika%':musicFriend ? 'music meeting'|trans: 'your fika'|trans,
+    '%match_fika_buddy%': musicFriend ? 'a pleasant music meeting'|trans: 'a pleasant fika'|trans
 } %}match.email.user{% endtrans %}

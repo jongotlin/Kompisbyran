@@ -29,7 +29,7 @@ class DefaultController extends Controller
             $connectionRequest = new ConnectionRequest();
             $connectionRequest->setUser($user);
             $connectionRequest->setWantToLearn($user->getWantToLearn());
-            $connectionRequest->setMusicFriend($user->isMusicFriend());
+            $connectionRequest->setType($user->getType());
             $form = $this->createForm(
                 new ConnectionRequestType(),
                 $connectionRequest,

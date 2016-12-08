@@ -81,11 +81,11 @@ class Connection
     protected $comments;
 
     /**
-     * @var boolean
+     * @var string
      *
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string")
      */
-    protected $musicFriend = false;
+    protected $type = 'friend';
 
     /**
      * @var \DateTime
@@ -232,22 +232,6 @@ class Connection
     }
 
     /**
-     * @return boolean
-     */
-    public function isMusicFriend()
-    {
-        return $this->musicFriend;
-    }
-
-    /**
-     * @param boolean $musicFriend
-     */
-    public function setMusicFriend($musicFriend)
-    {
-        $this->musicFriend = $musicFriend;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getLearnerConnectionRequestCreatedAt()
@@ -277,5 +261,21 @@ class Connection
     public function setFluentSpeakerConnectionRequestCreatedAt($fluentSpeakerConnectionRequestCreatedAt)
     {
         $this->fluentSpeakerConnectionRequestCreatedAt = $fluentSpeakerConnectionRequestCreatedAt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 }

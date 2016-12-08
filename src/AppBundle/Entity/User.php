@@ -115,7 +115,7 @@ class User extends BaseUser
      * @var MusicCategory[]
      *
      * @Assert\Expression(
-     *     "!this.isMusicFriend() || (value.count() > 0 && value.count() <= 4)",
+     *     "this.getType() != 'music' || (value.count() > 0 && value.count() <= 4)",
      *     message="Du måste välja minst ett och max fyra musikintressen",
      *     groups={"settings"}
      * )
@@ -212,11 +212,11 @@ class User extends BaseUser
     protected $comments;
 
     /**
-     * @var boolean
+     * @var string
      *
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string")
      */
-    protected $musicFriend = false;
+    protected $type = 'friend';
 
     /**
      * @var Municipality
@@ -537,22 +537,6 @@ class User extends BaseUser
     }
 
     /**
-     * @return boolean
-     */
-    public function isMusicFriend()
-    {
-        return $this->musicFriend;
-    }
-
-    /**
-     * @param boolean $musicFriend
-     */
-    public function setMusicFriend($musicFriend)
-    {
-        $this->musicFriend = $musicFriend;
-    }
-
-    /**
      * @return MusicCategory[]
      */
     public function getMusicCategories()
@@ -634,22 +618,6 @@ class User extends BaseUser
         }
 
         return '';
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->wantToLearn? 'New': 'Established';
-    }
-
-    /**
-     * @return string
-     */
-    public function getMusicFriendType()
-    {
-        return $this->musicFriend? 'filter.form.music_buddy': 'filter.form.fika_buddy';
     }
 
     /**
@@ -757,5 +725,21 @@ class User extends BaseUser
         }
 
         return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 }

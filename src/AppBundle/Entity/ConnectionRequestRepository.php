@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Enum\FriendTypes;
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\User;
 use AppBundle\Entity\City;
@@ -33,35 +34,6 @@ class ConnectionRequestRepository extends EntityRepository
     {
         $this->getEntityManager()->remove($connectionRequest);
         $this->getEntityManager()->flush();
-    }
-
-    /**
-     * @param City $city
-     * @param bool $wantToLearn
-     * @param bool $musicFriend
-     * @return ConnectionRequest[]
-     * @deprecated
-     */
-    public function findForCity(City $city, $wantToLearn, $musicFriend)
-    {
-        return $this
-            ->createQueryBuilder('cr')
-            ->select('cr, u')
-            ->innerJoin('cr.user', 'u')
-            ->where('cr.wantToLearn = :wantToLearn')
-            ->andWhere('cr.city = :city')
-            ->andWhere('cr.musicFriend = :musicFriend')
-            ->andWhere('u.enabled = true')
-            ->setParameters([
-                'wantToLearn' => $wantToLearn,
-                'city' => $city,
-                'musicFriend' => $musicFriend,
-            ])
-            ->orderBy('cr.sortOrder', 'DESC')
-            ->addOrderBy('cr.createdAt', 'ASC')
-            ->getQuery()
-            ->execute()
-        ;
     }
 
     /**
@@ -132,11 +104,11 @@ class ConnectionRequestRepository extends EntityRepository
             ->andWhere('cr.city            = :city')
             ->andWhere('cr.disqualified    = false')
             ->andWhere('cr.pending         = false')
-            ->andWhere('u.musicFriend      = :musicFriend')
+            ->andWhere('u.type = :type')
             ->setParameters([
                 'city'          => $city,
                 'wantToLearn'   => $wantToLearn,
-                'musicFriend'   => $musicFriend,
+                'type' => $musicFriend ? FriendTypes::MUSIC : FriendTypes::FRIEND,
             ])
             ->getQuery()
             ->getSingleScalarResult()

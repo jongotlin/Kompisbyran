@@ -97,7 +97,7 @@ class ConnectionManager implements ManagerInterface
         $connection->setCity                ( $learner->getCity()       );
         $connection->setFluentSpeakerComment( $speaker->getComment()    );
         $connection->setLearnerComment      ( $learner->getComment()    );
-        $connection->setMusicFriend         ( $learner->isMusicFriend() );
+        $connection->setType($learner->getType());
         $connection->setFluentSpeakerConnectionRequestCreatedAt($speaker->getCreatedAt());
         $connection->setLearnerConnectionRequestCreatedAt($learner->getCreatedAt());
 

@@ -49,7 +49,7 @@ class UserController extends Controller
                 $connectionRequest->setUser($user);
                 $connectionRequest->setCity($form->get('city')->getData());
                 $connectionRequest->setWantToLearn($user->getWantToLearn());
-                $connectionRequest->setMusicFriend($user->isMusicFriend());
+                $connectionRequest->setType($user->getType());
                 $em->persist($connectionRequest);
 
                 $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);

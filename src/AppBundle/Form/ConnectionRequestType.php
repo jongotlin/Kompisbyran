@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Enum\FriendTypes;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -30,9 +31,13 @@ class ConnectionRequestType extends AbstractType
                 'required' => false,
                 'label' => 'connection_request.form.comment',
             ])
-            ->add('musicFriend', 'checkbox', [
-                'required' => false,
+            ->add('type', 'choice', [
                 'label' => 'global.music_buddy',
+                'choices' => [
+                    'user.form.fikatype.fikafriend' => FriendTypes::FRIEND,
+                    'user.form.fikatype.musicfriend' => FriendTypes::MUSIC
+                ],
+                'choices_as_values' => true,
             ])
         ;
     }
