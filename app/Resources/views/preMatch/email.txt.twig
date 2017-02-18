@@ -1,6 +1,6 @@
 Hej {{ user.firstName }}!
 
-Nu har vi hittat en Startkompis till dig att upptäcka {{ connectionRequest.municipality.name }} med! {{ otherUser.gender|pronoun|capitalize }} heter {{ otherUser.name }}, är {{ otherUser.age }} år och kommer från {{ otherUser.from|country_name }}. {% if otherUserConnectionRequest.extraPerson %}{{ otherUser.firstName }} kommer ta med sig (en kompis/sin partner/ sitt barn) till mötet.{% endif %}
+Nu har vi hittat en Startkompis till dig att upptäcka {{ connectionRequest.municipality.name }} med! {{ otherUser.gender|pronoun|capitalize }} heter {{ otherUser.name }}, är {{ otherUser.age }} år och kommer från {{ otherUser.from|country_name }}. {% if otherUserConnectionRequest.extraPerson %}{{ otherUser.firstName }} kommer ta med sig {{ ('extra_person.pronoun.' ~ otherUser.gender|lower ~ '.' ~ otherUserConnectionRequest.extraPersonType)|trans }} till mötet.{% endif %}
 
 
 Vi föreslår att ni träffas {{ connectionRequest.municipality.meetingPlace }}, {{ preMatch|meeting_time }}. Det är mycket viktigt att du kommer i tid.
@@ -23,7 +23,7 @@ PS. Kom ihåg att respektera varandra, att inte svara påverkar den andra person
 -----English-----
 Dear {{ user.firstName }},
 
-We have found a Startkompis (Start friend) for you to discover {{ connectionRequest.municipality.name }} with! The person’s name is {{ otherUser.name }}, is {{ otherUser.age }} years old and comes from {{ otherUser.from|country_name }}. {% if otherUserConnectionRequest.extraPerson %}{{ otherUser.firstName }} will bring a friend/partner or child to the meeting.{% endif %}
+We have found a Startkompis (Start friend) for you to discover {{ connectionRequest.municipality.name }} with! The person’s name is {{ otherUser.name }}, is {{ otherUser.age }} years old and comes from {{ otherUser.from|country_name }}. {% if otherUserConnectionRequest.extraPerson %}{{ otherUser.firstName }} will bring {{  ('extra_person.pronoun.' ~ otherUser.gender|lower ~ '.' ~ otherUserConnectionRequest.extraPersonType)|trans({}, null, 'en') }} to the meeting.{% endif %}
 
 We suggest that you meet {{ connectionRequest.municipality.meetingPlace }}, {{ preMatch|meeting_time }}. It’s very important that you are in time.
 

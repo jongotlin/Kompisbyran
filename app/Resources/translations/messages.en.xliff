@@ -1164,6 +1164,38 @@ Your friends at Kompisbyrån
                 <source>extra_person.family</source>
                 <target>Other family member</target>
             </trans-unit>
+            <trans-unit id="extra_person.pronoun.m.friend">
+                <source>extra_person.pronoun.m.friend</source>
+                <target>a friend</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.f.friend">
+                <source>extra_person.pronoun.f.friend</source>
+                <target>a friend</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.m.child">
+                <source>extra_person.pronoun.m.child</source>
+                <target>his child</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.f.child">
+                <source>extra_person.pronoun.f.child</source>
+                <target>her child</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.m.partner">
+                <source>extra_person.pronoun.m.partner</source>
+                <target>his partner</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.f.partner">
+                <source>extra_person.pronoun.f.partner</source>
+                <target>her partner</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.m.family">
+                <source>extra_person.pronoun.m.family</source>
+                <target>a family member</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.f.family">
+                <source>extra_person.pronoun.f.family</source>
+                <target>a family member</target>
+            </trans-unit>
             <trans-unit id="matching_profile_request.same_gender">
                 <source>matching_profile_request.same_gender</source>
                 <target>Only a person of the same gender</target>

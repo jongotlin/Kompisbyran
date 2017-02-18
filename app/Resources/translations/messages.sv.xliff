@@ -1253,6 +1253,38 @@ Your friends at Kompisbyrån
                 <source>extra_person.family</source>
                 <target>Annan familjemedlem</target>
             </trans-unit>
+            <trans-unit id="extra_person.pronoun.m.friend">
+                <source>extra_person.pronoun.m.friend</source>
+                <target>en kompis</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.f.friend">
+                <source>extra_person.pronoun.f.friend</source>
+                <target>en kompis</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.m.child">
+                <source>extra_person.pronoun.m.child</source>
+                <target>sitt barn</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.f.child">
+                <source>extra_person.pronoun.f.child</source>
+                <target>sitt barn</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.m.partner">
+                <source>extra_person.pronoun.m.partner</source>
+                <target>sin partner</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.f.partner">
+                <source>extra_person.pronoun.f.partner</source>
+                <target>sin partner</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.m.family">
+                <source>extra_person.pronoun.m.family</source>
+                <target>en familjemedlem</target>
+            </trans-unit>
+            <trans-unit id="extra_person.pronoun.f.family">
+                <source>extra_person.pronoun.f.family</source>
+                <target>en familjemedlem</target>
+            </trans-unit>
             <trans-unit id="matching_profile_request.same_gender">
                 <source>matching_profile_request.same_gender</source>
                 <target>Endast person av samma kön</target>
