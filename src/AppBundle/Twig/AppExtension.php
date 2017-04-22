@@ -240,6 +240,7 @@ class AppExtension extends \Twig_Extension
 
     /**
      * @param User $user
+     * @param string $locale
      * @return string
      */
     public function translatedCountry(User $user, $locale)
