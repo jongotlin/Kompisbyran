@@ -86,7 +86,7 @@ class MatchFilterType extends AbstractType
             ])
             ->add('from', 'choice', [
                 'label'         => 'Country',
-                'choices'       => Countries::getList(),
+                'choices'       => Countries::getList($this->requestStack->getCurrentRequest()->getLocale()),
                 'empty_data'    => '',
                 'empty_value'   => 'All'
             ])

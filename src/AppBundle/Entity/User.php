@@ -789,10 +789,10 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getCountryName()
+    public function getCountryName($locale = 'sv')
     {
         if ($this->from) {
-            return Countries::getName($this->from);
+            return Countries::getName($this->from, $locale);
         }
 
         return '';

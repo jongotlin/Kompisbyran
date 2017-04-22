@@ -88,7 +88,7 @@ class UserType extends AbstractType
             ->add('about', 'textarea', ['label' => 'user.form.about'])
             ->add('from', 'choice', [
                 'label' => 'user.form.from',
-                'choices' => Countries::getList(),
+                'choices' => Countries::getList($options['locale']),
                 'empty_data' => null,
                 'empty_value' => ''
             ])
