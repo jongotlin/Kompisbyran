@@ -77,6 +77,7 @@ class AppExtension extends \Twig_Extension
             'mark_matched_categories' => new \Twig_Function_Method($this, 'markMatchedCategories', [
                 'is_safe' => ['html']
             ]),
+            'translated_country'        => new \Twig_Function_Method($this, 'translatedCountry'),
         );
     }
 
@@ -235,6 +236,18 @@ class AppExtension extends \Twig_Extension
     public function markMatchedCategories($matchedUser, $user)
     {
         return $this->userManager->getCategoriesExactMatchByUser($matchedUser, $user);
+    }
+
+    /**
+     * @param User $user
+     * @param string $locale
+     * @return string
+     */
+    public function translatedCountry(User $user, $locale)
+    {
+        $country  = $user->getCountryName($locale);
+
+        return $country;
     }
 
     /**

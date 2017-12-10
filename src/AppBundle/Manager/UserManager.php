@@ -268,7 +268,7 @@ class UserManager implements ManagerInterface
             $matches[] = $currentUser->getAge().' '.$this->translator->trans('years');
         }
 
-        $matches[]  =  $currentUser->getCountryName();
+        $matches[]  =  $currentUser->getCountryName($this->translator->getLocale());
 
         if ($this->isUserMunicipalityMatch($user, $currentUser)) {
             $matches[] = $this->wrapSpanString(Util::googleMapLink($user->getMunicipality()->getName(), $currentUser->getMunicipality()->getName()));
