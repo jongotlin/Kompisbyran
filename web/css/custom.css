@@ -114,3 +114,14 @@ div.candidate span.matches a.google-link {
 .text-muted {
     color: #9a9a9a;
 }
+.nav-head .navbar-default  .navbar-nav > li.open a{
+    background: none;	
+    color: #555 ;
+}
+.nav-head .navbar-default  .navbar-nav > li > a:active,
+.overrides .nav-head .navbar-default  .navbar-nav > li > a:focus{
+    background: none !important;	
+    color: #555 !important;
+}
+
+
