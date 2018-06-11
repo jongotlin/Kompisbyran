@@ -334,7 +334,7 @@ class UserManager implements ManagerInterface
 	 * @param $locale
      * @return string
      */
-    public function getCategoriesExactMatchByUserAndLocale(User $user, User $currentUser, $locale)
+    public function getCategoriesExactMatchByUserBasedLocaleRequest(User $user, User $currentUser, $locale)
     {
         $categories             = [];
         $currentUserCategories  = $this->categoryManager->getFindByIdsAndLocale(array_keys($currentUser->getCategoryNames()), $locale);
@@ -344,9 +344,10 @@ class UserManager implements ManagerInterface
                 $categories[]   = $currentUserCategory->getName();
             }
         }
+        $this->translator->setLocale($locale);
         if (count($categories) > 1) {
             $lastCategory   = array_pop($categories);
-            $categories     = implode(', ', $categories) .' '.  ($locale == 'en'? 'and':'och') .' '. $lastCategory;
+            $categories     = implode(', ', $categories) .' '. $this->translator->trans('global.and') .' '. $lastCategory;
         } else {
             $categories     = implode(', ', $categories);
         }
