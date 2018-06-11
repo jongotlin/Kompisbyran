@@ -328,10 +328,10 @@ class UserManager implements ManagerInterface
         }
         return $categories;
     }
-	/**
+     /*
      * @param User $user
      * @param User $currentUser
-	 * @param $locale
+     * @param $locale
      * @return string
      */
     public function getCategoriesExactMatchByUserBasedLocaleRequest(User $user, User $currentUser, $locale)

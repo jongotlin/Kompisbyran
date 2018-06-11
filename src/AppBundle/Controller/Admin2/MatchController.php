@@ -57,9 +57,9 @@ class MatchController extends Controller
      */
     private $userMailer;
 
-	/**
-	* @var CategoryManager
-	*/
+    /**
+    * @var CategoryManager
+    */
     private $categoryManager;
 
     /**
@@ -80,7 +80,7 @@ class MatchController extends Controller
         $this->formFactory              = $formFactory;
         $this->templating               = $templating;
         $this->userMailer               = $userMailer;
-		$this->categoryManager 			= $categoryManager;
+        $this->categoryManager          = $categoryManager;
     }
 
     /**
@@ -178,29 +178,28 @@ class MatchController extends Controller
      */
     public function ajaxEmailMessageAction(Request $request, User $user)
     {
-	    $matchUser          = $this->userManager->getFind($request->get('match_user_id'));
+        $matchUser          = $this->userManager->getFind($request->get('match_user_id'));
         $userRequest        = $this->connectionRequestManager->getFindOneOpenByUser($user);
         $matchUserRequest   = $this->connectionRequestManager->getFindOneOpenByUser($matchUser);
-		$matchUserCategories = $this->categoryManager->getFindByIdsAndLocale(array_keys($user->getCategoryNames()), 'sv');
-		
-		$userCategories        = $matchUser->getCategoryNames();			
-	 	$categories_sv  =  $this->userManager->getCategoriesExactMatchByUserBasedLocaleRequest($matchUser , $user, 'sv');
-		$categories_en  =  $this->userManager->getCategoriesExactMatchByUserBasedLocaleRequest($matchUser , $user, 'en');
-		
+        $userCategories        = $matchUser->getCategoryNames();
+        $categories_sv  =  $this->userManager->getCategoriesExactMatchByUserBasedLocaleRequest($matchUser , $user, 'sv');
+        $categories_en  =  $this->userManager->getCategoriesExactMatchByUserBasedLocaleRequest($matchUser , $user, 'en');
+    
+
         return new JsonResponse([
             'success'               => true,
             'user_message'          => $this->templating->render('email/matchEmail.txt.twig', [
                 'user'      => $user,
                 'matchUser' => $matchUser,
                 'request'   => $matchUserRequest,
-				'categories_en' => $categories_en,
-				'categories_sv' => $categories_sv]),
+                'categories_en' => $categories_en,
+                'categories_sv' => $categories_sv]),
             'match_user_message'    => $this->templating->render('email/matchEmail.txt.twig', [
                 'user'      => $matchUser,
                 'matchUser' => $user,
                 'request'   => $userRequest,
-				'categories_en' => $categories_en,
-				'categories_sv' => $categories_sv])
+                'categories_en' => $categories_en,
+                'categories_sv' => $categories_sv])
         ]);
     }
 }
