@@ -15,11 +15,14 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Manager\UserManager;
 use AppBundle\Manager\ConnectionRequestManager;
 use AppBundle\Manager\ConnectionManager;
+use AppBundle\Manager\CategoryManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use AppBundle\Entity\User;
 use AppBundle\Entity\ConnectionRequest;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use AppBundle\Mailer\UserMailer;
+use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @Route("admin2/matches")
@@ -56,6 +59,20 @@ class MatchController extends Controller
      */
     private $userMailer;
 
+	/**
+	* @var CategoryManager
+	*/
+    private $categoryManager;
+	
+	/**
+	* @var Translator
+	*/
+    private $translator;
+	/**
+	* @var RequestStack
+	*/
+    private $requestStack;
+
     /**
      * @InjectParams({
      *     "formFactory" = @Inject("form.factory"),
@@ -66,7 +83,7 @@ class MatchController extends Controller
      * @param ConnectionManager $connectionManager
      * @param ConnectionRequestManager $connectionRequestManager
      */
-    public function __construct(UserManager $userManager, ConnectionManager $connectionManager, ConnectionRequestManager $connectionRequestManager, FormFactoryInterface $formFactory, EngineInterface $templating, UserMailer $userMailer)
+    public function __construct(UserManager $userManager, CategoryManager $categoryManager, ConnectionManager $connectionManager, ConnectionRequestManager $connectionRequestManager, FormFactoryInterface $formFactory, EngineInterface $templating, UserMailer $userMailer, TranslatorInterface $translator, RequestStack $requestStack)
     {
         $this->userManager              = $userManager;
         $this->connectionManager        = $connectionManager;
@@ -74,6 +91,9 @@ class MatchController extends Controller
         $this->formFactory              = $formFactory;
         $this->templating               = $templating;
         $this->userMailer               = $userMailer;
+		$this->categoryManager 			= $categoryManager;
+		$this->translator 				= $translator;
+		$this->requestStack 			= $requestStack;
     }
 
     /**
@@ -165,27 +185,54 @@ class MatchController extends Controller
 
         throw $this->createNotFoundException();
     }
-
+	/**/public function listCommonCategoriesbyLocale(User $user, $locale)
+	{
+		$categories = [];
+		$matchUser = $this->categoryManager->getFindByIdsAndLocale(array_keys($user->getCategoryNames()), $locale);
+		$userCategories        = $matchUser->getCategoryNames();	
+		foreach($matchUser as $matchUserCategory) {
+            if (isset($userCategories[$matchUserCategory->getId()])) {
+                $categories[] = $matchUserCategory->getName();				
+            } 
+        }
+		if (count($categories) > 1) {
+            $lastCategory      = array_pop($categories);
+            $categories     = implode(', ', $categories) .' '.  $this->translator->trans('global.and') .' '. $lastCategory;
+		} else {
+            $categories     = implode(', ', $categories) ;
+		}
+		return $categories;
+	}	
     /**
      * @Route("/ajax/email-message/{id}/{match_user_id}", name="admin_ajax_email_message", options={"expose"=true})
      * @Method({"GET"})
      */
     public function ajaxEmailMessageAction(Request $request, User $user)
     {
+	    $locale             = $this->requestStack->getCurrentRequest()->getLocale();
         $matchUser          = $this->userManager->getFind($request->get('match_user_id'));
         $userRequest        = $this->connectionRequestManager->getFindOneOpenByUser($user);
         $matchUserRequest   = $this->connectionRequestManager->getFindOneOpenByUser($matchUser);
-
+		$matchUserCategories = $this->categoryManager->getFindByIdsAndLocale(array_keys($user->getCategoryNames()), 'sv');
+		
+		$userCategories        = $matchUser->getCategoryNames();			
+	 	$categories_sv  =  $this->userManager->getCategoriesExactMatchByUserAndLocale($matchUser , $user, 'sv');
+		$categories_en  =  $this->userManager->getCategoriesExactMatchByUserAndLocale($matchUser , $user, 'en');
+		
         return new JsonResponse([
             'success'               => true,
             'user_message'          => $this->templating->render('email/matchEmail.txt.twig', [
                 'user'      => $user,
                 'matchUser' => $matchUser,
-                'request'   => $matchUserRequest]),
+                'request'   => $matchUserRequest,
+				'categories_EN' => $categories_en,
+				'categories_SV' => $categories_sv]),
             'match_user_message'    => $this->templating->render('email/matchEmail.txt.twig', [
                 'user'      => $matchUser,
                 'matchUser' => $user,
-                'request'   => $userRequest])
+                'request'   => $userRequest,
+				'categories_EN' => $categories_en,
+				'categories_SV' => $categories_sv])
         ]);
     }
 }
