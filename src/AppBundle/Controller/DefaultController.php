@@ -53,10 +53,18 @@ class DefaultController extends Controller
                 }
             }
 
+            $newUser = false;
+            foreach ($this->container->get('session')->getFlashBag()->get('data') as $message) {
+                if ($message == 'newUser') {
+                    $newUser = true;
+                }
+            }
+
             $parameters = [
                 'form' => $form->createView(),
                 'connectionRequest' =>  $this->get('connection_request_repository')->findOneOpenByUser($user),
                 'startMunicipalities' => $this->get('municipality_repository')->findAllActiveStartMunicipalities(),
+                'newUser' => $newUser,
             ];
         } else {
             $parameters = [];

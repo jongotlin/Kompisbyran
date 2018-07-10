@@ -22,6 +22,7 @@ parameters:
 
     facebook.client_id: 111111111
     facebook.client_secret: asdfasdf
+    facebook.pixel_id: 11111111
 
     amazon_s3.key: xxxxxxx
     amazon_s3.secret: xxxxx

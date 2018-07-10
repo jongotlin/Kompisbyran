@@ -714,9 +714,12 @@
                     <p>
                         Tack för att du har anmält dig till en kompisfika!<br><br> 
                         
+                        Under sommaren kan det förekomma lite väntetid innan du blir matchad med en ny kompis. Däremot kan du 
+                        fortfarande anmäla dig precis som vanligt och vi gör vårt bästa för att matcha dig så snart vi kan.<br><br>
+
                         Så här går det till:<br><br>
                         
-                        1. Matchning. Vi mailar dig (oftast inom 1-30 dagar) när vi har hittat en bra matchning som har liknande 
+                        1. Matchning. Vi mailar dig när vi har hittat en bra matchning som har liknande 
                         intressen som du har. (Om du skulle behöva komplettera din ansökan meddelar vi dig om detta.)<br><br>
                         
                         2. Bestäm ett datum. Du mailar personen inom 7 dagar och bestämmer datum, tid och plats. Skriv gärna 
@@ -733,14 +736,18 @@
                     </p>
                     <p>
                         Bästa hälsningar,<br />
-                        Alla på Kompisbyrån
+                        Vännerna på Kompisbyrån
                     <p>----------------------<br /></p>
                     <p>
                         Thank you for making a Fika friend request through Kompisbyrån!<br /><br />
                         
+                        During summer there might be some additional waiting time before we match you up with a new friend. 
+                        However, you can still apply for new friends and we will do our best to find you someone as soon as 
+                        possible.<br><br> 
+
                         This is how it works:<br><br>
                         
-                        1. Match. We will send you an email (often within 1-30 days) when we have found a a good match who has 
+                        1. Match. We will send you an email when we have found a a good match who has 
                         similar interests as you. (If you need to complete your application, we will let you know)<br><br>
                         
                         2. Decide a date. You send an email to the person within 7 days, and decide date, time and place. Write 
@@ -749,7 +756,7 @@
                         person who has been looking forward to a meeting. Contact us if you don’t get answer.<br><br>
                         
                         3. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high expectations 
-                        but take it as it comes. Be in time! The boring meetings is when someone doesn’t show up, so please 
+                        but take it as it comes. Be on time! The dull meetings are when someone doesn’t show up, so please 
                         exchange telephone numbers and send a text message reminder the day before your meeting, that the other 
                         person confirm.<br><br> 
                         
@@ -757,7 +764,7 @@
                     </p>
                     <p>
                         Best regards,<br />
-                        Kompisbyrån
+                        Your friends at Kompisbyrån
 
                     </p>]]></target>
             </trans-unit>
@@ -774,9 +781,12 @@
                         <p>
                           Tack för att du har anmält dig som Musikkompis!<br><br> 
                           
-                          Så här går det till:<br><br>
+                          Under sommaren kan det förekomma lite väntetid innan du blir matchad med en ny kompis. Däremot kan du 
+                          fortfarande anmäla dig precis som vanligt och vi gör vårt bästa för att matcha dig så snart vi kan.<br><br>
+                          
+                            Så här går det till:<br><br>
                             
-                            1. Matchning. Vi mailar dig (oftast inom 1-30 dagar) när vi har hittat en ny Musikkompis som har 
+                            1. Matchning. Vi mailar dig när vi har hittat en ny Musikkompis som har 
                             liknande intressen som du har. (Om du skulle behöva komplettera din ansökan meddelar vi dig om 
                             detta.)<br><br>
                             
@@ -794,14 +804,18 @@
                         </p>
                         <p>
                             Bästa hälsningar,<br />
-                            Alla på Kompisbyrån
+                            Vännerna på Kompisbyrån
                         <p>----------------------<br /></p>
                         <p>
                             Thank you for making a Music friend request through Kompisbyrån!<br /><br />
                             
                             This is how it works:<br><br>
                             
-                            1. Match. We will send you an email (often within 1-30 days) when we have found a new FK/MK who 
+                            During summer there might be some additional waiting time before we match you up with a new friend. 
+                            However, you can still apply for new friends and we will do our best to find you someone as soon as 
+                            possible.<br><br>
+
+                            1. Match. We will send you an email when we have found a new friend who 
                             has similar interests as you. (If you need to complete your application, we will let you know)<br><br>
                             
                             2. Decide a date. You send an email to the person within 7 days, and decide date, time and place. 
@@ -819,7 +833,7 @@
                         </p>
                         <p>
                             Best regards,<br />
-                            Kompisbyrån
+                            Your friends at Kompisbyrån
 
                         </p>]]></target>
             </trans-unit>
@@ -834,11 +848,15 @@
                     <p>
                     Hej %firstName%!<br><br>
 
-                    Vad roligt att du har anmält dig som Startkompis hos oss på Kompisbyrån! Med detta email vill vi bekräfta att vi har tagit emot din anmälan.<br><br>
+                    Vad roligt att du har anmält dig som Startkompis hos oss på Kompisbyrån! Med detta email vill vi bekräfta att 
+                    vi har tagit emot din anmälan.<br><br>
+                    
+                    Under sommaren kan det förekomma lite väntetid innan du blir matchad med en ny kompis. Däremot kan du fortfarande 
+                    anmäla dig precis som vanligt och vi gör vårt bästa för att matcha dig så snart vi kan.<br><br>
 
                     Här kommer en liten påminnelse om hur det går till:<br><br>
 
-                    <strong>1. Matchningen.</strong> Vi mailar dig (oftast inom 1-30 dagar) när vi har hittat en person som matchar din profil. Du får personens kontaktuppgifter och vi föreslår en dag, tid och plats då ni ska träffas. (Om du skulle behöva komplettera din ansökan meddelar vi dig om detta.)<br><br>
+                    <strong>1. Matchningen.</strong> Vi mailar dig när vi har hittat en person som matchar din profil. Du får personens kontaktuppgifter och vi föreslår en dag, tid och plats då ni ska träffas. (Om du skulle behöva komplettera din ansökan meddelar vi dig om detta.)<br><br>
 
                     <strong>2. Första kontakten.</strong> Du kontaktar personen inom 7 dagar och bekräftar ert möte. Skriv gärna på svenska och engelska. Du som är etablerad i Sverige har huvudansvaret för att ni får kontakt med varandra. Om tiden vi har föreslagit inte passar er måste du se till att ni hittar en ny tid som passar båda.<br>
                     Kom ihåg att respektera varandra, att inte svara påverkar den andra personen som har sett fram emot ert möte. Kontakta oss om du inte får svar så hjälper vi till!<br><br>
@@ -848,7 +866,7 @@
                     Om du har några frågor, vänligen skicka ett email till oss :)<br><br>
 
                     Bästa hälsningar<br>
-                    Vi på Kompisbyrån
+                    Vännerna på Kompisbyrån
                     </p>
                 ]]></target>
             </trans-unit>
@@ -957,7 +975,7 @@
                             شكر خاص ل
                         </p>
                         <p>
-                            Carl Lindström, Frida Benno-Hjerpe, Gabriella Hernqvist, Hanna Magnusson, Hedda Grew, Jessie Moberg, Johanna Nordin, Jonas Ouadih, Mikael Öhrén, Noa Bachner, Sameer Marmary, Sebastian Stenlund, Stella Hernström och Stina Wäppling.
+                            Erik Blandin, Alberto Nuñez, Carl Lindström, Frida Benno-Hjerpe, Gabriella Hernqvist, Hanna Magnusson, Hedda Grew, Jessie Moberg, Johanna Nordin, Jonas Ouadih, Mikael Öhrén, Noa Bachner, Sameer Marmary, Sebastian Stenlund, Stella Hernström och Stina Wäppling.
                         </p>
                     ]]>
                 </target>
@@ -991,13 +1009,11 @@
                             Office (in alphabetical order) <br> 
                             Clara Wäppling, projektledare, <a href="mailto:clara@kompisbyran.se">clara@kompisbyran.se</a><br>
                             Emma Hammar, grundare och verksamhetsledare, <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se</a><br>
-                            Linda Kaplan, operativ ledare och verksamhetsutvecklare, <a href="mailto:linda@kompisbyran.se">linda@kompisbyran.se</a><br>
                             Miriam Ghebressilasie, matchningsansvarig, <a href="mailto:miriam@kompisbyran.se">miriam@kompisbyran.se</a><br> 
 
                             IT<br>
                             Jon Gotlin, IT-ansvarig<br>
-                            Andreas Lundquist, IT<br>
-							Farhad Shams, IT<br>
+                            Farhad Shams, IT<br>
 
                             Kompisledare<br> 
                             Helena Rewucha, Kompisledare Göteborg<br> 

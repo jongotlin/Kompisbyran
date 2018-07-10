@@ -19,6 +19,12 @@
     </li>
 {% endmacro %}
 
+{% block facebookTrack %}
+    {% if newUser is defined and newUser%}
+        fbq('track', 'CompleteRegistration');
+    {% endif %}
+{% endblock %}
+
 {% block body %}
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <div class="inner-page">

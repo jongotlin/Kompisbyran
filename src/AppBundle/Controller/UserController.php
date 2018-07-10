@@ -56,6 +56,7 @@ class UserController extends Controller
 
                     $sendEmail = true;
                 }
+                $this->addFlash('data', 'newUser');
             }
             $em->persist($user);
             if ($form->has('newConnectionRequest')) {

@@ -14,5 +14,6 @@ class DefaultControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($crawler->filter('html:contains("Kompisbyrån")')->count() > 0);
+        $this->assertNotContains("fbq('track', 'CompleteRegistration');", $client->getResponse()->getContent());
     }
 }

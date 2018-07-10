@@ -99,8 +99,11 @@ class RegistrationControllerTest extends DatabaseTestCase
         ]);
 
         $crawler = $client->submit($form);
-        $this->assertEquals(0, $crawler->filter('.has-error')->count());
+        $this->assertCount(0, $crawler->filter('.has-error'));
         $this->assertEquals(302, $client->getResponse()->getStatusCode());
         $this->assertEquals($connectionRequestCount + 1, count($this->getConnectionRequestRepository()->findAll()));
+        $client->followRedirect();
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertContains("fbq('track', 'CompleteRegistration');", $client->getResponse()->getContent());
     }
 }

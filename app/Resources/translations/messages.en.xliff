@@ -627,7 +627,7 @@
             </trans-unit>
                         <trans-unit id="terms.header">
                 <source>terms.header</source>
-                <target>Terms</target>
+                <target>General terms</target>
             </trans-unit>
             <trans-unit id="terms.ingress">
                 <source>terms.ingress</source>
@@ -693,23 +693,67 @@
                             expression, ethnicity, religion or other belief, disability, sexual orientation or age.
                         </li>
                         <li>
-                            If you want to delete your account, please send an e-mail to kontakt@kompisbyran.se.
-                        </li>
-                        <li>
                             Kompisbyrån cannot guarantee that we will find a good match for you, but we will always do our best.
                         </li>
                         <li>
                             We wish to constantly improve our work. Therefore, we will contact you after your meeting to follow up.
                         </li>
+              <p>
+                            <strong>Privacy policy</strong>
+                        </p>
+                        <p>
+                            Kompisbyrån (802492-6050) is responsible for the personal data you provide with us. 
+                        </p>
+                        <p>
+                            Kompisbyrån uses your personal data for the following purposes:                        </p>
+                        
+                            1. Kompisbyrån uses the personal data you have provided to match you up with another user. For instance 
+                               fika friends or start friends. This includes introducing the newly matched friends to one another by 
+                               name.
+                       <br/>
+                            2. We might also contact you with invitations to Kompisbyrån's activities or with special offers from 
+                                Kompisbyrån. 
+                       <br/>
+                            3. The information is also being used to answer questions, operate and improve our web site and programs. 
+                       <br/>
+                            4. Your personal data might be shared with other actors if that is a necessity for Kompisbyrån to qualify 
+                               for support or grants. This may apply to public bodies or private companies that sponsor our 
+                               organization. These other actor do not have permission to use your personal data for marketing purposes
+                               or anything besides making sure our work meets their requirements.
+                       <br/>
+                            5. In addition to this, Kompisbyrån must pass on your information if this is stated by law. 
+                       <li>
+                            Kompisbyrån's handling of personal data is based on consent. When you provide your personal data by 
+                            signing up with Kompisbyrån you give us permission to use your personal data. You can at any time 
+                            withdraw your consent, we will then delete all your personal data that we have stored. You can choose 
+                            if you want us to remove all your personal data or just some of the data. 
+                       </li>
                         <li>
-                            Kompisbyrån collects the personal information that you have provided in your profile. We use this information to help you get in contact with other participants in our organization. We might also use your contact details to invite you to Kompisbyrån’s activities and other types of offers. The information you leave at Kompisbyrån is also being used to answer questions, operate and improve our homepage and programmes. If you would like to change the information you have provided, please log on to your profile to make the changes in question. The controller of personal data is Kompisbyrån’s Board.
+                           Your personal data will not be transferred to third country (a country outside of EU/ESS). 
                         </li>
                         <li>
-                            Information about you might be transferred to partners that help us provide our services and to authorities that give us governmental grants to run Kompisbyrån. Our partners do not have the rights to use this information for other purposes. We do not transfer your personal information to partner organizations for promotional purposes without your consent.
+                            If you want to remove your account, please send an e-mail to: kontakt@kompisbyran.se 
                         </li>
                         <li>
-                            When you register at our homepage and when you apply for friend matches, you agree to Kompisbyrån processing your personal data for the purposes stated.
-                        </li>
+                            In addition to getting your personal data deleted upon asking, you also have the right to get your 
+                            personal data corrected, demand that the processing of your personal data is restricted and get an 
+                            excerpt of all your personal data that Kompisbyrån has saved. You also have the right to object to a 
+                            processing of a certain kind. If you want any of this, please contact: kontakt@kompisbyran.se
+                         </li>
+                         <li>
+                            Kompisbyrån will help you out if you want your personal data moved to another service. This is called 
+                            data portability and a request like this should be sent to: kontakt@kompisbyran.se
+                          </li>
+                          <li>
+                            Datainspektionen is the supervisory authority for the personal data processing and if you feel there 
+                            is an incorrect treatment, you are entitled to lodge complaints with them. You can find more information 
+                            about this <a href="https://www.datainspektionen.se/vagledningar/for-dig-som-privatperson/klagomal-och-tips/?_t_id=1B2M2Y8AsgTpgAmY7PhCfg%3d%3d&_t_q=anm%C3%A4la&_t_tags=language%3asv%2csiteid%3a994ba21f-261a-4557-a79f-e3dd826642d2&_t_ip=10.109.50.20&_t_hit.id=Datainspektionen_Web_Features_StandardPage_StandardPageType/_f2206461-c0d3-4dfc-8eca-caada2c4d500_sv&_t_hit.pos=11">here</a>.
+                          </li>
+                          <li>
+                             Kompisbyrån stores your personal data until you choose to remove it or when your account has been 
+                             inactive for 36 months.                           
+		                  </li>
+
                     </ul>]]></target>
             </trans-unit>
             <trans-unit id="terms.outro">
@@ -729,18 +773,22 @@
                 <target><![CDATA[
                     <p>Thank you for making a Fika friend request through Kompisbyrån!</p>
                     <p>
+			During summer there might be some additional waiting time before we match you up with a new friend. 
+			However, you can still apply for new friends and we will do our best to find you someone as soon as 
+			possible.<br><br>
+  
                         This is how it works:<br><br>
                         
-                        1. Match. We will send you an email (often within 1-30 days) when we have found new Fika friend for 
-                        you who has similar interests as you. (If you need to complete your application, we will let you know)<br><br>
+                        1. Match. We will send you an email when we have found a new Fika friend who has similar interests as 
+			you. (If you need to complete your application, we will let you know)<br><br>
                         
                         2. Decide a date. You send an email to the person within 7 days, and decide date, time and place. 
-                        Write in Swedish or English (some find Google Translate as a good tool). It is the responsibility 
-                        of both that you establish contact. Remember to respect each other, not responding an email will 
-                        affect the other person who has been looking forward to a meeting. Contact us if you don’t get answer.<br><br> 
+                        Write in Swedish or English (some find Google Translate to be a good tool). It is the responsibility 
+                        of both that you establish contact. Remember to respect each other, not responding to an email will 
+                        affect the other person who has been looking forward to a meeting. Contact us if you don’t get an answer.<br><br> 
                         
                         3. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high 
-                        expectations but take it as it comes. Be in time! The boring meetings is when someone doesn’t 
+                        expectations but take it as it comes. Be on time! The dull meetings are when someone doesn’t 
                         show up, so please exchange telephone numbers and send a text message reminder the day before 
                         your meeting, that the other person confirm.<br><br> 
                                                 
@@ -748,7 +796,7 @@
                     </p>
                     <p>
                         Best regards,<br />
-                        Kompisbyrån
+                        Your friends at Kompisbyrån
                     </p>]]></target>
             </trans-unit>
             <trans-unit id="email.welcome.music.subject">
@@ -760,18 +808,22 @@
                 <target><![CDATA[
                     <p>Thank you for making a Music friend request through Kompisbyrån!</p>
                     <p>
+			During summer there might be some additional waiting time before we match you up with a new friend. 
+			However, you can still apply for new friends and we will do our best to find you someone as soon as 
+			possible.<br><br>	
+			
                        This is how it works:<br><br>
                         
-                        1. Match. We will send you an email (often within 1-30 days) when we have found a new Music friend 
+                        1. Match. We will send you an email when we have found a new Music friend 
                         who has similar interests as you. (If you need to complete your application, we will let you know)<br><br>
                         
                         2. Decide a date. You send an email to the person within 7 days, and decide date, time and place. 
-                        Write in Swedish or English (some find Google Translate as a good tool). It is the responsibility 
-                        of both that you establish contact. Remember to respect each other, not responding an email will 
-                        affect the other person who has been looking forward to a meeting. Contact us if you don’t get answer.<br><br> 
+                        Write in Swedish or English (some find Google Translate to be a good tool). It is the responsibility 
+                        of both that you establish contact. Remember to respect each other, not responding to an email will 
+                        affect the other person who has been looking forward to a meeting. Contact us if you don’t get an answer.<br><br> 
                         
                         3. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high 
-                        expectations but take it as it comes. Be in time! The boring meetings is when someone doesn’t 
+                        expectations but take it as it comes. Be on time! The dull meetings are when someone doesn’t 
                         show up, so please exchange telephone numbers and send a text message reminder the day before 
                         your meeting, that the other person confirm.<br><br> 
                         
@@ -779,7 +831,7 @@
                     </p>
                     <p>
                         Best regards,<br />
-                        Kompisbyrån
+                        Your friends at Kompisbyrån
                     </p>]]></target>
             </trans-unit>
             <trans-unit id="email.welcome.start.subject">
@@ -794,10 +846,14 @@
                     Dear %firstName%!<br><br>
 
                     Thank you for your registration as Start friend (Startkompis)! With this email, we are confirming that we have received your application.<br><br>
+			
+		    During summer there might be some additional waiting time before we match you up with a new friend. 
+	            However, you can still apply for new friends and we will do our best to find you someone as soon as 
+		    possible.<br><br>
 
                     Here is a short reminder of how it works:<br><br>
 
-                    <strong>1. Match.</strong> We will send you an email (usually within 1-30 days) when we have found a person who matches your profile. You get the person's contact information and we propose a date, time and place of your meeting. (If you need to complete your application, we will let you know.)<br><br>
+                    <strong>1. Match.</strong> We will send you an email when we have found a person who matches your profile. You get the person's contact information and we propose a date, time and place of your meeting. (If you need to complete your application, we will let you know.)<br><br>
 
                     <strong>2. First contact.</strong> You contact the person within 7 days and confirm your meeting. Please write in English and Swedish. It’s the primarily responsibility of the person who is established in Sweden, that you get in touch with each other. If the time we have proposed does not suit you, you must ensure that you find a new time that suits both.<br>
                     Remember to respect each other, not responding affect the other person who has been looking forward to your meeting. Contact us if you need help to get in touch!<br><br>
@@ -807,7 +863,7 @@
                     If you have any questions, please contact us!<br><br>
 
                     Best wishes<br>
-                    The Startkompis-team at Kompisbyrån
+                    Your friends at Kompisbyrån
                     </p>
                 ]]></target>
             </trans-unit>
@@ -967,9 +1023,17 @@
                         <p>
                             Comviq that supports Kompisbyrån's office with cell phones.
                         </p>
+			<p>
+                            TS reklam that supports Kompisbyrån with sweatshirts and tote bags.
+                        </p>
                         <p>
-                        and Alexandra Arvidson,
+                            inUse who's provided Kompisbyrån with a UX-analyse of our registration process
+                        </p>	
+                        <p>
+                        and Alberto Nuñez,
+			Alexandra Arvidson,
                         Carl Lindström,
+			Erik Blandin,
                         Frida Benno-Hjerpe,
                         Gabriella Hernqvist,
                         Hanna Magnusson,
@@ -1028,13 +1092,12 @@
                             <b>Office (in alphabetical order)</b><br> 
                             Clara Wäppling, projektledare, <a href="mailto:clara@kompisbyran.se">clara@kompisbyran.se</a><br>
                             Emma Hammar, grundare och verksamhetsledare, <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se</a><br>
-                            Linda Kaplan, operativ ledare och verksamhetsutvecklare, <a href="mailto:linda@kompisbyran.se">linda@kompisbyran.se</a><br>
                             Miriam Ghebressilasie, matchningsansvarig, <a href="mailto:miriam@kompisbyran.se">miriam@kompisbyran.se</a><br> 
                             <br>
                             <b>IT</b><br>
                             Jon Gotlin, IT-ansvarig<br>
-                            Andreas Lundquist, IT<br>
-							Farhad Shams, IT<br>
+                            Farhad Shams, IT<br>
+
                             <br>
                             <b>Kompisledare</b><br> 
                             Helena Rewucha, Kompisledare Göteborg<br> 
