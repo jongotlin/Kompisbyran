@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Manager\UserManager;
 use AppBundle\Manager\ConnectionRequestManager;
 use AppBundle\Manager\ConnectionManager;
+use AppBundle\Manager\CategoryManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use AppBundle\Entity\User;
 use AppBundle\Entity\ConnectionRequest;
@@ -57,6 +58,11 @@ class MatchController extends Controller
     private $userMailer;
 
     /**
+    * @var CategoryManager
+    */
+    private $categoryManager;
+
+    /**
      * @InjectParams({
      *     "formFactory" = @Inject("form.factory"),
      *     "templating" = @Inject("templating"),
@@ -66,7 +72,7 @@ class MatchController extends Controller
      * @param ConnectionManager $connectionManager
      * @param ConnectionRequestManager $connectionRequestManager
      */
-    public function __construct(UserManager $userManager, ConnectionManager $connectionManager, ConnectionRequestManager $connectionRequestManager, FormFactoryInterface $formFactory, EngineInterface $templating, UserMailer $userMailer)
+    public function __construct(UserManager $userManager, CategoryManager $categoryManager, ConnectionManager $connectionManager, ConnectionRequestManager $connectionRequestManager, FormFactoryInterface $formFactory, EngineInterface $templating, UserMailer $userMailer)
     {
         $this->userManager              = $userManager;
         $this->connectionManager        = $connectionManager;
@@ -74,6 +80,7 @@ class MatchController extends Controller
         $this->formFactory              = $formFactory;
         $this->templating               = $templating;
         $this->userMailer               = $userMailer;
+        $this->categoryManager          = $categoryManager;
     }
 
     /**
@@ -166,7 +173,6 @@ class MatchController extends Controller
 
         throw $this->createNotFoundException();
     }
-
     /**
      * @Route("/ajax/email-message/{id}/{match_user_id}", name="admin_ajax_email_message", options={"expose"=true})
      * @Method({"GET"})
@@ -176,17 +182,25 @@ class MatchController extends Controller
         $matchUser          = $this->userManager->getFind($request->get('match_user_id'));
         $userRequest        = $this->connectionRequestManager->getFindOneOpenByUser($user);
         $matchUserRequest   = $this->connectionRequestManager->getFindOneOpenByUser($matchUser);
+        $userCategories        = $matchUser->getCategoryNames();
+        $categories_sv  =  $this->userManager->getCategoriesExactMatchByUserBasedLocaleRequest($matchUser , $user, 'sv');
+        $categories_en  =  $this->userManager->getCategoriesExactMatchByUserBasedLocaleRequest($matchUser , $user, 'en');
+    
 
         return new JsonResponse([
             'success'               => true,
             'user_message'          => $this->templating->render('email/matchEmail.txt.twig', [
                 'user'      => $user,
                 'matchUser' => $matchUser,
-                'request'   => $matchUserRequest]),
+                'request'   => $matchUserRequest,
+                'categories_en' => $categories_en,
+                'categories_sv' => $categories_sv]),
             'match_user_message'    => $this->templating->render('email/matchEmail.txt.twig', [
                 'user'      => $matchUser,
                 'matchUser' => $user,
-                'request'   => $userRequest])
+                'request'   => $userRequest,
+                'categories_en' => $categories_en,
+                'categories_sv' => $categories_sv])
         ]);
     }
 }

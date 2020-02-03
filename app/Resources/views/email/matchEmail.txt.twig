@@ -3,7 +3,7 @@
 
 Hej {{ user.fullName }}!
 
-Nu har vi hittat en {{ musicFriend ? 'global.music_buddy'|trans|capitalize : 'global.fika_buddy'|trans|capitalize }} till dig. {{ matchUser.gender|pronoun|capitalize }} heter {{ matchUser.fullName }} och ni båda gillar {{ user_matched_categories(matchUser, user) }}, så nu vet du några samtalsämnen du kan inleda er första fika med. {{ matchUser.fullName }} är {{ matchUser.age }} år gammal, bor i {{ matchUser.municipality.name }} och kommer från {{ matchUser.countryName }}. {{ matchUser.gender|pronoun|capitalize }} träffas gärna i {{ request.city.name }}.
+Nu har vi hittat en {{ musicFriend ? 'global.music_buddy'|trans|capitalize : 'global.fika_buddy'|trans|capitalize }} till dig. {{ matchUser.gender|pronoun|capitalize }} heter {{ matchUser.fullName }} och ni båda gillar {{ categories_sv }}, så nu vet du några samtalsämnen du kan inleda er första fika med. {{ matchUser.fullName }} är {{ matchUser.age }} år gammal, bor i {{ matchUser.municipality.name }} och kommer från {{ matchUser.countryName }}. {{ matchUser.gender|pronoun|capitalize }} träffas gärna i {{ request.city.name }}.
 
 Din {{ musicFriend ? 'global.music_buddy'|trans|capitalize : 'global.fika_buddy'|trans|capitalize }} email är: {{ matchUser.email }}. Vi har också skickat din email till din {{ musicFriend ? 'global.music_buddy'|trans|capitalize : 'global.fika_buddy'|trans|capitalize }}.
 
@@ -31,7 +31,7 @@ Vännerna på Kompisbyrån
 
 Hello {{ user.fullName }}!
 
-We have now found a good match for you. The person you will meet is {{ matchUser.fullName }} and both of you like {{ user_matched_categories(matchUser, user) }}. So now you know what topics you can start the conversation with on your first fika meeting. {{ matchUser.fullName }} is {{ matchUser.age }} years old, lives in {{ matchUser.municipality.name }} and is from {{ matchUser.countryName }}. {{ matchUser.fullName }} would like to meet you in {{ request.city.name }}.
+We have now found a good match for you. The person you will meet is {{ matchUser.fullName }} and both of you like {{ categories_en }}. So now you know what topics you can start the conversation with on your first fika meeting. {{ matchUser.fullName }} is {{ matchUser.age }} years old, lives in {{ matchUser.municipality.name }} and is from {{ matchUser.countryName }}. {{ matchUser.fullName }} would like to meet you in {{ request.city.name }}.
 
 The email adress to {{ matchUser.fullName }} is: {{ matchUser.email }}. We have also sent your email adress to {{ matchUser.fullName }}.
 

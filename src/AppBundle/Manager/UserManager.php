@@ -261,6 +261,31 @@ class UserManager implements ManagerInterface
         }
         return $categories;
     }
+     /*
+     * @param User $user
+     * @param User $currentUser
+     * @param $locale
+     * @return string
+     */
+    public function getCategoriesExactMatchByUserBasedLocaleRequest(User $user, User $currentUser, $locale)
+    {
+        $categories             = [];
+        $currentUserCategories  = $this->categoryManager->getFindByIdsAndLocale(array_keys($currentUser->getCategoryNames()), $locale);
+        $userCategories         = $user->getCategoryNames();
+        foreach($currentUserCategories as $currentUserCategory) {
+            if (isset($userCategories[$currentUserCategory->getId()])) {
+                $categories[]   = $currentUserCategory->getName();
+            }
+        }
+        $this->translator->setLocale($locale);
+        if (count($categories) > 1) {
+            $lastCategory   = array_pop($categories);
+            $categories     = implode(', ', $categories) .' '. $this->translator->trans('global.and') .' '. $lastCategory;
+        } else {
+            $categories     = implode(', ', $categories);
+        }
+        return $categories;
+    }
     /**
      * @param $ageDiff
      * @return bool
