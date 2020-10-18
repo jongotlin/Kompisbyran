@@ -24,7 +24,7 @@
     text-align: center;
     font-size: 14px;
     color: #fff;
-    background: #F16B46;
+    background: #bba6ff;
     text-decoration: none !important;
 }
 
@@ -32,10 +32,10 @@
     font-size: 14px;
     font-weight: bold;
     border-radius: 3px;
-    border: solid 1px #F16B46;
+    border: solid 1px #bba6ff;
     color: #fff;
     transition: all 0.3s;
-    background: #F16B46;
+    background: #bba6ff;
 }
 
 .candidate {
@@ -51,7 +51,7 @@
     margin-top: 20px;
     text-align: center;
     font-weight: bold;
-    color: #F16B46;
+    color: #bba6ff;
 }
 
 .candidate .interests {
@@ -59,7 +59,7 @@
 }
 
 .matches {
-    color: #F16B46;
+    color: #bba6ff;
 }
 
 .candidate .presentation {
@@ -95,7 +95,7 @@ div.candidate a.google-link {
 }
 
 div.candidate span.matches a.google-link {
-    color: #F16B46;
+    color: #bba6ff;
     text-decoration: none;
 }
 
@@ -128,7 +128,7 @@ div.candidate span.matches a.google-link {
     font-size: 14px;
     font-weight: bold;
     border-radius: 3px;
-    border: solid 1px #F16B46;
+    border: solid 1px #bba6ff;
     color: #fff;
     transition: all 0.3s;
 }
@@ -140,7 +140,7 @@ div.candidate span.matches a.google-link {
 
 .btn-orange:hover {
     background-color: #fff;
-    color: #F16B46;
+    color: #bba6ff;
 }
 
 .btn-orange a i{
@@ -151,7 +151,7 @@ h2 span {
     line-height: 2em;
 }
 h3 {
-    color: #F16B46;
+    color: #bba6ff;
     margin-top: 1.7em;
 }
 .btn-super-lg {

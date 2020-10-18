@@ -27,7 +27,7 @@ p{
 }
 
 a{
-    color: #F16B46;
+    color: #bba6ff;
 }
 
 a:hover{
@@ -117,7 +117,7 @@ fotm textarea{
 }
 
 .br-orange{
-    background: #F16B46;
+    background: #bba6ff;
 }
 
 .br-pink{
@@ -154,7 +154,7 @@ fotm textarea{
 }
 
 .orange{
-    color: #F16B46;
+    color: #bba6ff;
 }
 
 .pink{
@@ -187,7 +187,7 @@ fotm textarea{
 
 /* Block border Color */
 .border-orange{
-    border: 1px #F16B46 solid;
+    border: 1px #bba6ff solid;
 }
 
 /* Basic CSS ends */
@@ -302,7 +302,7 @@ fotm textarea{
     text-align: center;
     font-size: 14px;
     color: #fff;
-    background: #F16B46;
+    background: #bba6ff;
     text-decoration: none !important;
 }
 
@@ -321,7 +321,7 @@ fotm textarea{
 
 .head{
     background: rgba(0, 0, 0, 0.3);
-    border-top: 3px solid #F16B46;
+    border-top: 3px solid #bba6ff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     padding: 8px 0;
     width: 100%;
@@ -414,7 +414,7 @@ fotm textarea{
 /* Navbar Header */
 
 .nav-head{
-    border-top: 3px solid #F16B46;
+    border-top: 3px solid #bba6ff;
     width: 100%;
     position: absolute;
     z-index: 1000;
@@ -434,7 +434,7 @@ fotm textarea{
 }
 
 .nav-head .navbar-default .logo span{
-    color: #F16B46;
+    color: #bba6ff;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 38px;
     font-weight: 700;
@@ -520,7 +520,7 @@ fotm textarea{
 }
 
 .nav-head .navbar-default  .navbar-nav > li.dropdown ul li a:hover{
-    background: #F16B46;
+    background: #bba6ff;
     color: #fff;
 }
 
@@ -908,14 +908,14 @@ fotm textarea{
     font-size: 14px;
     font-weight: bold;
     border-radius: 3px;
-    border: solid 1px #F16B46;
+    border: solid 1px #bba6ff;
     color: #fff;
     transition: all 0.3s;
 }
 
 .cta a.btn:hover {
     background-color: #fff;
-    color: #F16B46;
+    color: #bba6ff;
 }
 
 .cta a i{
@@ -1483,7 +1483,7 @@ div.ppt {
 
 .testimonial .testimonial-content blockquote.br-orange {
     background: #fff;
-    border: 1px #F16B46 solid;
+    border: 1px #bba6ff solid;
     border-radius: 30px;
 }
 
@@ -1495,7 +1495,7 @@ div.ppt {
 }
 
 .testimonial .testimonial-content blockquote.br-orange:after {
-    border-bottom-color: #F16B46;
+    border-bottom-color: #bba6ff;
 }
 
 .testimonial .testimonial-content blockquote.br-lblue:after {
